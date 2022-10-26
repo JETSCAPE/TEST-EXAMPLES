@@ -120,7 +120,7 @@
 [Info] 166MB  Initialize JetEnergyLoss Manager ...[0m
 [Info] 166MB  Found 1 Eloss Manager Tasks/Modules Initialize them ... [0m
 [Info] 166MB  Initialize JetEnergyLoss ...[0m
-[Info] 166MB  Eloss shower with deltaT = 0.1 and maxT = 20[0m
+[Info] 166MB  Eloss shower with deltaT = 0.01 and maxT = 20[0m
 [Info] 166MB  Found 1 Eloss Tasks/Modules Initialize them ... [0m
 [Info] 166MB  Initialize Matter ...[0m
 [Info] 166MB  [35mMATTER input parameter[0m
@@ -142,5 +142,5 @@
 [Info] 176MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 0.968698 seconds.
-Real time: 1.000000 seconds.
+CPU time: 1.220617 seconds.
+Real time: 2.000000 seconds.

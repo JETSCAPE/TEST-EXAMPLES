@@ -127,7 +127,7 @@
 [Info] 167MB  [35muse hybrid hadronization later? 0[0m
 [Info] 167MB  [35mmatter shower on: 1[0m
 [Info] 167MB  [35min_vac: 1  brick_med: 0  recoil_on: 0, tStart =0.6[0m
-[Info] 167MB  [35mQ0: 1 vir_factor: 0.25  qhat0: 0 alphas: 0.25, QhatParametrizationType=0  qhatA: 10 qhatB:  10  qhatC: 1 qhatD:  0 hydro_Tc: 0.16 brick_length: 5[0m
+[Info] 167MB  [35mQ0: 1 vir_factor: 0.5  qhat0: 0 alphas: 0.25, QhatParametrizationType=0  qhatA: 10 qhatB:  10  qhatC: 1 qhatD:  0 hydro_Tc: 0.16 brick_length: 5[0m
 [Info] 167MB  Connect JetEnergyLossManager Signal to Hard Process ...[0m
 [Info] 167MB  Initialize Hadronization Manager ...[0m
 [Info] 167MB  Found 1 Hadronization Manager Tasks/Modules Initialize them ... [0m
@@ -139,8 +139,8 @@
 [Info] 168MB  [1m[31mRun JetScape ...[0m
 [Info] 168MB  [1m[31mNumber of Events = 10[0m
 [Info] 168MB  [1m[31mRun Event # = 0[0m
-[Info] 170MB  [1m[30mJetScape finished after 10 events![0m
+[Info] 171MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 0.752390 seconds.
+CPU time: 0.825067 seconds.
 Real time: 1.000000 seconds.

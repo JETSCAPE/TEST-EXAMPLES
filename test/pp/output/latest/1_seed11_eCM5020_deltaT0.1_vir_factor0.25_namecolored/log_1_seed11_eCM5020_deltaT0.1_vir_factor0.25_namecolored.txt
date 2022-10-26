@@ -29,7 +29,7 @@
 [Info] *--------------------------------------------------------------*[0m
 [Info] 158MB  [1m[31mInitialize JetScape ...[0m
 [Info] 158MB  Created JetScapeXML Instance[0m
-[Info] 158MB  Open XML Main file : jetscape_main.xml[0m
+[Info] 159MB  Open XML Main file : jetscape_main.xml[0m
 [Info] 159MB  Open XML User file : jetscape_user.xml[0m
 [Info] 159MB  ================================================================[0m
 [Info] 159MB  nEvents = 10[0m
@@ -142,5 +142,5 @@
 [Info] 179MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 0.968746 seconds.
+CPU time: 0.986984 seconds.
 Real time: 1.000000 seconds.
