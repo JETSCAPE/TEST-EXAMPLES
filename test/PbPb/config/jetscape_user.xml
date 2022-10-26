@@ -44,9 +44,11 @@
       <broadening_on> 0 </broadening_on>
       <qhat0> -2.0 </qhat0>
     </Matter>
+    <!-- LBT temporarily removed until random number issue is resolved
     <LBT>
       <Q0> 2.0 </Q0>
     </LBT>
+    -->
   </Eloss>
   
   <!-- Jet Hadronization Module -->
