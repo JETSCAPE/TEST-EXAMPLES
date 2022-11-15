@@ -46,7 +46,7 @@ echo "Running Tests..."
 echo ""
 
 cd ${JETSCAPE_ANALYSIS}/test/jetscape_analysis/generate
-python jetscape_events.py -c ${ANALYSIS_CONFIG} -o ${OUTPUT_DIR} -j ${JETSCAPE}
+python3 jetscape_events.py -c ${ANALYSIS_CONFIG} -o ${OUTPUT_DIR} -j ${JETSCAPE}
 
 echo ""
 echo "Comparing tests in $OUTPUT_DIR to Reference in $REFERENCE_DIR ..."
