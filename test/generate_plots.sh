@@ -53,10 +53,10 @@ pip install numba pyarrow awkward python-pptx
 
 # Construct observables
 cd ${JETSCAPE_ANALYSIS}/test
-python jetscape_analysis/analysis/analyze_events_validation.py -c jetscape_analysis/config/PP19_validation.yaml -i ${JETSCAPE}/build/test_out_final_state_hadrons.dat -o ${OUTPUT_DIR}
+python3 jetscape_analysis/analysis/analyze_events_validation.py -c jetscape_analysis/config/PP19_validation.yaml -i ${JETSCAPE}/build/test_out_final_state_hadrons.dat -o ${OUTPUT_DIR}
 
 # Construct histograms
-python plot/histogram_results.py -c jetscape_analysis/config/PP19_validation.yaml -i ${OUTPUT_DIR}/test_out_observables.parquet -o ${OUTPUT_DIR}
+python3 plot/histogram_results.py -c jetscape_analysis/config/PP19_validation.yaml -i ${OUTPUT_DIR}/test_out_observables.parquet -o ${OUTPUT_DIR}
 
 # Plot histograms and compare to previous histograms
-python plot/plot_results.py -c jetscape_analysis/config/PP19_validation.yaml -i ${OUTPUT_DIR}/test_out_histograms.root -r ${OUTPUT_DIR}/../latest/test_out_histograms.root
+python3 plot/plot_results.py -c jetscape_analysis/config/PP19_validation.yaml -i ${OUTPUT_DIR}/test_out_histograms.root -r ${OUTPUT_DIR}/../latest/test_out_histograms.root
