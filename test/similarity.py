@@ -27,7 +27,7 @@ fNew.close()
 
 # each file should have the same number of tokens
 if len(oldTokens) != len(newTokens):
-    print('token length mismatch error')
+    print('token length mismatch error: ' + str(len(oldTokens)) + ', ' + str(len(newTokens)))
     exit_status = 1
     sys.exit(exit_status)
 
@@ -53,11 +53,8 @@ for i in range(len(newTokens)):
         exit_status = 1
         errCount = errCount + 1
 
-# all tokens either an exact match or within the err threshold
-if exit_status == 0:
-    print('PASS: All values compared in\n' + oldFile + '\nand ' + newFile + 
-        '\nare either an exact match or within the err threshold.')
-else:
+# if tokens don't match or aren't within the err threshold
+if exit_status != 0:
     print('FAIL: ' + str(errCount) + ' of ' + str(len(newTokens)) + 
         ' values (' + str(round(errCount / len(newTokens) * 100, 2)) +
         '%) compared in \n' + oldFile + ' \nand ' + newFile +

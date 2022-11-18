@@ -73,7 +73,9 @@ for dir in */ ; do
       echo "Error: Check whether you have used the same YAML config for the Test and the Reference"
       echo "New file: $OUTPUT_DIR/$dir/test_out.hepmc"
       echo "Reference file: $REFERENCE_DIR/${dir}test_out.hepmc"
-      exit 1
+      # exit 1
+    else
+      DIFF_HEPMC=""
     fi
   fi
   
@@ -86,7 +88,9 @@ for dir in */ ; do
       echo "Error: Check whether you have used the same YAML config for the Test and the Reference"
       echo "New file: $OUTPUT_DIR/$dir/test_out.hepmc"
       echo "Reference file: $REFERENCE_DIR/${dir}test_out.hepmc"
-      exit 1
+      # exit 1
+    else
+      DIFF_ASCII=""
     fi
   fi
 
