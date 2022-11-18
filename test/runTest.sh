@@ -67,19 +67,27 @@ for dir in */ ; do
   DIFF_HEPMC=$(diff $OUTPUT_DIR/$dir/test_out.hepmc $REFERENCE_DIR/${dir}test_out.hepmc)
   if [ $? -ne 0 ]
   then
-    echo "Error: Check whether you have used the same YAML config for the Test and the Reference"
-    echo "New file: $OUTPUT_DIR/$dir/test_out.hepmc"
-    echo "Reference file: $REFERENCE_DIR/${dir}test_out.hepmc"
-    exit 1
+    python3 ${JETSCAPE_ANALYSIS}/test/similarity.py $OUTPUT_DIR/$dir/test_out.hepmc $REFERENCE_DIR/${dir}test_out.hepmc
+    if [ $? -ne 0 ]
+    then
+      echo "Error: Check whether you have used the same YAML config for the Test and the Reference"
+      echo "New file: $OUTPUT_DIR/$dir/test_out.hepmc"
+      echo "Reference file: $REFERENCE_DIR/${dir}test_out.hepmc"
+      exit 1
+    fi
   fi
   
   DIFF_ASCII=$(diff $OUTPUT_DIR/$dir/test_out.dat $REFERENCE_DIR/${dir}test_out.dat)
   if [ $? -ne 0 ]
   then
-    echo "Error: Check whether you have used the same YAML config for the Test and the Reference"
-    echo "New file: $OUTPUT_DIR/$dir/test_out.hepmc"
-    echo "Reference file: $REFERENCE_DIR/${dir}test_out.hepmc"
-    exit 1
+    python3 ${JETSCAPE_ANALYSIS}/test/similarity.py $OUTPUT_DIR/$dir/test_out.dat $REFERENCE_DIR/${dir}test_out.dat
+    if [ $? -ne 0 ]
+    then
+      echo "Error: Check whether you have used the same YAML config for the Test and the Reference"
+      echo "New file: $OUTPUT_DIR/$dir/test_out.hepmc"
+      echo "Reference file: $REFERENCE_DIR/${dir}test_out.hepmc"
+      exit 1
+    fi
   fi
 
   if [ "${DIFF_HEPMC}" == "" ]
