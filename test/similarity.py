@@ -10,7 +10,7 @@ if n != 3:
     sys.exit(-1)
 
 # threshold for an acceptable floating point variation
-err = .0001
+err = .01
 
 # read cmd args for files to compare
 oldFile = sys.argv[1]

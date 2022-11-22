@@ -17,5 +17,5 @@ The file [test/similarity.py](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/sim
 
 ```
 # threshold for an acceptable floating point variation
-err = .0001
+err = .01
 ```
