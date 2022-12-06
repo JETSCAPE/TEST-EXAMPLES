@@ -61,6 +61,11 @@ mv test_out_final_state_hadrons.dat $OUTPUT_DIR
 mv test_out_final_state_partons.dat $OUTPUT_DIR
 mv test_out_isr.dat $OUTPUT_DIR
 
+echo "start of new hadron file..."
+head $OUTPUT_DIR/test_out_final_state_hadrons.dat
+echo "start of reference hadron file..."
+head $REFERENCE_DIR/test_out_final_state_hadrons.dat
+
 N=0
 N_PASSED_HADRONS=0
 cd $PREFIX/$OUTPUT_DIR

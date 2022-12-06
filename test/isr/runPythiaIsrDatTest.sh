@@ -61,6 +61,11 @@ mv test_out_final_state_hadrons.dat $OUTPUT_DIR
 mv test_out_final_state_partons.dat $OUTPUT_DIR
 mv test_out_isr.dat $OUTPUT_DIR
 
+echo "start of new isr.dat file..."
+head $OUTPUT_DIR/test_out_isr.dat
+echo "start of reference isr.dat file..."
+head $REFERENCE_DIR/test_out_isr.dat
+
 N=0
 N_PASSED_ISR=0
 cd $PREFIX/$OUTPUT_DIR
