@@ -42,7 +42,7 @@ esac
 done
 
 echo ""
-echo "Running Tests..."
+echo "Running Pythia ISR Parton Tests..."
 echo ""
 
 cd ${JETSCAPE}/build
@@ -62,21 +62,10 @@ mv test_out_final_state_partons.dat $OUTPUT_DIR
 mv test_out_isr.dat $OUTPUT_DIR
 
 N=0
-N_PASSED_HADRONS=0
 N_PASSED_PARTONS=0
-N_PASSED_ISR=0
 cd $PREFIX/$OUTPUT_DIR
 for dir in */ ; do
   N=$((N+1))
-  
-  # DIFF_HADRONS=$(diff $OUTPUT_DIR/test_out_final_state_hadrons.dat $REFERENCE_DIR/test_out_final_state_hadrons.dat)
-  # if [ $? -ne 0 ]
-  # then
-  #   echo "Error: Check whether you have used the same YAML config for the Test and the Reference"
-  #   echo "New file: $OUTPUT_DIR/test_out_final_state_hadrons.dat"
-  #   echo "Reference file: $REFERENCE_DIR/test_out_final_state_hadrons.dat"
-  #   exit 1
-  # fi
 
   DIFF_PARTONS=$(diff $OUTPUT_DIR/test_out_final_state_partons.dat $REFERENCE_DIR/test_out_final_state_partons.dat)
   if [ $? -ne 0 ]
@@ -87,22 +76,6 @@ for dir in */ ; do
     exit 1
   fi
 
-  DIFF_ISR=$(diff $OUTPUT_DIR/test_out_isr.dat $REFERENCE_DIR/test_out_isr.dat)
-  if [ $? -ne 0 ]
-  then
-    echo "Error: Check whether you have used the same YAML config for the Test and the Reference"
-    echo "New file: $OUTPUT_DIR/test_out_isr.dat"
-    echo "Reference file: $REFERENCE_DIR/test_out_isr.dat"
-    exit 1
-  fi
-
-  # if [ "${DIFF_HADRONS}" == "" ]
-  # then
-  #   N_PASSED_HADRONS=$((${N_PASSED_HADRONS}+1))
-  # else
-  #   echo "Test failed for HADRONS"
-  # fi
-
   if [ "${DIFF_PARTONS}" == "" ]
   then
     N_PASSED_PARTONS=$((${N_PASSED_PARTONS}+1))
@@ -110,27 +83,16 @@ for dir in */ ; do
     echo "Test failed for PARTONS"
   fi
 
-  if [ "${DIFF_ISR}" == "" ]
-  then
-    N_PASSED_ISR=$((${N_PASSED_ISR}+1))
-  else
-    echo "Test failed for ISR"
-  fi
-    
 done
 
-N_FAILED_HADRONS=$(($N-$N_PASSED_HADRONS))
 N_FAILED_PARTONS=$(($N-$N_PASSED_PARTONS))
-N_FAILED_ISR=$(($N-$N_PASSED_ISR))
-if [[ ($N_FAILED_HADRONS -eq 0 && $N_FAILED_PARTONS -eq 0) && $N_FAILED_ISR -eq 0 ]];
+if [[ $N_FAILED_PARTONS -eq 0 ]];
 then
   echo "All $N tests passed! :)"
 else
   echo ""
   echo "Tests FAILED :("
-  echo "$N_FAILED_HADRONS/$N tests FAILED for HADRONS"
   echo "$N_FAILED_PARTONS/$N tests FAILED for PARTONS"
-  echo "$N_FAILED_ISR/$N tests FAILED for ISR"
   exit 1
 fi
 echo ""
