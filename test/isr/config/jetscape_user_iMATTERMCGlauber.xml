@@ -11,7 +11,7 @@
   <debug> off </debug>
   <remark> off </remark>
 
-  <nEvents> 100 </nEvents>
+  <nEvents> 10 </nEvents>
 
   <Random>
     <seed>1</seed>
