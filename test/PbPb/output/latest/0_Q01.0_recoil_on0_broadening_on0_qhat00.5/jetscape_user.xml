@@ -39,14 +39,16 @@
   <Eloss>
     <Matter>
       <in_vac> 0 </in_vac>
-      <Q0> 2.0 </Q0>
-      <recoil_on> 0 </recoil_on>
-      <broadening_on> 0 </broadening_on>
-      <qhat0> -2.0 </qhat0>
+      <Q0>1.0</Q0>
+      <recoil_on>0</recoil_on>
+      <broadening_on>0</broadening_on>
+      <qhat0>0.5</qhat0>
     </Matter>
+    <!-- LBT temporarily removed until random number issue is resolved
     <LBT>
-      <Q0> 2.0 </Q0>
+      <Q0>1.0</Q0>
     </LBT>
+    -->
   </Eloss>
   
   <!-- Jet Hadronization Module -->
