@@ -14,16 +14,17 @@ Included in the TEST-EXAMPLES repository is a folder called [test](https://githu
 
 * Following the path [test/pp/output/latest/](https://github.com/JETSCAPE/TEST-EXAMPLES/tree/main/test/pp/output/latest) brings us to several generated sub-folders that contain reference data for the pp test.  This is the data that output from a new run will be checked against.
 
-* The user XML file for the PbPb test is found at [test/PbPb/config/jetscape_user.xml](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/PbPb/config/jetscape_user.xml) and the user XML file for the pp test is found at [test/pp/config/jetscape_user_PP19.xml](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/pp/config/jetscape_user_PP19.xml).
+* Following the path [test/isr/output/latest/](https://github.com/JETSCAPE/TEST-EXAMPLES/tree/main/test/isr/output/latest) brings us to three files that provide the reference data for the isr tests.  This is the data that output from new isr runs will be checked against.
 
-* The script that runs a given test is found at [test/runTest.sh](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/runTest.sh).
+* The user XML file for the PbPb test is found at [test/PbPb/config/jetscape_user.xml](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/PbPb/config/jetscape_user.xml), the user XML file for the pp test is found at [test/pp/config/jetscape_user_PP19.xml](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/pp/config/jetscape_user_PP19.xml), and the user XML file for the isr tests is found at [test/isr/config/jetscape_user_iMATTERMCGlauber.xml](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/isr/config/jetscape_user_iMATTERMCGlauber.xml)
+
+* The script that runs the pp and PbPb tests is found at [test/runTest.sh](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/runTest.sh) and the scripts that run the isr tests are found at the following links to the [hadron](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/isr/runPythiaIsrHadronTest.sh), [parton](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/isr/runPythiaIsrPartonTest.sh) and [Isr-DAT](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/isr/runPythiaIsrDatTest.sh) test respectively.
 
 When regression tests are performed automatically using GitHub Actions, the following lines of code from the **.github/workflows/test-events** yaml files in the repository under test will be used to call [test/runTest.sh](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/runTest.sh) and pass in command line arguments.
 
 ### For the pp Test
 ```
 ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/runTest.sh -j ${GITHUB_WORKSPACE}/${REPO_NAME} -a ${GITHUB_WORKSPACE}/TEST-EXAMPLES -c ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/pp/config/jetscapeTestConfig.yaml -o ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/pp/output/new -r ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/pp/output/latest
-
 ```
 
 ### For the PbPb Test
@@ -31,6 +32,20 @@ ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/runTest.sh -j ${GITHUB_WORKSPACE}/${REPO_
 ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/runTest.sh -j ${GITHUB_WORKSPACE}/${REPO_NAME} -a ${GITHUB_WORKSPACE}/TEST-EXAMPLES -c ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/PbPb/config/jetscapeTestConfig.yaml -o ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/PbPb/output/new -r ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/PbPb/output/latest
 ```
 
+### For the Isr Hadron Test
+```
+${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/runPythiaIsrHadronTest.sh -j ${GITHUB_WORKSPACE}/${REPO_NAME} -a ${GITHUB_WORKSPACE}/TEST-EXAMPLES -c ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/config/jetscape_user_iMATTERMCGlauber.xml -o ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/output/new -r ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/output/latest
+```
+
+### For the Isr Parton Test
+```
+${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/runPythiaIsrPartonTest.sh -j ${GITHUB_WORKSPACE}/${REPO_NAME} -a ${GITHUB_WORKSPACE}/TEST-EXAMPLES -c ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/config/jetscape_user_iMATTERMCGlauber.xml -o ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/output/new -r ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/output/latest
+```
+
+### For the Isr Dat File Test
+```
+${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/runPythiaIsrDatTest.sh -j ${GITHUB_WORKSPACE}/${REPO_NAME} -a ${GITHUB_WORKSPACE}/TEST-EXAMPLES -c ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/config/jetscape_user_iMATTERMCGlauber.xml -o ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/output/new -r ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/output/latest
+```
 ## Steps to Run the Tests Offline
 
 Running these regression tests offline basically involves executing the above lines to run each respective test.
@@ -55,7 +70,22 @@ ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/runTest.sh -j ${GITHUB_WORKSPACE}/${REPO_
 ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/runTest.sh -j ${GITHUB_WORKSPACE}/${REPO_NAME} -a ${GITHUB_WORKSPACE}/TEST-EXAMPLES -c ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/PbPb/config/jetscapeTestConfig.yaml -o ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/PbPb/output/new -r ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/PbPb/output/latest
 ```
 
-The tests will generate new folders including new files at **test/PbPb/output/new/** for the PbPb test and at **test/pp/output/new/** for the pp test.  Terminal output will state whether a test passes or fails.
+### For the Isr Hadron Test
+```
+${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/runPythiaIsrHadronTest.sh -j ${GITHUB_WORKSPACE}/${REPO_NAME} -a ${GITHUB_WORKSPACE}/TEST-EXAMPLES -c ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/config/jetscape_user_iMATTERMCGlauber.xml -o ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/output/new -r ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/output/latest
+```
+
+### For the Isr Parton Test
+```
+${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/runPythiaIsrPartonTest.sh -j ${GITHUB_WORKSPACE}/${REPO_NAME} -a ${GITHUB_WORKSPACE}/TEST-EXAMPLES -c ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/config/jetscape_user_iMATTERMCGlauber.xml -o ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/output/new -r ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/output/latest
+```
+
+### For the Isr Dat File Test
+```
+${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/runPythiaIsrDatTest.sh -j ${GITHUB_WORKSPACE}/${REPO_NAME} -a ${GITHUB_WORKSPACE}/TEST-EXAMPLES -c ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/config/jetscape_user_iMATTERMCGlauber.xml -o ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/output/new -r ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/output/latest
+```
+
+The tests will generate new folders including new files at **test/pp/output/new/** for the PbPb test, at **test/PbPb/output/new/** for the pp test, and at **test/isr/output/new** for the isr tests.  Terminal output will state whether a test passes or fails.
 
 Partial terminal output is shown here as an example:
 ```
