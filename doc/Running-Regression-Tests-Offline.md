@@ -85,7 +85,7 @@ ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/runPythiaIsrPartonTest.sh -j ${GITHUB
 ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/runPythiaIsrDatTest.sh -j ${GITHUB_WORKSPACE}/${REPO_NAME} -a ${GITHUB_WORKSPACE}/TEST-EXAMPLES -c ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/config/jetscape_user_iMATTERMCGlauber.xml -o ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/output/new -r ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/output/latest
 ```
 
-The tests will generate new folders including new files at **test/PbPb/output/new/** for the PbPb test, at **test/pp/output/new/** for the pp test, and at **test/isr/output/new** for the isr tests.  Terminal output will state whether a test passes or fails.
+The tests will generate new folders including new files at **test/PbPb/output/new/** for the PbPb test, at **test/pp/output/new/** for the pp test, and at **test/isr/output/new/** for the isr tests.  Terminal output will state whether a test passes or fails.
 
 Partial terminal output is shown here as an example:
 ```
