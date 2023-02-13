@@ -18,9 +18,9 @@ Included in the TEST-EXAMPLES repository is a folder called [test](https://githu
 
 * The user XML file for the PbPb test is found at [test/PbPb/config/jetscape_user.xml](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/PbPb/config/jetscape_user.xml), the user XML file for the pp test is found at [test/pp/config/jetscape_user_PP19.xml](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/pp/config/jetscape_user_PP19.xml), and the user XML file for the isr tests is found at [test/isr/config/jetscape_user_iMATTERMCGlauber.xml](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/isr/config/jetscape_user_iMATTERMCGlauber.xml)
 
-* The script that runs the pp and PbPb tests is found at [test/runTest.sh](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/runTest.sh) and the scripts that run the isr tests are found at the following links to the [hadron](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/isr/runPythiaIsrHadronTest.sh), [parton](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/isr/runPythiaIsrPartonTest.sh) and [Isr-DAT](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/isr/runPythiaIsrDatTest.sh) test respectively.
+* The script that runs the pp and PbPb tests is found at [test/runTest.sh](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/runTest.sh), and the scripts that run the isr tests are found at the following links to the [hadron](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/isr/runPythiaIsrHadronTest.sh), [parton](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/isr/runPythiaIsrPartonTest.sh) and [Isr-DAT](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/isr/runPythiaIsrDatTest.sh) test respectively.
 
-When regression tests are performed automatically using GitHub Actions, the following lines of code from the **.github/workflows/test-events** yaml files in the repository under test will be used to call [test/runTest.sh](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/runTest.sh) and pass in command line arguments.
+When regression tests are performed automatically using GitHub Actions, the following lines of code from the **.github/workflows/test-events** yaml files in the repository under test will be used to call the various tests and pass in command line arguments.
 
 ### For the pp Test
 ```
@@ -85,7 +85,7 @@ ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/runPythiaIsrPartonTest.sh -j ${GITHUB
 ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/runPythiaIsrDatTest.sh -j ${GITHUB_WORKSPACE}/${REPO_NAME} -a ${GITHUB_WORKSPACE}/TEST-EXAMPLES -c ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/config/jetscape_user_iMATTERMCGlauber.xml -o ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/output/new -r ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/output/latest
 ```
 
-The tests will generate new folders including new files at **test/pp/output/new/** for the PbPb test, at **test/PbPb/output/new/** for the pp test, and at **test/isr/output/new** for the isr tests.  Terminal output will state whether a test passes or fails.
+The tests will generate new folders including new files at **test/PbPb/output/new/** for the PbPb test, at **test/pp/output/new/** for the pp test, and at **test/isr/output/new** for the isr tests.  Terminal output will state whether a test passes or fails.
 
 Partial terminal output is shown here as an example:
 ```
