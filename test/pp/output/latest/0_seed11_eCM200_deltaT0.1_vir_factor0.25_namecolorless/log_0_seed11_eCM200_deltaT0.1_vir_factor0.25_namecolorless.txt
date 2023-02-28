@@ -36,7 +36,7 @@
 [Info] 47MB  Reuse Hydro:  true [0m
 [Info] 47MB  nReuseHydro: 10[0m
 [Info] 47MB  JetScapeTaskSupport found seed 11, using individual engines with seeds created from 11[0m
-[Info] 50MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
+[Info] 51MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
 [Info] 51MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
 [Info] 51MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColorlessHadronization to task list.[0m
 [Info] 51MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_out.dat) added to task list.[0m
@@ -165,5 +165,5 @@
 [Info] 60MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 0.813914 seconds.
-Real time: 0.000000 seconds.
+CPU time: 0.938174 seconds.
+Real time: 1.000000 seconds.
