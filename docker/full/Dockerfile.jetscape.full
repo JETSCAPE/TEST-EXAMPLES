@@ -149,4 +149,4 @@ USER ${username}
 ENV HOME /home/${username}
 WORKDIR ${HOME}
 
-ENTRYPOINT /usr/JETSCAPE/build/runJetscape
+ENTRYPOINT ["/usr/JETSCAPE/build/runJetscape"]
