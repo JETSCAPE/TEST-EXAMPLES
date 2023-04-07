@@ -120,7 +120,7 @@ RUN curl -SLk https://sourceforge.net/projects/modules/files/Modules/modules-4.5
 # Install JETSCAPE
 RUN cd /usr \
 && git clone https://github.com/JETSCAPE/JETSCAPE.git \
-&& cd /JETSCAPE/external_packages \
+&& cd /usr/JETSCAPE/external_packages \
 && pwd \
 && ls \
 && /usr/JETSCAPE/external_packages/get_music.sh \
