@@ -93,7 +93,7 @@ RUN curl -SLk http://pythia.org/download/pythia83/pythia${pythiaV}.tgz \
 
 # Set environmental variables for cmake to know where things are (needed for SMASH, heppy)
 ARG username=jetscape-user
-ENV JETSCAPE_DIR="/JETSCAPE"
+ENV JETSCAPE_DIR="/usr/JETSCAPE"
 ENV SMASH_DIR="${JETSCAPE_DIR}/external_packages/smash/smash_code"
 ENV EIGEN3_ROOT /usr/include/eigen3
 ENV PYTHIA8DIR /usr/local/
@@ -118,23 +118,23 @@ RUN curl -SLk https://sourceforge.net/projects/modules/files/Modules/modules-4.5
 && make -j8 install
 
 # Install JETSCAPE
-RUN cd / \
+RUN cd /usr \
 && git clone https://github.com/JETSCAPE/JETSCAPE.git \
 && cd /JETSCAPE/external_packages \
 && pwd \
 && ls \
-&& /JETSCAPE/external_packages/get_music.sh \
-&& /JETSCAPE/external_packages/get_iSS.sh \
-&& /JETSCAPE/external_packages/get_freestream-milne.sh \
-&& /JETSCAPE/external_packages/get_smash.sh \
-&& cd /JETSCAPE \
+&& /usr/JETSCAPE/external_packages/get_music.sh \
+&& /usr/JETSCAPE/external_packages/get_iSS.sh \
+&& /usr/JETSCAPE/external_packages/get_freestream-milne.sh \
+&& /usr/JETSCAPE/external_packages/get_smash.sh \
+&& cd /usr/JETSCAPE \
 && mkdir build \
 && cd build
 
-RUN cd /JETSCAPE/build \
+RUN cd /usr/JETSCAPE/build \
 && cmake .. -DCMAKE_CXX_STANDARD=14 -DUSE_ROOT=ON -DUSE_MUSIC=ON -DUSE_ISS=ON -DUSE_FREESTREAM=ON -DUSE_SMASH=ON
 
-RUN cd /JETSCAPE/build \
+RUN cd /usr/JETSCAPE/build \
 && make -j4
 
 # To load heppy, from inside the container:
@@ -149,4 +149,4 @@ USER ${username}
 ENV HOME /home/${username}
 WORKDIR ${HOME}
 
-ENTRYPOINT /bin/bash
+ENTRYPOINT /usr/JETSCAPE/build/runJetscape
