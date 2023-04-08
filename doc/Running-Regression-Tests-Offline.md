@@ -1,3 +1,5 @@
+# Regression Tests
+
 While the X-Scape regression tests run automatically on certain push and pull request events using GitHub Actions, it might sometimes be useful to run a regression test offline, especially if a test running with GitHub Actions fails.  Running a regression test offline will provide an ability to review the generated files and determine the extent to which reference data does not match new output.
 
 This document shows how to run regression tests offline.
