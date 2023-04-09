@@ -93,7 +93,7 @@ RUN curl -SLk http://pythia.org/download/pythia83/pythia${pythiaV}.tgz \
 
 # Set environmental variables for cmake to know where things are (needed for SMASH, heppy)
 ARG username=jetscape-user
-ENV JETSCAPE_DIR="/usr/X-SCAPE"
+ENV JETSCAPE_DIR="/home/${username}/X-SCAPE"
 ENV SMASH_DIR="${JETSCAPE_DIR}/external_packages/smash/smash_code"
 ENV EIGEN3_ROOT /usr/include/eigen3
 ENV PYTHIA8DIR /usr/local/
@@ -117,37 +117,39 @@ RUN curl -SLk https://sourceforge.net/projects/modules/files/Modules/modules-4.5
 && make -j8 \
 && make -j8 install
 
-# Install X-SCAPE
-RUN cd /usr \
-&& git clone https://github.com/JETSCAPE/X-SCAPE.git \
-&& cd /usr/X-SCAPE/external_packages \
-&& pwd \
-&& ls \
-&& /usr/X-SCAPE/external_packages/get_music.sh \
-&& /usr/X-SCAPE/external_packages/get_iSS.sh \
-&& /usr/X-SCAPE/external_packages/get_freestream-milne.sh \
-&& /usr/X-SCAPE/external_packages/get_smash.sh \
-&& /usr/X-SCAPE/external_packages/get_3dglauber.sh \
-&& cd /usr/X-SCAPE \
+# Create ID and the user
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+RUN groupadd --gid $USER_GID $username \
+    && useradd --uid $USER_UID --gid $USER_GID -m $username 
+
+# Clone X-SCAPE
+RUN cd /home/jetscape-user \
+&& git clone https://github.com/JETSCAPE/X-SCAPE.git
+
+# Install External Packages
+RUN cd /home/jetscape-user/X-SCAPE/external_packages \
+&& ./get_music.sh \
+&& ./get_iSS.sh \
+&& ./get_freestream-milne.sh \
+&& ./get_smash.sh \
+&& ./get_3dglauber.sh \
+&& cd /home/jetscape-user/X-SCAPE \
 && mkdir build \
 && cd build
 
-RUN cd /usr/X-SCAPE/build \
+# Build X-SCAPE
+RUN cd /home/jetscape-user/X-SCAPE/build \
 && cmake .. -DCMAKE_CXX_STANDARD=14 -DUSE_ROOT=ON -DUSE_3DGlauber=ON -DUSE_MUSIC=ON -DUSE_ISS=ON -DUSE_FREESTREAM=ON -DUSE_SMASH=ON
 
-RUN cd /usr/X-SCAPE/build \
+RUN cd /home/jetscape-user/X-SCAPE/build \
 && make -j4
 
 # To load heppy, from inside the container:
 # source /usr/local/init/profile.sh
 # module load heppy/1.0
 
-# Set up a user group
-ARG id=1234
-RUN groupadd -g ${id} ${username} \
-&& useradd --create-home --home-dir /home/${username} -u ${id} -g ${username} ${username}
-USER ${username}
 ENV HOME /home/${username}
 WORKDIR ${HOME}
-
-ENTRYPOINT ["/usr/X-SCAPE/build/runJetscape"]
+ENTRYPOINT /bin/bash
