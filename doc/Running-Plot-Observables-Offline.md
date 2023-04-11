@@ -1,3 +1,5 @@
+# Plot Observables
+
 While the plot observables test runs automatically on certain push events using GitHub Actions, it might sometimes be useful to run the plot observables test offline.  GitHub Actions limits wall-time to 3 hours, so in the interest of supporting longer runs with more events, an offline option is available.
 
 This document shows how to run the plot observables test offline.
