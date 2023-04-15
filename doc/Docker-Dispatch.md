@@ -27,5 +27,4 @@ Because JETSCAPE and X-SCAPE provide multiple Docker images, a deployment utilit
         * To build the full X-SCAPE Docker image, input: **full/Dockerfile.xscape.full**
         * To build the full JETSCAPE Docker image, input: **full/Dockerfile.jetscape.full**
         * To build the standard dependencies-only version of the Docker Image, input: **base/Dockerfile.base**
-    5. After entering the above data, click the **Run workflow** button.  The image will be created and deployed to [JETSCAPE's Docker Hub page](https://hub.docker.com/u/jetscape).
-
+    * After entering the above data, click the **Run workflow** button.  The image will be created and deployed to [JETSCAPE's Docker Hub page](https://hub.docker.com/u/jetscape).
