@@ -133,6 +133,7 @@ RUN cd /home/jetscape-user/X-SCAPE/external_packages \
 && ./get_music.sh \
 && ./get_iSS.sh \
 && ./get_freestream-milne.sh \
+&& ./get_lbtTab.sh \
 && ./get_smash.sh \
 && ./get_3dglauber.sh \
 && cd /home/jetscape-user/X-SCAPE \
