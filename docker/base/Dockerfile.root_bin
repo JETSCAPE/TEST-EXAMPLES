@@ -56,23 +56,33 @@ scipy \
 seaborn \
 tqdm
 
-# We need cmake >= 3.13.5 for the analysis package heppy
-# RUN cd /opt \
-# && wget https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Linux-x86_64.sh \
-# && echo "y" | bash ./cmake-3.17.0-Linux-x86_64.sh \
-# && ln -s /opt/cmake-3.17.0-Linux-x86_64/bin/* /usr/local/bin
+# Install additional ROOT dependencies
+RUN apt install -y dpkg-dev cmake g++ gcc binutils libx11-dev \
+python libssl-dev
 
-# Install ROOT6 v6-26-06 from source
+# Install ROOT6 v6-26-06
 ENV ROOTSYS="/usr/local/root"
 ENV PATH="${ROOTSYS}/bin:${PATH}"
 ENV LD_LIBRARY_PATH="${ROOTSYS}/lib:${LD_LIBRARY_PATH}"
 ENV PYTHONPATH="${ROOTSYS}/lib"
-RUN mkdir -p ${ROOTSYS} && mkdir -p ${HOME}/root && cd ${HOME}/root \
-&& git clone --branch v6-26-06 --depth=1 https://github.com/root-project/root.git src \
-&& mkdir build && cd build \
-&& cmake ../src -DCMAKE_CXX_STANDARD=14 -DCMAKE_INSTALL_PREFIX=${ROOTSYS} \
-&& make -j8 install \
-&& rm -r ${HOME}/root
+
+# AMD64 or ARM64 binaries are used depending on the target architecture
+ARG TARGETARCH
+RUN if [ "$TARGETARCH" = "arm64" ]; then \
+        cd /usr/local \
+        # alternative root binary for Apple M1
+        # root_v6.26.06.macos-12.4-arm64-clang131.tar.gz
+        && wget https://root.cern/download/root_v6.26.06.macos-11.6-arm64-clang120.tar.gz \
+        && tar -xzvf root_v6.26.06.macos-11.6-arm64-clang120.tar.gz \
+        && rm root_v6.26.06.macos-11.6-arm64-clang120.tar.gz \
+    ; else \
+        cd /usr/local \
+        && wget https://root.cern/download/root_v6.26.06.Linux-ubuntu20-x86_64-gcc9.4.tar.gz \
+        && tar -xzvf root_v6.26.06.Linux-ubuntu20-x86_64-gcc9.4.tar.gz\
+        && rm root_v6.26.06.Linux-ubuntu20-x86_64-gcc9.4.tar.gz \
+    ; fi
+
+RUN ["/bin/bash", "-c", "source /usr/local/root/bin/thisroot.sh"]
 
 # Install HepMC 3.2.5
 RUN curl -SL http://hepmc.web.cern.ch/hepmc/releases/HepMC3-3.2.5.tar.gz | tar -xvzC /usr/local \
