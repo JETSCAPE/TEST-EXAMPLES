@@ -1,4 +1,4 @@
-name: docker-build-arm
+name: docker-build-multiarch
 
 on:
   workflow_dispatch:
