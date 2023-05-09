@@ -52,20 +52,20 @@ ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/isr/runPythiaIsrDatTest.sh -j ${GITHUB_WO
 
 Running these regression tests offline basically involves executing the above lines to run each respective test.
 
-First ensure that this TEST-EXAMPLES repository as well as the repository to test (JETSCAPE or X-SCAPE) is cloned to your local system or cluster:
-
-```
-git clone https://github.com/JETSCAPE/TEST-EXAMPLES.git
-git clone https://github.com/JETSCAPE/JETSCAPE.git
-```
-
-Then create the environment variables **GITHUB_WORKSPACE** and **REPO_NAME** on your local system or cluster using the following commands:
+First create the environment variables **GITHUB_WORKSPACE** and **REPO_NAME** on your local system or cluster using the following commands:
 
 ```
 export REPO_NAME="X-SCAPE-COMP"
-export GITHUB_WORKSPACE="/home/jetscape-user"   
+export GITHUB_WORKSPACE="/home/jetscape-user"
 ```
 The values given to these environment variables can be adjusted depending upon the repository name and path corresponding to your installation.
+
+Then ensure that this TEST-EXAMPLES repository is cloned to your local system or cluster:
+
+```
+cd $GITHUB_WORKSPACE
+git clone https://github.com/JETSCAPE/TEST-EXAMPLES.git
+```
 
 Next, enter these commands (separately) to run each respective test.
 
