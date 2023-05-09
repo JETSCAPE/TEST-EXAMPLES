@@ -40,6 +40,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           file: ./docker/${{ inputs.path }}
-          platforms: linux/arm64
+          platforms: linux/arm64,linux/amd64
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/${{ inputs.name }}:${{ inputs.version }}
