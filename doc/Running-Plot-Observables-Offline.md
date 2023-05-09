@@ -34,7 +34,14 @@ ${GITHUB_WORKSPACE}/TEST-EXAMPLES/test/generate_plots.sh -j ${GITHUB_WORKSPACE}/
 
 Running the plot observables test offline basically involves executing the above lines to generate pp events and calling the [test/generate_plots.sh](https://github.com/JETSCAPE/TEST-EXAMPLES/blob/main/test/generate_plots.sh) script to create the plots.
 
-First create the environment variables **GITHUB_WORKSPACE**, **REPO_NAME**, and **PULL_NUMBER** on your local system or cluster using the following commands:
+First ensure that this TEST-EXAMPLES repository as well as the repository to test (JETSCAPE or X-SCAPE) is cloned to your local system or cluster:
+
+```
+git clone https://github.com/JETSCAPE/TEST-EXAMPLES.git
+git clone https://github.com/JETSCAPE/JETSCAPE.git
+```
+
+Then create the environment variables **GITHUB_WORKSPACE**, **REPO_NAME**, and **PULL_NUMBER** on your local system or cluster using the following commands:
 
 ```
 export REPO_NAME="X-SCAPE-COMP"

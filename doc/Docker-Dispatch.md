@@ -10,7 +10,9 @@ JETSCAPE provides several Docker images for use with JETSCAPE and X-SCAPE.
 
 3. A Docker image is provided that includes a full installation of X-SCAPE.  Because the application itself is preinstalled, this image is not ideal for development, but can be used to run X-SCAPE as it.  An example showing this usage is linked [here](https://github.com/JETSCAPE/X-SCAPE/wiki/Doc.Installation.Docker.Linux.Full).
 
-4. A Docker image is provided that includes prerequisites for profiling and performance analysis (coming soon).
+4. A Docker image native to the ARM64 architecture and including the JETSCAPE dependencies is provided.  The current implementation of this ARM64 image does not include the Root and Heppy packages.  And unlike the *stable* image, this ARM64 image is not fully vetted.  This image is mainly intended for users interested to run JETSCAPE or X-SCAPE on their M1 Macs and is not intended as a full production environment.
+
+5. A Docker image is provided that includes prerequisites for profiling and performance analysis (in development).
 
 ## Docker Dispatch Instructions
 
