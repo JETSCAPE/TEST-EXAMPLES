@@ -1,0 +1,149 @@
+# Build from the official docker python base image, based on Debian
+FROM ubuntu:focal
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Install pre-reqs (commented ones are already in base image)
+RUN apt update && apt install -y \
+doxygen \
+emacs \
+ffmpeg \
+gsl-bin \ 
+hdf5-tools \
+less \
+libboost-all-dev \
+libeigen3-dev \
+libgsl-dev \
+libhdf5-serial-dev \
+libxpm-dev \
+openmpi-bin \
+rsync \
+swig \
+valgrind \
+git \
+vim \
+build-essential \
+cmake \
+wget \
+curl \
+tclsh \
+tcl-dev \
+libxft-dev \
+libxext-dev \
+libfftw3-3 \
+massif-visualizer \
+kcachegrind \
+kcachegrind-converters \
+kmod \
+#zlib1g-dev \
+&& rm -rf /var/lib/apt/lists/*
+
+# Install vTune
+RUN cd /tmp \
+&& wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \
+&& apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \
+&& rm GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \
+&& echo "deb https://apt.repos.intel.com/oneapi all main" | tee /etc/apt/sources.list.d/oneAPI.list \
+&& apt update \
+&& apt install -y intel-oneapi-vtune
+
+RUN ["/bin/bash", "-c", "source /opt/intel/oneapi/vtune/latest/env/vars.sh"]
+
+# Install Python
+RUN apt update && apt install -y python3-pip
+
+# Install additional useful python packages
+RUN pip3 install --upgrade pip \
+&& pip3 install \
+emcee==2.2.1 \
+h5py \
+hic \
+hsluv \
+jupyter \
+matplotlib \
+nbdime \
+numpy \
+pandas \
+pathlib \
+ptemcee \
+pyhepmc \
+pyyaml \
+scikit-learn \
+scipy \
+seaborn \
+tqdm
+
+# We need cmake >= 3.13.5 for the analysis package heppy
+# RUN cd /opt \
+# && wget https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Linux-x86_64.sh \
+# && echo "y" | bash ./cmake-3.17.0-Linux-x86_64.sh \
+# && ln -s /opt/cmake-3.17.0-Linux-x86_64/bin/* /usr/local/bin
+
+# Install ROOT6 v6-26-06 from source
+ENV ROOTSYS="/usr/local/root"
+ENV PATH="${ROOTSYS}/bin:${PATH}"
+ENV LD_LIBRARY_PATH="${ROOTSYS}/lib:${LD_LIBRARY_PATH}"
+ENV PYTHONPATH="${ROOTSYS}/lib"
+RUN cd /usr/local \
+&& wget https://root.cern/download/root_v6.26.06.Linux-ubuntu20-x86_64-gcc9.4.tar.gz \
+&& tar -xzvf root_v6.26.06.Linux-ubuntu20-x86_64-gcc9.4.tar.gz\
+&& rm root_v6.26.06.Linux-ubuntu20-x86_64-gcc9.4.tar.gz
+
+RUN ["/bin/bash", "-c", "source /usr/local/root/bin/thisroot.sh"]
+
+# Install HepMC 3.2.5
+RUN curl -SL http://hepmc.web.cern.ch/hepmc/releases/HepMC3-3.2.5.tar.gz | tar -xvzC /usr/local \
+&& cd /usr/local \
+&& mkdir hepmc3-build \
+&& cd hepmc3-build \
+&& cmake ../HepMC3-3.2.5 -DCMAKE_INSTALL_PREFIX=/usr/local -DHEPMC3_ENABLE_ROOTIO=ON -DROOT_DIR=${ROOTSYS} -DHEPMC3_BUILD_EXAMPLES=ON \
+&& make -j8 install \
+&& rm -r /usr/local/hepmc3-build
+ENV LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"
+
+# Install Pythia8 with HepMC3-3.2.5 (that is needed by SMASH)
+ARG pythiaV="8307"
+RUN curl -SLk http://pythia.org/download/pythia83/pythia${pythiaV}.tgz \
+| tar -xvzC /usr/local \
+&& cd /usr/local/pythia${pythiaV} \
+&& ./configure --enable-shared --prefix=/usr/local/ --with-hepmc3=/usr/local/HepMC3-3.2.5 \
+&& make -j8 \
+&& make -j8 install
+
+# Set environmental variables for cmake to know where things are (needed for SMASH, heppy)
+ARG username=jetscape-user
+ENV JETSCAPE_DIR="/home/${username}/JETSCAPE"
+ENV SMASH_DIR="${JETSCAPE_DIR}/external_packages/smash/smash_code"
+ENV EIGEN3_ROOT /usr/include/eigen3
+ENV PYTHIA8DIR /usr/local/
+ENV PYTHIA8 /usr/local/
+ENV PYTHIA8_ROOT_DIR /usr/local/
+ENV PATH $PATH:$PYTHIA8DIR/bin
+
+# Build heppy (various HEP tools via python)
+RUN cd / \
+&& git clone https://github.com/matplo/heppy.git \
+&& cd heppy \
+&& ./external/fastjet/build.sh \
+&& ./external/hepmc2/build.sh \
+&& ./cpptools/build.sh
+
+# Install environment modules
+RUN curl -SLk https://sourceforge.net/projects/modules/files/Modules/modules-4.5.1/modules-4.5.1.tar.gz \
+| tar -xvzC /usr/local \
+&& cd /usr/local/modules-4.5.1 \
+&& ./configure --prefix=/usr/local --modulefilesdir=/heppy/modules \
+&& make -j8 \
+&& make -j8 install
+
+# To load heppy, from inside the container:
+# source /usr/local/init/profile.sh
+# module load heppy/1.0
+
+# Create ID and the user
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+RUN groupadd --gid $USER_GID $username \
+    && useradd --uid $USER_UID --gid $USER_GID -m $username 
+
+ENTRYPOINT /bin/bash
