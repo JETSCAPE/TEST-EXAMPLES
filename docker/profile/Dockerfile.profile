@@ -140,10 +140,12 @@ RUN curl -SLk https://sourceforge.net/projects/modules/files/Modules/modules-4.5
 # module load heppy/1.0
 
 # Create ID and the user
-ARG USER_UID=1000
+ARG USER_UID=1234
 ARG USER_GID=$USER_UID
 
 RUN groupadd --gid $USER_GID $username \
     && useradd --uid $USER_UID --gid $USER_GID -m $username 
 
+ENV HOME /home/${username}
+WORKDIR ${HOME}
 ENTRYPOINT /bin/bash
