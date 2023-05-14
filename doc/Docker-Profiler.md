@@ -40,6 +40,6 @@ To re-enter the container, type the following command:
 docker start -ai myJetProfile
 ```
 
-Note that in addition to vTune, the profiling tools Massif-Visualizer, KCachegrind, Valgrind, and 
+Note that in addition to vTune, the profiling tools Massif-Visualizer, KCachegrind, Valgrind, and gProf are also included in the jetscape/profile:beta image.
 
 
