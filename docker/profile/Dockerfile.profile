@@ -117,6 +117,7 @@ ENV EIGEN3_ROOT /usr/include/eigen3
 ENV PYTHIA8DIR /usr/local/
 ENV PYTHIA8 /usr/local/
 ENV PYTHIA8_ROOT_DIR /usr/local/
+ENV ONEAPI_DIR /opt/intel/oneapi
 ENV PATH $PATH:$PYTHIA8DIR/bin
 
 # Build heppy (various HEP tools via python)
@@ -146,6 +147,7 @@ ARG USER_GID=$USER_UID
 RUN groupadd --gid $USER_GID $username \
     && useradd --uid $USER_UID --gid $USER_GID -m $username 
 
+ENV PATH $PATH:/opt/intel/oneapi/vtune/latest/bin64
 ENV HOME /home/${username}
 WORKDIR ${HOME}
 ENTRYPOINT /bin/bash
