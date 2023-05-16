@@ -46,7 +46,7 @@ docker start -ai myJetProfile
 
 * In addition to vTune, the profiling tools Massif-Visualizer, KCachegrind, Valgrind, and gProf are also included in the jetscape/profile:beta image.
 
-* Since vTune is installed inside Docker, some profiling limitations may apply.  Installing vTune locally on a Ubuntu host system with sudo privileges can be done using the APT package manager.
+* Since vTune is installed inside Docker, some profiling limitations may apply.  Installing vTune locally on an Ubuntu host system with sudo privileges can be done using the APT package manager.
 
     ```
     cd /tmp \
