@@ -40,6 +40,25 @@ To re-enter the container, type the following command:
 docker start -ai myJetProfile
 ```
 
-Note that in addition to vTune, the profiling tools Massif-Visualizer, KCachegrind, Valgrind, and gProf are also included in the jetscape/profile:beta image.
+---
 
+## Notes
 
+* In addition to vTune, the profiling tools Massif-Visualizer, KCachegrind, Valgrind, and gProf are also included in the jetscape/profile:beta image.
+
+* Since vTune is installed inside Docker, some profiling limitations may apply.  Installing vTune locally on a Ubuntu host system with sudo privileges can be done using the APT package manager.
+
+    ```
+    cd /tmp \
+    && wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \
+    && sudo apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \
+    && rm GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \
+    && echo "deb https://apt.repos.intel.com/oneapi all main" | sudo tee /etc/apt/sources.list.d/oneAPI.list \
+    && sudo apt update \
+    && sudo apt install -y intel-oneapi-vtune
+    ```
+
+    Then source the vTune profiler.
+    ```
+    source /opt/intel/oneapi/vtune/latest/env/vars.sh
+    ```
