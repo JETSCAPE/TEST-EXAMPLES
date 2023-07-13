@@ -56,7 +56,7 @@ scipy \
 seaborn \
 tqdm \
 GPy \
-sklearn \
+scikit-learn \
 corner \
 pyDOE
 
