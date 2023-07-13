@@ -115,7 +115,7 @@ ENV PATH $PATH:$PYTHIA8DIR/bin
 
 # Build heppy (various HEP tools via python)
 RUN cd / \
-&& git clone https://github.com/matplo/heppy.git \
+&& git clone --depth 1 --branch v1.3.8.8 https://github.com/matplo/heppy.git \
 && cd heppy \
 && ./external/fastjet/build.sh \
 && ./external/hepmc2/build.sh \
