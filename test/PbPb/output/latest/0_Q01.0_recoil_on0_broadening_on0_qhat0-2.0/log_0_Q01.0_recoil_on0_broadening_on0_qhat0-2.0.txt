@@ -37,9 +37,9 @@
 [Info] 48MB  nReuseHydro: 10[0m
 [Info] 48MB  JetScapeTaskSupport found seed 1, using individual engines with seeds created from 1[0m
 [Info] 48MB  JetScape::DetermineTaskList() -- Initial State: Added Trento module to task list.[0m
-[Info] 52MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
-[Info] 52MB  JetScape::DetermineTaskList() -- PreDynamics: Added NullPreDynamics to task list.[0m
-[Info] 52MB  JetScape::DetermineTaskList() -- Hydro: Added Brick to task list.[0m
+[Info] 51MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
+[Info] 51MB  JetScape::DetermineTaskList() -- PreDynamics: Added NullPreDynamics to task list.[0m
+[Info] 51MB  JetScape::DetermineTaskList() -- Hydro: Added Brick to task list.[0m
 [Info] 52MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
 [Info] 52MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColorlessHadronization to task list.[0m
 [Info] 52MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_out.dat) added to task list.[0m
@@ -191,14 +191,14 @@
 [Info] 60MB  [1m[31mRun Event # = 0[0m
 [Info] 60MB   Exec TRENTo initial condition [0m
 [Info] 60MB   TRENTo event info: [0m
-[Info] 61MB  b	npart	ncoll	ET	(x-com, y-com) (fm)[0m
-[Info] 61MB  12.4827	37	40	167.272	(0.419844, 0.440687)[0m
-[Info] 61MB   Load TRENTo density and ncoll density to JETSCAPE memory [0m
+[Info] 60MB  b	npart	ncoll	ET	(x-com, y-com) (fm)[0m
+[Info] 60MB  12.4827	37	40	167.272	(0.419844, 0.440687)[0m
+[Info] 60MB   Load TRENTo density and ncoll density to JETSCAPE memory [0m
 [Info] 61MB  20000 density elements[0m
 [Info] 61MB  10000 ncoll elements[0m
 [Info] 61MB   TRENTO event generated and loaded [0m
 [Info] 70MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 38.983398 seconds.
-Real time: 39.000000 seconds.
+CPU time: 25.784508 seconds.
+Real time: 26.000000 seconds.
