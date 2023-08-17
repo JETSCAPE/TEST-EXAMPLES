@@ -29,14 +29,14 @@
 [Info] *--------------------------------------------------------------*[0m
 [Info] 47MB  [1m[31mInitialize JetScape ...[0m
 [Info] 47MB  Created JetScapeXML Instance[0m
-[Info] 48MB  Open XML Main file : jetscape_main.xml[0m
-[Info] 48MB  Open XML User file : jetscape_user.xml[0m
-[Info] 48MB  ================================================================[0m
-[Info] 48MB  nEvents = 10[0m
-[Info] 48MB  Reuse Hydro:  true [0m
-[Info] 48MB  nReuseHydro: 10[0m
-[Info] 48MB  JetScapeTaskSupport found seed 10, using individual engines with seeds created from 10[0m
-[Info] 51MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
+[Info] 47MB  Open XML Main file : jetscape_main.xml[0m
+[Info] 47MB  Open XML User file : jetscape_user.xml[0m
+[Info] 47MB  ================================================================[0m
+[Info] 47MB  nEvents = 10[0m
+[Info] 47MB  Reuse Hydro:  true [0m
+[Info] 47MB  nReuseHydro: 10[0m
+[Info] 47MB  JetScapeTaskSupport found seed 10, using individual engines with seeds created from 10[0m
+[Info] 50MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
 [Info] 51MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
 [Info] 51MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColorlessHadronization to task list.[0m
 [Info] 51MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_out.dat) added to task list.[0m
@@ -166,5 +166,5 @@
 [Info] 61MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 0.627913 seconds.
-Real time: 0.000000 seconds.
+CPU time: 0.630369 seconds.
+Real time: 1.000000 seconds.

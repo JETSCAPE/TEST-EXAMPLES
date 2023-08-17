@@ -156,14 +156,14 @@
 
  --------  End PYTHIA Particle Data Table  -----------------------------------------------------------------------------------------
 
-[Info] 57MB  Connect HadronizationManager Signal to Energy Loss ...[0m
-[Info] 57MB  JetScape Stream Writer initialized with output file = test_out.dat[0m
-[Info] 57MB  JetScape HepMC Writer initialized with output file = test_out.hepmc[0m
-[Info] 57MB  [1m[31mRun JetScape ...[0m
-[Info] 57MB  [1m[31mNumber of Events = 10[0m
-[Info] 57MB  [1m[31mRun Event # = 0[0m
+[Info] 58MB  Connect HadronizationManager Signal to Energy Loss ...[0m
+[Info] 58MB  JetScape Stream Writer initialized with output file = test_out.dat[0m
+[Info] 58MB  JetScape HepMC Writer initialized with output file = test_out.hepmc[0m
+[Info] 58MB  [1m[31mRun JetScape ...[0m
+[Info] 58MB  [1m[31mNumber of Events = 10[0m
+[Info] 58MB  [1m[31mRun Event # = 0[0m
 [Info] 65MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 0.856111 seconds.
+CPU time: 0.854948 seconds.
 Real time: 1.000000 seconds.
