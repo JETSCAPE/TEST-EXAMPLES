@@ -21,7 +21,8 @@ jobs:
     - name: Checkout TEST-EXAMPLES Repository
       uses: actions/checkout@v2
       with:
-        path: ${{ github.event.repository.name }}
+        repository: JETSCAPE/TEST-EXAMPLES
+        path: TEST-EXAMPLES
         ref: xml_check
 
     - name: Checkout JETSCAPE
@@ -34,4 +35,5 @@ jobs:
       run: |
         cd ${GITHUB_WORKSPACE}/${REPO_NAME}/test/xml/
         pwd
+        ls
         python3 compareXML_test.py ${GITHUB_WORKSPACE}/JETSCAPE/config/
