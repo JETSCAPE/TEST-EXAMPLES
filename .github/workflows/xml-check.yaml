@@ -15,13 +15,9 @@ jobs:
   build:
     name: xml input check
     runs-on: ubuntu-latest
-    
-    container:
-      image: jetscape/base:stable
-      options: --user root
-      
+
     steps:
-      
+
     - name: Checkout TEST-EXAMPLES Repository
       uses: actions/checkout@v2
       with:
@@ -36,9 +32,5 @@ jobs:
     
     - name: test JETSCAPE
       run: |
-        cd test/xml/
+        cd ${GITHUB_WORKSPACE}/${REPO_NAME}/test/xml/
         python3 compareXML.py ${GITHUB_WORKSPACE}/JETSCAPE/config/
-
-
-        
-    
