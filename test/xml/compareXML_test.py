@@ -3,6 +3,7 @@ import sys
 import unittest
 import xml.etree.ElementTree as ET
 from compareXML import compareFiles
+from pathlib import Path
 
 def get_files_in_dir(dir_path):
     files = []
@@ -14,7 +15,8 @@ def get_files_in_dir(dir_path):
 class TestCompareXML(unittest.TestCase):
     def test_compare_files(self):
 
-        CONFIG_PATH = '/home/jlate/jetscape/JETSCAPE/config/'
+        print('home path: ' + Path.home())
+        CONFIG_PATH = Path.home() + '/JETSCAPE/config/'
 
         if len(sys.argv) > 1:
             CONFIG_PATH = sys.argv[1]
