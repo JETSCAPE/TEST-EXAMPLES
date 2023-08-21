@@ -27,6 +27,14 @@ class TestCompareXML(unittest.TestCase):
             main_path = CONFIG_PATH + 'jetscape_main.xml'
             user_path = CONFIG_PATH + file
             print('\nuser file: ' + user_path)
+
+            # if file is in ignoreFile.txt then skip and continue
+            with open('ignoreFile.txt') as f:
+                ignoreFiles = f.read().splitlines()
+            if file in ignoreFiles:
+                print('skipping file: ' + file)
+                continue
+            
             [missing, success] = compareFiles(main_path, user_path)
             if success:
                 print('success')
