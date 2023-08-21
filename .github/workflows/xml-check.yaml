@@ -1,0 +1,43 @@
+name: xml input check
+
+on:
+  pull_request:
+    branches:
+      - xml_check
+  push:
+    branches:
+      - xml_check
+
+env:
+  REPO_NAME: ${{ github.event.repository.name }}
+
+jobs:
+  build:
+    name: xml input check
+    runs-on: ubuntu-latest
+    
+    container:
+      image: jetscape/base:stable
+      options: --user root
+      
+    steps:
+      
+    - name: Checkout TEST-EXAMPLES Repository
+      uses: actions/checkout@v2
+      with:
+        path: ${{ github.event.repository.name }}
+
+    - name: Checkout JETSCAPE
+      uses: actions/checkout@v2
+      with:
+        repository: JETSCAPE/JETSCAPE
+        path: JETSCAPE
+    
+    - name: test JETSCAPE
+      run: |
+        cd test/xml/
+        python3 compareXML.py ${GITHUB_WORKSPACE}/JETSCAPE/config/
+
+
+        
+    
