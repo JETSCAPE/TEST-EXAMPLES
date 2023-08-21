@@ -15,7 +15,7 @@ def get_files_in_dir(dir_path):
 class TestCompareXML(unittest.TestCase):
     def test_compare_files(self):
 
-        print('home path: ' + Path.home())
+        print(Path.home())
         CONFIG_PATH = Path.home() + '/JETSCAPE/config/'
 
         if len(sys.argv) > 1:
