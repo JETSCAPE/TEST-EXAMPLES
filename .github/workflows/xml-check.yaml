@@ -35,5 +35,5 @@ jobs:
       run: |
         cd ${GITHUB_WORKSPACE}/${REPO_NAME}/test/xml/
         pwd
-        ls
+        ls ${GITHUB_WORKSPACE}/JETSCAPE/config/
         python3 compareXML_test.py ${GITHUB_WORKSPACE}/JETSCAPE/config/
