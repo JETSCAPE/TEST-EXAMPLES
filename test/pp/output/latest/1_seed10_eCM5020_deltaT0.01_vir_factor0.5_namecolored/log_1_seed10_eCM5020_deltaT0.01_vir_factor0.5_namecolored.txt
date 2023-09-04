@@ -27,15 +27,15 @@
 [Info] | See COPYING file for details.                                |[0m
 [Info] |                                                              |[0m
 [Info] *--------------------------------------------------------------*[0m
-[Info] 49MB  [1m[31mInitialize JetScape ...[0m
-[Info] 49MB  Created JetScapeXML Instance[0m
-[Info] 49MB  Open XML Main file : jetscape_main.xml[0m
-[Info] 49MB  Open XML User file : jetscape_user.xml[0m
-[Info] 49MB  ================================================================[0m
-[Info] 49MB  nEvents = 10[0m
-[Info] 49MB  Reuse Hydro:  true [0m
-[Info] 49MB  nReuseHydro: 10[0m
-[Info] 49MB  JetScapeTaskSupport found seed 10, using individual engines with seeds created from 10[0m
+[Info] 48MB  [1m[31mInitialize JetScape ...[0m
+[Info] 48MB  Created JetScapeXML Instance[0m
+[Info] 48MB  Open XML Main file : jetscape_main.xml[0m
+[Info] 48MB  Open XML User file : jetscape_user.xml[0m
+[Info] 48MB  ================================================================[0m
+[Info] 48MB  nEvents = 10[0m
+[Info] 48MB  Reuse Hydro:  true [0m
+[Info] 48MB  nReuseHydro: 10[0m
+[Info] 48MB  JetScapeTaskSupport found seed 10, using individual engines with seeds created from 10[0m
 [Info] 52MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
 [Info] 52MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
 [Info] 52MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColoredHadronization to task list.[0m
@@ -139,8 +139,8 @@
 [Info] 60MB  [1m[31mRun Event # = 0[0m
  PYTHIA Warning in Pythia::check: not quite matched particle energy/momentum/mass  
  PYTHIA Warning in Pythia::check: energy-momentum not quite conserved  
-[Info] 69MB  [1m[30mJetScape finished after 10 events![0m
+[Info] 68MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 1.593901 seconds.
+CPU time: 1.682845 seconds.
 Real time: 2.000000 seconds.
