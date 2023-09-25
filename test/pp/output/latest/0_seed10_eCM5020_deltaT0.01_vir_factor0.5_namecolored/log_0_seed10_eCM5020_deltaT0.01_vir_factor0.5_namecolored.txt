@@ -137,8 +137,10 @@
 [Info] 58MB  [1m[31mRun JetScape ...[0m
 [Info] 58MB  [1m[31mNumber of Events = 10[0m
 [Info] 58MB  [1m[31mRun Event # = 0[0m
-[Info] 65MB  [1m[30mJetScape finished after 10 events![0m
+ PYTHIA Warning in Pythia::check: not quite matched particle energy/momentum/mass  
+ PYTHIA Warning in Pythia::check: energy-momentum not quite conserved  
+[Info] 64MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 1.116026 seconds.
+CPU time: 1.018599 seconds.
 Real time: 1.000000 seconds.

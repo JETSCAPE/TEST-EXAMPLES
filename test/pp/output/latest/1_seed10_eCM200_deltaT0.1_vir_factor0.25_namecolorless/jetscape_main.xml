@@ -99,6 +99,8 @@
       <pTHatMin>100</pTHatMin>
       <pTHatMax>120</pTHatMax>
       <eCM>5020</eCM>
+      <!-- The soft momentum cutoff in GeV removes partons from the pythia gun. The default matches the PP19 setup. -->
+      <softMomentumCutoff>2.0</softMomentumCutoff>
       <!-- You can add any number of additional lines to initialize pythia here -->
       <!-- Note that if the tag exists it cannot be empty (tinyxml produces a segfault) -->
       <LinesToRead>
@@ -278,6 +280,7 @@
     <MUSIC>
       <name>MUSIC</name>
       <MUSIC_input_file>music_input</MUSIC_input_file>
+      <beastMode>0</beastMode>
       <Initial_time_tau_0>0.5</Initial_time_tau_0>
       <output_evolution_to_file>1</output_evolution_to_file>
       <shear_viscosity_eta_over_s>0.08</shear_viscosity_eta_over_s>

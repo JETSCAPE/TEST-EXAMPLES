@@ -37,18 +37,18 @@
 [Info] 47MB  nReuseHydro: 10[0m
 [Info] 47MB  JetScapeTaskSupport found seed 10, using individual engines with seeds created from 10[0m
 [Info] 50MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
-[Info] 50MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
-[Info] 50MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColoredHadronization to task list.[0m
-[Info] 50MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_out.dat) added to task list.[0m
-[Info] 50MB  JetScape::DetermineTaskList() -- JetScapeWriterHepMC (test_out.hepmc) added to task list.[0m
-[Info] 50MB  ================================================================[0m
-[Info] 50MB  Found 5 Modules Initialize them ... [0m
-[Info] 50MB  Set Hydro,JetEnergylossManager and IS Pointers for SignalManager to create Signal/Slots[0m
-[Info] 50MB  Created JetScapeSignalManager Instance[0m
-[Info] 50MB  Calling JetScape InitTasks()...[0m
-[Info] 50MB  Initialize HardProcess : UninitializedPythiaGun ...[0m
-[Info] 50MB  [35mPythia Gun with FSR_on: 0[0m
-[Info] 50MB  [35mPythia Gun with 7 < pTHat < 9[0m
+[Info] 51MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
+[Info] 51MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColoredHadronization to task list.[0m
+[Info] 51MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_out.dat) added to task list.[0m
+[Info] 51MB  JetScape::DetermineTaskList() -- JetScapeWriterHepMC (test_out.hepmc) added to task list.[0m
+[Info] 51MB  ================================================================[0m
+[Info] 51MB  Found 5 Modules Initialize them ... [0m
+[Info] 51MB  Set Hydro,JetEnergylossManager and IS Pointers for SignalManager to create Signal/Slots[0m
+[Info] 51MB  Created JetScapeSignalManager Instance[0m
+[Info] 51MB  Calling JetScape InitTasks()...[0m
+[Info] 51MB  Initialize HardProcess : UninitializedPythiaGun ...[0m
+[Info] 51MB  [35mPythia Gun with FSR_on: 0[0m
+[Info] 51MB  [35mPythia Gun with 7 < pTHat < 9[0m
  PYTHIA Warning in PhaseSpace2to2tauyz::trialKin: maximum for cross section violated  
 
  *-------  PYTHIA Process Initialization  --------------------------*
@@ -141,5 +141,5 @@
 [Info] 61MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 0.940331 seconds.
+CPU time: 0.901011 seconds.
 Real time: 1.000000 seconds.
