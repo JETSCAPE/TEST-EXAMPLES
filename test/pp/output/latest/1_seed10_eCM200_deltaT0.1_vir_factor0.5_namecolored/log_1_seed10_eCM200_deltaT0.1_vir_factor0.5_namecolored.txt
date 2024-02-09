@@ -132,14 +132,14 @@
 [Info] 58MB  Found 1 Hadronization Manager Tasks/Modules Initialize them ... [0m
 [Info] 58MB  Found 1 Hadronization Tasks/Modules Initialize them ... [0m
 [Info] 58MB  Pythia decays are turned on for tau0Max < 10[0m
-[Info] 60MB  Connect HadronizationManager Signal to Energy Loss ...[0m
-[Info] 60MB  JetScape Stream Writer initialized with output file = test_out.dat[0m
-[Info] 60MB  JetScape HepMC Writer initialized with output file = test_out.hepmc[0m
-[Info] 60MB  [1m[31mRun JetScape ...[0m
-[Info] 60MB  [1m[31mNumber of Events = 10[0m
-[Info] 60MB  [1m[31mRun Event # = 0[0m
+[Info] 59MB  Connect HadronizationManager Signal to Energy Loss ...[0m
+[Info] 59MB  JetScape Stream Writer initialized with output file = test_out.dat[0m
+[Info] 59MB  JetScape HepMC Writer initialized with output file = test_out.hepmc[0m
+[Info] 59MB  [1m[31mRun JetScape ...[0m
+[Info] 59MB  [1m[31mNumber of Events = 10[0m
+[Info] 59MB  [1m[31mRun Event # = 0[0m
 [Info] 62MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 0.852109 seconds.
+CPU time: 0.540281 seconds.
 Real time: 1.000000 seconds.

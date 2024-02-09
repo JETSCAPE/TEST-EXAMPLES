@@ -40,15 +40,15 @@
 [Info] 52MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
 [Info] 52MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColoredHadronization to task list.[0m
 [Info] 52MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_out.dat) added to task list.[0m
-[Info] 52MB  JetScape::DetermineTaskList() -- JetScapeWriterHepMC (test_out.hepmc) added to task list.[0m
-[Info] 52MB  ================================================================[0m
-[Info] 52MB  Found 5 Modules Initialize them ... [0m
-[Info] 52MB  Set Hydro,JetEnergylossManager and IS Pointers for SignalManager to create Signal/Slots[0m
-[Info] 52MB  Created JetScapeSignalManager Instance[0m
-[Info] 52MB  Calling JetScape InitTasks()...[0m
-[Info] 52MB  Initialize HardProcess : UninitializedPythiaGun ...[0m
-[Info] 52MB  [35mPythia Gun with FSR_on: 0[0m
-[Info] 52MB  [35mPythia Gun with 7 < pTHat < 9[0m
+[Info] 53MB  JetScape::DetermineTaskList() -- JetScapeWriterHepMC (test_out.hepmc) added to task list.[0m
+[Info] 53MB  ================================================================[0m
+[Info] 53MB  Found 5 Modules Initialize them ... [0m
+[Info] 53MB  Set Hydro,JetEnergylossManager and IS Pointers for SignalManager to create Signal/Slots[0m
+[Info] 53MB  Created JetScapeSignalManager Instance[0m
+[Info] 53MB  Calling JetScape InitTasks()...[0m
+[Info] 53MB  Initialize HardProcess : UninitializedPythiaGun ...[0m
+[Info] 53MB  [35mPythia Gun with FSR_on: 0[0m
+[Info] 53MB  [35mPythia Gun with 7 < pTHat < 9[0m
 
  *-------  PYTHIA Process Initialization  --------------------------*
  |                                                                  |
@@ -140,5 +140,5 @@
 [Info] 68MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 1.169869 seconds.
+CPU time: 0.643834 seconds.
 Real time: 1.000000 seconds.

@@ -27,8 +27,8 @@
 [Info] | See COPYING file for details.                                |[0m
 [Info] |                                                              |[0m
 [Info] *--------------------------------------------------------------*[0m
-[Info] 48MB  [1m[31mInitialize JetScape ...[0m
-[Info] 48MB  Created JetScapeXML Instance[0m
+[Info] 49MB  [1m[31mInitialize JetScape ...[0m
+[Info] 49MB  Created JetScapeXML Instance[0m
 [Info] 49MB  Open XML Main file : jetscape_main.xml[0m
 [Info] 49MB  Open XML User file : jetscape_user.xml[0m
 [Info] 49MB  ================================================================[0m
@@ -140,5 +140,5 @@
 [Info] 65MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 1.105072 seconds.
-Real time: 2.000000 seconds.
+CPU time: 0.652776 seconds.
+Real time: 0.000000 seconds.

@@ -37,9 +37,9 @@
 [Info] 49MB  nReuseHydro: 10[0m
 [Info] 49MB  JetScapeTaskSupport found seed 1, using individual engines with seeds created from 1[0m
 [Info] 49MB  JetScape::DetermineTaskList() -- Initial State: Added Trento module to task list.[0m
-[Info] 52MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
-[Info] 52MB  JetScape::DetermineTaskList() -- PreDynamics: Added NullPreDynamics to task list.[0m
-[Info] 52MB  JetScape::DetermineTaskList() -- Hydro: Added Brick to task list.[0m
+[Info] 53MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
+[Info] 53MB  JetScape::DetermineTaskList() -- PreDynamics: Added NullPreDynamics to task list.[0m
+[Info] 53MB  JetScape::DetermineTaskList() -- Hydro: Added Brick to task list.[0m
 [Info] 53MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
 [Info] 53MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColorlessHadronization to task list.[0m
 [Info] 53MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_out.dat) added to task list.[0m
@@ -66,14 +66,14 @@
 # 7000 events generated
 # 8000 events generated
 # 9000 events generated
-[Info] 54MB  #########21.3052 11.42[0m
-[Info] 54MB  The total energy density cut for centrality = [50, 60] (%) is:[0m
-[Info] 54MB  158.738<dE/deta(eta=0)<296.143[0m
-[Info] 54MB  Pb Pb 1  --random-seed 1350755646 --cross-section 6.400000 --beam-energy 2760.000000 --reduced-thickness 0.000000 --fluctuation 1.200000 --nucleon-width 0.900000 --nucleon-min-dist 1.200000 --mean-coeff 1.000000 --std-coeff 3.000000 --skew-coeff 0.000000 --skew-type 1 --jacobian 0.800000 --quiet  --normalization 13.900000 --ncoll  --xy-max 15.000000 --xy-step 0.300000 --eta-max 0.200000 --eta-step 0.200000 --s-max 296.142663 --s-min 158.737749[0m
-[Info] 54MB  TRENTo set[0m
-[Info] 54MB  Initialize HardProcess : UninitializedPythiaGun ...[0m
-[Info] 54MB  [35mPythia Gun with FSR_on: 0[0m
-[Info] 54MB  [35mPythia Gun with 20 < pTHat < 30[0m
+[Info] 55MB  #########21.3052 11.42[0m
+[Info] 55MB  The total energy density cut for centrality = [50, 60] (%) is:[0m
+[Info] 55MB  158.738<dE/deta(eta=0)<296.143[0m
+[Info] 55MB  Pb Pb 1  --random-seed 1350755646 --cross-section 6.400000 --beam-energy 2760.000000 --reduced-thickness 0.000000 --fluctuation 1.200000 --nucleon-width 0.900000 --nucleon-min-dist 1.200000 --mean-coeff 1.000000 --std-coeff 3.000000 --skew-coeff 0.000000 --skew-type 1 --jacobian 0.800000 --quiet  --normalization 13.900000 --ncoll  --xy-max 15.000000 --xy-step 0.300000 --eta-max 0.200000 --eta-step 0.200000 --s-max 296.142663 --s-min 158.737749[0m
+[Info] 55MB  TRENTo set[0m
+[Info] 55MB  Initialize HardProcess : UninitializedPythiaGun ...[0m
+[Info] 55MB  [35mPythia Gun with FSR_on: 0[0m
+[Info] 55MB  [35mPythia Gun with 20 < pTHat < 30[0m
 
  *-------  PYTHIA Process Initialization  --------------------------*
  |                                                                  |
@@ -198,5 +198,5 @@
 [Info] 71MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 36.108128 seconds.
-Real time: 36.000000 seconds.
+CPU time: 19.301952 seconds.
+Real time: 19.000000 seconds.

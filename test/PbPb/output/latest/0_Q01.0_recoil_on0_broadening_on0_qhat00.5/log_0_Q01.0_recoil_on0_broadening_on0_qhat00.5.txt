@@ -181,14 +181,14 @@
 
  --------  End PYTHIA Particle Data Table  -----------------------------------------------------------------------------------------
 
-[Info] 59MB  Connect HadronizationManager Signal to Energy Loss ...[0m
-[Info] 59MB  JetScape Stream Writer initialized with output file = test_out.dat[0m
-[Info] 59MB  JetScape HepMC Writer initialized with output file = test_out.hepmc[0m
-[Info] 59MB  [1m[31mRun JetScape ...[0m
-[Info] 59MB  [1m[31mNumber of Events = 10[0m
-[Info] 59MB  [1m[31mRun Event # = 0[0m
-[Info] 59MB   Exec TRENTo initial condition [0m
-[Info] 59MB   TRENTo event info: [0m
+[Info] 60MB  Connect HadronizationManager Signal to Energy Loss ...[0m
+[Info] 60MB  JetScape Stream Writer initialized with output file = test_out.dat[0m
+[Info] 60MB  JetScape HepMC Writer initialized with output file = test_out.hepmc[0m
+[Info] 60MB  [1m[31mRun JetScape ...[0m
+[Info] 60MB  [1m[31mNumber of Events = 10[0m
+[Info] 60MB  [1m[31mRun Event # = 0[0m
+[Info] 60MB   Exec TRENTo initial condition [0m
+[Info] 60MB   TRENTo event info: [0m
 [Info] 60MB  b	npart	ncoll	ET	(x-com, y-com) (fm)[0m
 [Info] 60MB  12.4827	37	40	167.272	(0.419844, 0.440687)[0m
 [Info] 60MB   Load TRENTo density and ncoll density to JETSCAPE memory [0m
@@ -198,5 +198,5 @@
 [Info] 69MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 35.231144 seconds.
-Real time: 35.000000 seconds.
+CPU time: 19.250278 seconds.
+Real time: 19.000000 seconds.
