@@ -163,5 +163,5 @@
 [Info] 60MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 0.503304 seconds.
+CPU time: 1.249875 seconds.
 Real time: 1.000000 seconds.
