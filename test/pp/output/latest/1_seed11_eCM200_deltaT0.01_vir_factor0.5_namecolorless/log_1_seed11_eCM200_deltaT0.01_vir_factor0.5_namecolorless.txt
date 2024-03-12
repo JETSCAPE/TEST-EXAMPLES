@@ -29,14 +29,14 @@
 [Info] *--------------------------------------------------------------*[0m
 [Info] 45MB  [1m[31mInitialize JetScape ...[0m
 [Info] 45MB  Created JetScapeXML Instance[0m
-[Info] 45MB  Open XML Main file : jetscape_main.xml[0m
-[Info] 45MB  Open XML User file : jetscape_user.xml[0m
-[Info] 45MB  ================================================================[0m
-[Info] 45MB  nEvents = 10[0m
-[Info] 45MB  Reuse Hydro:  true [0m
-[Info] 45MB  nReuseHydro: 10[0m
-[Info] 45MB  JetScapeTaskSupport found seed 11, using individual engines with seeds created from 11[0m
-[Info] 48MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
+[Info] 46MB  Open XML Main file : jetscape_main.xml[0m
+[Info] 46MB  Open XML User file : jetscape_user.xml[0m
+[Info] 46MB  ================================================================[0m
+[Info] 46MB  nEvents = 10[0m
+[Info] 46MB  Reuse Hydro:  true [0m
+[Info] 46MB  nReuseHydro: 10[0m
+[Info] 46MB  JetScapeTaskSupport found seed 11, using individual engines with seeds created from 11[0m
+[Info] 49MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
 [Info] 49MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
 [Info] 49MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColorlessHadronization to task list.[0m
 [Info] 49MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_out.dat) added to task list.[0m
@@ -154,14 +154,14 @@
 
  --------  End PYTHIA Particle Data Table  -----------------------------------------------------------------------------------------
 
-[Info] 56MB  Connect HadronizationManager Signal to Energy Loss ...[0m
-[Info] 56MB  JetScape Stream Writer initialized with output file = test_out.dat[0m
-[Info] 56MB  JetScape HepMC Writer initialized with output file = test_out.hepmc[0m
-[Info] 56MB  [1m[31mRun JetScape ...[0m
-[Info] 56MB  [1m[31mNumber of Events = 10[0m
-[Info] 56MB  [1m[31mRun Event # = 0[0m
+[Info] 57MB  Connect HadronizationManager Signal to Energy Loss ...[0m
+[Info] 57MB  JetScape Stream Writer initialized with output file = test_out.dat[0m
+[Info] 57MB  JetScape HepMC Writer initialized with output file = test_out.hepmc[0m
+[Info] 57MB  [1m[31mRun JetScape ...[0m
+[Info] 57MB  [1m[31mNumber of Events = 10[0m
+[Info] 57MB  [1m[31mRun Event # = 0[0m
 [Info] 59MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 1.451008 seconds.
+CPU time: 0.868551 seconds.
 Real time: 1.000000 seconds.
