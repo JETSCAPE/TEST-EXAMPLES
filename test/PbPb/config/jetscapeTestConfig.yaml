@@ -16,13 +16,13 @@ parameter_scan:
     
   parameter2:
     label: 'recoil_on'
-    values: [0]
-    # values: [0, 1]
+    # values: [0]
+    values: [0, 1]
     
   parameter3:
     label: 'broadening_on'
-    values: [0]
-    # values: [0, 1]
+    # values: [0]
+    values: [0, 1]
 
   parameter4:
     label: 'qhat0'
