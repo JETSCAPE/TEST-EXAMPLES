@@ -34,17 +34,9 @@ massif-visualizer \
 kcachegrind \
 kcachegrind-converters \
 kmod \
+intel-basekit \
 #zlib1g-dev \
 && rm -rf /var/lib/apt/lists/*
-
-# Install vTune
-RUN cd /tmp \
-&& wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \
-&& apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \
-&& rm GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB \
-&& echo "deb https://apt.repos.intel.com/oneapi all main" | tee /etc/apt/sources.list.d/oneAPI.list \
-&& apt update \
-&& apt install -y intel-oneapi-vtune
 
 RUN ["/bin/bash", "-c", "source /opt/intel/oneapi/vtune/latest/env/vars.sh"]
 
