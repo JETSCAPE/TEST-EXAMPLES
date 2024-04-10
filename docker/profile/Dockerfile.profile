@@ -1,5 +1,5 @@
 # Build from the official docker python base image, based on Debian
-FROM ubuntu:focal
+FROM ubuntu:latest
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Install pre-reqs (commented ones are already in base image)
