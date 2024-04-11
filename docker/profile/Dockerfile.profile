@@ -73,23 +73,17 @@ scipy \
 seaborn \
 tqdm
 
-# We need cmake >= 3.13.5 for the analysis package heppy
-# RUN cd /opt \
-# && wget https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Linux-x86_64.sh \
-# && echo "y" | bash ./cmake-3.17.0-Linux-x86_64.sh \
-# && ln -s /opt/cmake-3.17.0-Linux-x86_64/bin/* /usr/local/bin
-
 # Install ROOT6 v6-26-06 from source
 ENV ROOTSYS="/usr/local/root"
 ENV PATH="${ROOTSYS}/bin:${PATH}"
 ENV LD_LIBRARY_PATH="${ROOTSYS}/lib:${LD_LIBRARY_PATH}"
 ENV PYTHONPATH="${ROOTSYS}/lib"
-RUN cd /usr/local \
-&& wget https://root.cern/download/root_v6.26.06.Linux-ubuntu20-x86_64-gcc9.4.tar.gz \
-&& tar -xzvf root_v6.26.06.Linux-ubuntu20-x86_64-gcc9.4.tar.gz\
-&& rm root_v6.26.06.Linux-ubuntu20-x86_64-gcc9.4.tar.gz
-
-RUN ["/bin/bash", "-c", "source /usr/local/root/bin/thisroot.sh"]
+RUN mkdir -p ${ROOTSYS} && mkdir -p ${HOME}/root && cd ${HOME}/root \
+&& git clone --branch v6-26-06 --depth=1 https://github.com/root-project/root.git src \
+&& mkdir build && cd build \
+&& cmake ../src -DCMAKE_CXX_STANDARD=14 -DCMAKE_INSTALL_PREFIX=${ROOTSYS} \
+&& make -j8 install \
+&& rm -r ${HOME}/root
 
 # Install HepMC 3.2.6
 RUN curl -SL http://hepmc.web.cern.ch/hepmc/releases/HepMC3-3.2.6.tar.gz | tar -xvzC /usr/local \
@@ -118,7 +112,6 @@ ENV EIGEN3_ROOT /usr/include/eigen3
 ENV PYTHIA8DIR /usr/local/
 ENV PYTHIA8 /usr/local/
 ENV PYTHIA8_ROOT_DIR /usr/local/
-ENV ONEAPI_DIR /opt/intel/oneapi
 ENV PATH $PATH:$PYTHIA8DIR/bin
 
 # Build heppy (various HEP tools via python)
@@ -141,14 +134,12 @@ RUN curl -SLk https://sourceforge.net/projects/modules/files/Modules/modules-4.5
 # source /usr/local/init/profile.sh
 # module load heppy/1.0
 
-# Create ID and the user
-ARG USER_UID=1234
-ARG USER_GID=$USER_UID
-
-RUN groupadd --gid $USER_GID $username \
-    && useradd --uid $USER_UID --gid $USER_GID -m $username 
-
-ENV PATH $PATH:/opt/intel/oneapi/vtune/latest/bin64
+# Set up a user group
+ARG id=1234
+RUN groupadd -g ${id} ${username} \
+&& useradd --create-home --home-dir /home/${username} -u ${id} -g ${username} ${username}
+USER ${username}
 ENV HOME /home/${username}
 WORKDIR ${HOME}
+
 ENTRYPOINT /bin/bash
