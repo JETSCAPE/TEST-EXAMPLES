@@ -38,7 +38,7 @@ kmod \
 #zlib1g-dev \
 && rm -rf /var/lib/apt/lists/*
 
-# Install vTune
+# Install intel-basekit
 RUN cd /tmp \
 && wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB | \
   gpg --dearmor | tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null \
@@ -73,24 +73,18 @@ scipy \
 seaborn \
 tqdm
 
-# Install ROOT6 v6-26-06 from source
+# Install ROOT6 v6-26-06 (root excluded)
 ENV ROOTSYS="/usr/local/root"
 ENV PATH="${ROOTSYS}/bin:${PATH}"
 ENV LD_LIBRARY_PATH="${ROOTSYS}/lib:${LD_LIBRARY_PATH}"
 ENV PYTHONPATH="${ROOTSYS}/lib"
-RUN mkdir -p ${ROOTSYS} && mkdir -p ${HOME}/root && cd ${HOME}/root \
-&& git clone --branch v6-26-06 --depth=1 https://github.com/root-project/root.git src \
-&& mkdir build && cd build \
-&& cmake ../src -DCMAKE_CXX_STANDARD=14 -DCMAKE_INSTALL_PREFIX=${ROOTSYS} \
-&& make -j8 install \
-&& rm -r ${HOME}/root
 
 # Install HepMC 3.2.6
 RUN curl -SL http://hepmc.web.cern.ch/hepmc/releases/HepMC3-3.2.6.tar.gz | tar -xvzC /usr/local \
 && cd /usr/local \
 && mkdir hepmc3-build \
 && cd hepmc3-build \
-&& cmake ../HepMC3-3.2.6 -DCMAKE_INSTALL_PREFIX=/usr/local -DHEPMC3_ENABLE_ROOTIO=ON -DROOT_DIR=${ROOTSYS} -DHEPMC3_BUILD_EXAMPLES=ON \
+&& cmake ../HepMC3-3.2.6 -DCMAKE_INSTALL_PREFIX=/usr/local -DHEPMC3_ENABLE_ROOTIO=OFF -DHEPMC3_BUILD_EXAMPLES=ON \
 && make -j8 install \
 && rm -r /usr/local/hepmc3-build
 ENV LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"
@@ -114,14 +108,6 @@ ENV PYTHIA8 /usr/local/
 ENV PYTHIA8_ROOT_DIR /usr/local/
 ENV PATH $PATH:$PYTHIA8DIR/bin
 
-# Build heppy (various HEP tools via python)
-RUN cd / \
-&& git clone --depth 1 --branch v1.3.8.8 https://github.com/matplo/heppy.git \
-&& cd heppy \
-&& ./external/fastjet/build.sh \
-&& ./external/hepmc2/build.sh \
-&& ./cpptools/build.sh
-
 # Install environment modules
 RUN curl -SLk https://sourceforge.net/projects/modules/files/Modules/modules-4.5.1/modules-4.5.1.tar.gz \
 | tar -xvzC /usr/local \
@@ -129,10 +115,6 @@ RUN curl -SLk https://sourceforge.net/projects/modules/files/Modules/modules-4.5
 && ./configure --prefix=/usr/local --modulefilesdir=/heppy/modules \
 && make -j8 \
 && make -j8 install
-
-# To load heppy, from inside the container:
-# source /usr/local/init/profile.sh
-# module load heppy/1.0
 
 # Set up a user group
 ARG id=1234
