@@ -11,7 +11,7 @@ These steps show how to pull the Docker image, create a container based on the i
 This command pulls the profiler image from DockerHub, ensures that host processes will be available in the container, mounts the host system's home directory in the container as **/home/jetscape-user**, and runs the container.
 
 ```
-docker run --pid=host --cap-add=SYS_ADMIN --cap-add=SYS_PTRACE -it -v ~/:/home/jetscape-user --name myJetProfile jetscape/profile:beta
+docker run --pid=host --cap-add=SYS_ADMIN --cap-add=SYS_PTRACE -it -v ~/:/home/jetscape-user --name myJetProfile jetscape/profile:v0.6
 ```
 
 ### Source the vTune Profiler
