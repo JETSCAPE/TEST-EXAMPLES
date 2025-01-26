@@ -29,7 +29,7 @@ tclsh \
 tcl-dev \
 libxft-dev \
 libxext-dev \
-libfftw3-3 \
+libfftw3-dev \
 #zlib1g-dev \
 && rm -rf /var/lib/apt/lists/*
 
