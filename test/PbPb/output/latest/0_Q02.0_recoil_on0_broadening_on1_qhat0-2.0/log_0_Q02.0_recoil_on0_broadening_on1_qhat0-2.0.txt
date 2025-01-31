@@ -29,14 +29,14 @@
 [Info] *--------------------------------------------------------------*[0m
 [Info] 47MB  [1m[31mInitialize JetScape ...[0m
 [Info] 47MB  Created JetScapeXML Instance[0m
-[Info] 47MB  Open XML Main file : jetscape_main.xml[0m
-[Info] 47MB  Open XML User file : jetscape_user.xml[0m
-[Info] 47MB  ================================================================[0m
-[Info] 47MB  nEvents = 10[0m
-[Info] 47MB  Reuse Hydro:  true [0m
-[Info] 47MB  nReuseHydro: 10[0m
-[Info] 47MB  JetScapeTaskSupport found seed 1, using individual engines with seeds created from 1[0m
-[Info] 47MB  JetScape::DetermineTaskList() -- Initial State: Added Trento module to task list.[0m
+[Info] 48MB  Open XML Main file : jetscape_main.xml[0m
+[Info] 48MB  Open XML User file : jetscape_user.xml[0m
+[Info] 48MB  ================================================================[0m
+[Info] 48MB  nEvents = 10[0m
+[Info] 48MB  Reuse Hydro:  true [0m
+[Info] 48MB  nReuseHydro: 10[0m
+[Info] 48MB  JetScapeTaskSupport found seed 1, using individual engines with seeds created from 1[0m
+[Info] 48MB  JetScape::DetermineTaskList() -- Initial State: Added Trento module to task list.[0m
 [Info] 51MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
 [Info] 51MB  JetScape::DetermineTaskList() -- PreDynamics: Added NullPreDynamics to task list.[0m
 [Info] 51MB  JetScape::DetermineTaskList() -- Hydro: Added Brick to task list.[0m
@@ -69,7 +69,7 @@
 [Info] 53MB  #########21.3052 11.42[0m
 [Info] 53MB  The total energy density cut for centrality = [50, 60] (%) is:[0m
 [Info] 53MB  158.738<dE/deta(eta=0)<296.143[0m
-[Info] 53MB  Pb Pb 1  --random-seed 1350755646 --cross-section 6.400000 --beam-energy 2760.000000 --reduced-thickness 0.000000 --fluctuation 1.200000 --nucleon-width 0.900000 --nucleon-min-dist 1.200000 --mean-coeff 1.000000 --std-coeff 3.000000 --skew-coeff 0.000000 --skew-type 1 --jacobian 0.800000 --quiet  --normalization 13.900000 --ncoll  --xy-max 15.000000 --xy-step 0.300000 --eta-max 0.200000 --eta-step 0.200000 --s-max 296.142663 --s-min 158.737749[0m
+[Info] 53MB  Pb Pb 1  --random-seed 1350755646 --cross-section 6.400000 --beam-energy 2760.000000 --reduced-thickness 0.000000 --fluctuation 1.200000 --nucleon-width 0.900000 --nucleon-min-dist 1.200000 --mean-coeff 1.000000 --std-coeff 3.000000 --skew-coeff 0.000000 --skew-type 1 --jacobian 0.800000 --quiet  --normalization 13.900000 --ncoll  --xy-max 15.000000 --xy-step 0.300000 --eta-max 0.000000 --eta-step 0.200000 --s-max 296.142663 --s-min 158.737749[0m
 [Info] 53MB  TRENTo set[0m
 [Info] 53MB  Initialize HardProcess : UninitializedPythiaGun ...[0m
 [Info] 53MB  [35mPythia Gun with FSR_on: 0[0m
@@ -189,17 +189,25 @@
 [Info] 59MB  [1m[31mRun Event # = 0[0m
 [Info] 59MB   Exec TRENTo initial condition [0m
 [Info] 59MB   TRENTo event info: [0m
-[Info] 60MB  b	npart	ncoll	ET	(x-com, y-com) (fm)[0m
-[Info] 60MB  12.4827	37	40	167.272	(0.419844, 0.440687)[0m
-[Info] 60MB   Load TRENTo density and ncoll density to JETSCAPE memory [0m
-[Info] 60MB  20000 density elements[0m
-[Info] 60MB  10000 ncoll elements[0m
-[Info] 69MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.01486[0m
-[1m[31m[Warning] virtual void Matter::DoEnergyLoss(double, double, double, std::vector<Jetscape::Parton>&, std::vector<Jetscape::Parton>&) : velocityMod=1.0148569941965845942[0m
-[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : i=0 MATTER -- status: 101 color: 1075  1076[0m
-[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : pid = 21 E = 0.431646 px = -0.11458 py = -0.107129  pz = -0.409012 virtuality = -0.0055774 form_time in fm = 85.0035 split time = 88.1035[0m
-[Info] 69MB  [1m[30mJetScape finished after 10 events![0m
+[Info] 59MB  b	npart	ncoll	ET	(x-com, y-com) (fm)[0m
+[Info] 59MB  12.4827	37	40	167.272	(0.419844, 0.440687)[0m
+[Info] 59MB   Load TRENTo density and ncoll density to JETSCAPE memory [0m
+[Info] 59MB  10000 density elements[0m
+[Info] 59MB  10000 ncoll elements[0m
+[Info] 67MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.08983[0m
+[1m[31m[Warning] virtual void Matter::DoEnergyLoss(double, double, double, std::vector<Jetscape::Parton>&, std::vector<Jetscape::Parton>&) : velocityMod=1.0898328200492664042[0m
+[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : i=0 MATTER -- status: 101 color: 101  1052[0m
+[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : pid = 21 E = 0.397478 px = 0.192603 py = -0.00617247  pz = 0.387962 virtuality = -0.0296601 form_time in fm = 28.8051 split time = 30.3051[0m
+[Info] 67MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.10364[0m
+[1m[31m[Warning] virtual void Matter::DoEnergyLoss(double, double, double, std::vector<Jetscape::Parton>&, std::vector<Jetscape::Parton>&) : velocityMod=1.1036389889239612838[0m
+[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : i=0 MATTER -- status: 101 color: 1221  1222[0m
+[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : pid = 21 E = 0.391513 px = -0.133047 py = 0.102985  pz = 0.397987 virtuality = -0.0334185 form_time in fm = 3.89568 split time = 6.69568[0m
+[Info] 67MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.07393[0m
+[1m[31m[Warning] virtual void Matter::DoEnergyLoss(double, double, double, std::vector<Jetscape::Parton>&, std::vector<Jetscape::Parton>&) : velocityMod=1.0739277353917062729[0m
+[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : i=0 MATTER -- status: 101 color: 1207  1220[0m
+[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : pid = 21 E = 0.290963 px = 0.223389 py = 0.200955  pz = -0.0857567 virtuality = -0.0129801 form_time in fm = 4.93683 split time = 7.53683[0m
+[Info] 67MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 28.111963 seconds.
+CPU time: 29.179417 seconds.
 Real time: 29.000000 seconds.

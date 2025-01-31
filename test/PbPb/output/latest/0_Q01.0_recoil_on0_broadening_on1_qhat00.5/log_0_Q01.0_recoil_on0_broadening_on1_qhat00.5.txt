@@ -29,14 +29,14 @@
 [Info] *--------------------------------------------------------------*[0m
 [Info] 47MB  [1m[31mInitialize JetScape ...[0m
 [Info] 47MB  Created JetScapeXML Instance[0m
-[Info] 48MB  Open XML Main file : jetscape_main.xml[0m
-[Info] 48MB  Open XML User file : jetscape_user.xml[0m
-[Info] 48MB  ================================================================[0m
-[Info] 48MB  nEvents = 10[0m
-[Info] 48MB  Reuse Hydro:  true [0m
-[Info] 48MB  nReuseHydro: 10[0m
-[Info] 48MB  JetScapeTaskSupport found seed 1, using individual engines with seeds created from 1[0m
-[Info] 48MB  JetScape::DetermineTaskList() -- Initial State: Added Trento module to task list.[0m
+[Info] 47MB  Open XML Main file : jetscape_main.xml[0m
+[Info] 47MB  Open XML User file : jetscape_user.xml[0m
+[Info] 47MB  ================================================================[0m
+[Info] 47MB  nEvents = 10[0m
+[Info] 47MB  Reuse Hydro:  true [0m
+[Info] 47MB  nReuseHydro: 10[0m
+[Info] 47MB  JetScapeTaskSupport found seed 1, using individual engines with seeds created from 1[0m
+[Info] 47MB  JetScape::DetermineTaskList() -- Initial State: Added Trento module to task list.[0m
 [Info] 51MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
 [Info] 51MB  JetScape::DetermineTaskList() -- PreDynamics: Added NullPreDynamics to task list.[0m
 [Info] 51MB  JetScape::DetermineTaskList() -- Hydro: Added Brick to task list.[0m
@@ -69,7 +69,7 @@
 [Info] 53MB  #########21.3052 11.42[0m
 [Info] 53MB  The total energy density cut for centrality = [50, 60] (%) is:[0m
 [Info] 53MB  158.738<dE/deta(eta=0)<296.143[0m
-[Info] 53MB  Pb Pb 1  --random-seed 1350755646 --cross-section 6.400000 --beam-energy 2760.000000 --reduced-thickness 0.000000 --fluctuation 1.200000 --nucleon-width 0.900000 --nucleon-min-dist 1.200000 --mean-coeff 1.000000 --std-coeff 3.000000 --skew-coeff 0.000000 --skew-type 1 --jacobian 0.800000 --quiet  --normalization 13.900000 --ncoll  --xy-max 15.000000 --xy-step 0.300000 --eta-max 0.200000 --eta-step 0.200000 --s-max 296.142663 --s-min 158.737749[0m
+[Info] 53MB  Pb Pb 1  --random-seed 1350755646 --cross-section 6.400000 --beam-energy 2760.000000 --reduced-thickness 0.000000 --fluctuation 1.200000 --nucleon-width 0.900000 --nucleon-min-dist 1.200000 --mean-coeff 1.000000 --std-coeff 3.000000 --skew-coeff 0.000000 --skew-type 1 --jacobian 0.800000 --quiet  --normalization 13.900000 --ncoll  --xy-max 15.000000 --xy-step 0.300000 --eta-max 0.000000 --eta-step 0.200000 --s-max 296.142663 --s-min 158.737749[0m
 [Info] 53MB  TRENTo set[0m
 [Info] 53MB  Initialize HardProcess : UninitializedPythiaGun ...[0m
 [Info] 53MB  [35mPythia Gun with FSR_on: 0[0m
@@ -141,23 +141,23 @@
 
  --------  End PYTHIA Particle Data Table  -----------------------------------------------------------------------------------------
 
-[Info] 59MB  Initialize PreequilibriumDynamics : NullPreDynamics ...[0m
-[Info] 59MB  Initialize FluidDynamics : Brick ...[0m
-[Info] 59MB  Initialize JetEnergyLoss Manager ...[0m
-[Info] 59MB  Found 1 Eloss Manager Tasks/Modules Initialize them ... [0m
-[Info] 59MB  Initialize JetEnergyLoss ...[0m
-[Info] 59MB  Eloss shower with deltaT = 0.1 and maxT = 20[0m
-[Info] 59MB  Found 1 Eloss Tasks/Modules Initialize them ... [0m
-[Info] 59MB  Initialize Matter ...[0m
-[Info] 59MB  [35mMATTER input parameter[0m
-[Info] 59MB  [35mmatter shower on: 1[0m
-[Info] 59MB  [35min_vac: 0  brick_med: 0  recoil_on: 0, tStart =0.6[0m
-[Info] 59MB  [35mQ0: 1 vir_factor: 0.25 initial_virtuality_pT: 1  qhat0: 0.5 alphas: 0.25, QhatParametrizationType=0  qhatA: 10 qhatB:  10  qhatC: 1 qhatD:  0 hydro_Tc: 0.16 brick_length: 5[0m
-[Info] 59MB  Connect JetEnergyLossManager Signal to Hard Process ...[0m
-[Info] 59MB  Initialize Hadronization Manager ...[0m
-[Info] 59MB  Found 1 Hadronization Manager Tasks/Modules Initialize them ... [0m
-[Info] 59MB  Found 1 Hadronization Tasks/Modules Initialize them ... [0m
-[Info] 59MB  Pythia decays are turned on for tau0Max < 10[0m
+[Info] 58MB  Initialize PreequilibriumDynamics : NullPreDynamics ...[0m
+[Info] 58MB  Initialize FluidDynamics : Brick ...[0m
+[Info] 58MB  Initialize JetEnergyLoss Manager ...[0m
+[Info] 58MB  Found 1 Eloss Manager Tasks/Modules Initialize them ... [0m
+[Info] 58MB  Initialize JetEnergyLoss ...[0m
+[Info] 58MB  Eloss shower with deltaT = 0.1 and maxT = 20[0m
+[Info] 58MB  Found 1 Eloss Tasks/Modules Initialize them ... [0m
+[Info] 58MB  Initialize Matter ...[0m
+[Info] 58MB  [35mMATTER input parameter[0m
+[Info] 58MB  [35mmatter shower on: 1[0m
+[Info] 58MB  [35min_vac: 0  brick_med: 0  recoil_on: 0, tStart =0.6[0m
+[Info] 58MB  [35mQ0: 1 vir_factor: 0.25 initial_virtuality_pT: 1  qhat0: 0.5 alphas: 0.25, QhatParametrizationType=0  qhatA: 10 qhatB:  10  qhatC: 1 qhatD:  0 hydro_Tc: 0.16 brick_length: 5[0m
+[Info] 58MB  Connect JetEnergyLossManager Signal to Hard Process ...[0m
+[Info] 58MB  Initialize Hadronization Manager ...[0m
+[Info] 58MB  Found 1 Hadronization Manager Tasks/Modules Initialize them ... [0m
+[Info] 58MB  Found 1 Hadronization Tasks/Modules Initialize them ... [0m
+[Info] 58MB  Pythia decays are turned on for tau0Max < 10[0m
 
  *-------  PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings (changes only)  ------------------* 
  |                                                                                                                 | 
@@ -188,46 +188,26 @@
 [Info] 59MB  [1m[31mNumber of Events = 10[0m
 [Info] 59MB  [1m[31mRun Event # = 0[0m
 [Info] 59MB   Exec TRENTo initial condition [0m
-[Info] 60MB   TRENTo event info: [0m
-[Info] 60MB  b	npart	ncoll	ET	(x-com, y-com) (fm)[0m
-[Info] 60MB  12.4827	37	40	167.272	(0.419844, 0.440687)[0m
-[Info] 60MB   Load TRENTo density and ncoll density to JETSCAPE memory [0m
-[Info] 60MB  20000 density elements[0m
-[Info] 60MB  10000 ncoll elements[0m
-[Info] 68MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.13712[0m
+[Info] 59MB   TRENTo event info: [0m
+[Info] 59MB  b	npart	ncoll	ET	(x-com, y-com) (fm)[0m
+[Info] 59MB  12.4827	37	40	167.272	(0.419844, 0.440687)[0m
+[Info] 59MB   Load TRENTo density and ncoll density to JETSCAPE memory [0m
+[Info] 59MB  10000 density elements[0m
+[Info] 59MB  10000 ncoll elements[0m
+[Info] 66MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.13712[0m
 [1m[31m[Warning] virtual void Matter::DoEnergyLoss(double, double, double, std::vector<Jetscape::Parton>&, std::vector<Jetscape::Parton>&) : velocityMod=1.1371228337623371374[0m
 [1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : i=0 MATTER -- status: 101 color: 2010  2002[0m
 [1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : pid = 21 E = 0.246957 px = -0.196338 py = 0.165859  pz = 0.113147 virtuality = -0.0178724 form_time in fm = 14.4295 split time = 17.8295[0m
-[Info] 68MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.0899[0m
+[Info] 66MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.0899[0m
 [1m[31m[Warning] virtual void Matter::DoEnergyLoss(double, double, double, std::vector<Jetscape::Parton>&, std::vector<Jetscape::Parton>&) : velocityMod=1.0899026295652398666[0m
 [1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : i=0 MATTER -- status: 101 color: 2010  2002[0m
 [1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : pid = 21 E = 0.246957 px = -0.14894 py = 0.210441  pz = -0.0773185 virtuality = -0.0114589 form_time in fm = 14.4295 split time = 17.8295[0m
-[Info] 68MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.03095[0m
+[Info] 66MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.03095[0m
 [1m[31m[Warning] virtual void Matter::DoEnergyLoss(double, double, double, std::vector<Jetscape::Parton>&, std::vector<Jetscape::Parton>&) : velocityMod=1.0309526247498144169[0m
 [1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : i=0 MATTER -- status: 101 color: 2010  2002[0m
 [1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : pid = 21 E = 0.246957 px = 0.190596 py = 0.165776  pz = 0.0318323 virtuality = -0.0038339 form_time in fm = 14.4295 split time = 17.8295[0m
-[Info] 69MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.2674[0m
-[1m[31m[Warning] virtual void Matter::DoEnergyLoss(double, double, double, std::vector<Jetscape::Parton>&, std::vector<Jetscape::Parton>&) : velocityMod=1.2673959830012346828[0m
-[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : i=0 MATTER -- status: 101 color: 104  1109[0m
-[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : pid = 21 E = 0.237129 px = 0.153396 py = 0.011052  pz = -0.258204 virtuality = -0.0340918 form_time in fm = 8.46406 split time = 8.76406[0m
-[Info] 69MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.01109[0m
-[1m[31m[Warning] virtual void Matter::DoEnergyLoss(double, double, double, std::vector<Jetscape::Parton>&, std::vector<Jetscape::Parton>&) : velocityMod=1.0110921386224631657[0m
-[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : i=0 MATTER -- status: 101 color: 104  1109[0m
-[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : pid = 21 E = 0.237129 px = 0.0908235 py = 0.125763  pz = -0.182809 virtuality = -0.00125434 form_time in fm = 8.46406 split time = 8.76406[0m
-[Info] 69MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.37454[0m
-[1m[31m[Warning] virtual void Matter::DoEnergyLoss(double, double, double, std::vector<Jetscape::Parton>&, std::vector<Jetscape::Parton>&) : velocityMod=1.374538943698272675[0m
-[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : i=0 MATTER -- status: 101 color: 104  1109[0m
-[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : pid = 21 E = 0.237129 px = -0.215169 py = -0.13841  pz = -0.20195 virtuality = -0.0500086 form_time in fm = 8.46406 split time = 8.76406[0m
-[Info] 69MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.01251[0m
-[1m[31m[Warning] virtual void Matter::DoEnergyLoss(double, double, double, std::vector<Jetscape::Parton>&, std::vector<Jetscape::Parton>&) : velocityMod=1.0125108972613259262[0m
-[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : i=0 MATTER -- status: 101 color: 104  1109[0m
-[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : pid = 21 E = 0.237129 px = -0.154532 py = 0.0119599  pz = -0.183365 virtuality = -0.00141578 form_time in fm = 8.46406 split time = 8.76406[0m
-[Info] 69MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.09925[0m
-[1m[31m[Warning] virtual void Matter::DoEnergyLoss(double, double, double, std::vector<Jetscape::Parton>&, std::vector<Jetscape::Parton>&) : velocityMod=1.099250280994893858[0m
-[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : i=0 MATTER -- status: 101 color: 104  1109[0m
-[1m[31m[Warning] void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : pid = 21 E = 0.237129 px = 0.082292 py = 0.00508208  pz = -0.247281 virtuality = -0.0117156 form_time in fm = 8.46406 split time = 8.76406[0m
-[Info] 69MB  [1m[30mJetScape finished after 10 events![0m
+[Info] 67MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 29.313885 seconds.
-Real time: 30.000000 seconds.
+CPU time: 29.417908 seconds.
+Real time: 29.000000 seconds.
