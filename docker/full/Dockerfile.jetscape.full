@@ -29,7 +29,7 @@ tclsh \
 tcl-dev \
 libxft-dev \
 libxext-dev \
-libfftw3-3 \
+libfftw3-dev \
 #zlib1g-dev \
 && rm -rf /var/lib/apt/lists/*
 
@@ -55,6 +55,22 @@ scikit-learn \
 scipy \
 seaborn \
 tqdm
+
+# create a symbolic link from /usr/bin/python3 to /usr/bin/python
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
+# Install LHAPDF 6.5.5 in /usr/local
+RUN wget https://lhapdf.hepforge.org/downloads/?f=LHAPDF-6.5.5.tar.gz -O LHAPDF-6.5.5.tar.gz \
+&& tar xf LHAPDF-6.5.5.tar.gz \
+&& cd LHAPDF-6.5.5 \
+&& ./configure --prefix=/usr/local \
+&& make \
+&& make install \
+&& cd .. \
+&& rm -rf LHAPDF-6.5.5.tar.gz LHAPDF-6.5.5
+
+# Set a default environment variables for LHAPDF
+ENV LHAPATH='/home/jetscape-user/.local/share/LHAPDF'
 
 # We need cmake >= 3.13.5 for the analysis package heppy
 # RUN cd /opt \
@@ -136,6 +152,7 @@ RUN cd /home/jetscape-user/JETSCAPE/external_packages \
 && ./get_iSS.sh \
 && ./get_freestream-milne.sh \
 && ./get_lbtTab.sh \
+&& ./get_ipglasma.sh \
 && ./get_smash.sh \
 && cd /home/jetscape-user/JETSCAPE \
 && mkdir build \
@@ -143,7 +160,7 @@ RUN cd /home/jetscape-user/JETSCAPE/external_packages \
 
 # Build JETSCAPE
 RUN cd /home/jetscape-user/JETSCAPE/build \
-&& cmake .. -DUSE_ROOT=ON -DUSE_MUSIC=ON -DUSE_ISS=ON -DUSE_FREESTREAM=ON -DUSE_SMASH=ON
+&& cmake .. -DUSE_MUSIC=ON -DUSE_ISS=ON -DUSE_FREESTREAM=ON -DUSE_SMASH=ON -DUSE_IPGLASMA=ON
 
 RUN cd /home/jetscape-user/JETSCAPE/build \
 && make -j4
