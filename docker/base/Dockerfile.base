@@ -35,9 +35,11 @@ libfftw3-dev \
 
 RUN apt update && apt install -y python3-pip
 
+ENV CMAKE_POLICY_VERSION_MINIMUM=3.5
+
 # Install additional useful python packages
 RUN pip3 install --upgrade pip \
-&& pip3 install \
+&& pip3 install --no-cache-dir \
 emcee==2.2.1 \
 h5py \
 hic \
@@ -55,6 +57,22 @@ scikit-learn \
 scipy \
 seaborn \
 tqdm
+
+# create a symbolic link from /usr/bin/python3 to /usr/bin/python
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
+# Install LHAPDF 6.5.5 in /usr/local
+RUN wget https://lhapdf.hepforge.org/downloads/?f=LHAPDF-6.5.5.tar.gz -O LHAPDF-6.5.5.tar.gz \
+&& tar xf LHAPDF-6.5.5.tar.gz \
+&& cd LHAPDF-6.5.5 \
+&& ./configure --prefix=/usr/local \
+&& make \
+&& make install \
+&& cd .. \
+&& rm -rf LHAPDF-6.5.5.tar.gz LHAPDF-6.5.5
+
+# Set a default environment variables for LHAPDF
+ENV LHAPATH='/home/jetscape-user/.local/share/LHAPDF'
 
 # We need cmake >= 3.13.5 for the analysis package heppy
 # RUN cd /opt \
@@ -89,7 +107,7 @@ ARG pythiaV="8309"
 RUN curl -SLk http://pythia.org/download/pythia83/pythia${pythiaV}.tgz \
 | tar -xvzC /usr/local \
 && cd /usr/local/pythia${pythiaV} \
-&& ./configure --enable-shared --prefix=/usr/local/ --with-hepmc3=/usr/local/HepMC3-3.2.6 \
+&& ./configure --enable-shared --prefix=/usr/local/ --with-hepmc3=/usr/local/HepMC3-3.2.6 --with-lhapdf6 \
 && make -j8 \
 && make -j8 install
 
