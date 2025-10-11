@@ -87,11 +87,11 @@ RUN curl -SL http://hepmc.web.cern.ch/hepmc/releases/HepMC3-3.2.6.tar.gz | tar -
 ENV LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"
 
 # Install Pythia8 with HepMC3-3.2.6 (that is needed by SMASH)
-ARG pythiaV="8309"
+ARG pythiaV="8310"
 RUN curl -SLk http://pythia.org/download/pythia83/pythia${pythiaV}.tgz \
 | tar -xvzC /usr/local \
 && cd /usr/local/pythia${pythiaV} \
-&& ./configure --enable-shared --prefix=/usr/local/ --with-hepmc3=/usr/local/HepMC3-3.2.6 \
+&& ./configure --enable-shared --prefix=/usr/local/ --with-hepmc3=/usr/local/HepMC3-3.2.6 --with-lhapdf6 \
 && make -j8 \
 && make -j8 install
 
@@ -138,6 +138,7 @@ RUN cd /home/jetscape-user/X-SCAPE/external_packages \
 && ./get_iSS.sh \
 && ./get_freestream-milne.sh \
 && ./get_lbtTab.sh \
+&& ./get_ipglasma.sh \
 && ./get_smash.sh \
 && ./get_3dglauber.sh \
 && cd /home/jetscape-user/X-SCAPE \
@@ -146,7 +147,7 @@ RUN cd /home/jetscape-user/X-SCAPE/external_packages \
 
 # Build X-SCAPE
 RUN cd /home/jetscape-user/X-SCAPE/build \
-&& cmake .. -DUSE_ROOT=ON -DUSE_3DGlauber=ON -DUSE_MUSIC=ON -DUSE_ISS=ON -DUSE_FREESTREAM=ON -DUSE_SMASH=ON
+&& cmake .. -DUSE_ROOT=ON -DUSE_3DGlauber=ON -DUSE_MUSIC=ON -DUSE_ISS=ON -DUSE_FREESTREAM=ON -DUSE_SMASH=ON -DUSE_IPGLASMA=ON
 
 RUN cd /home/jetscape-user/X-SCAPE/build \
 && make -j4
