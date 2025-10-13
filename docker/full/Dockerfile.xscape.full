@@ -29,7 +29,7 @@ tclsh \
 tcl-dev \
 libxft-dev \
 libxext-dev \
-libfftw3-3 \
+libfftw3-dev \
 #zlib1g-dev \
 && rm -rf /var/lib/apt/lists/*
 
@@ -106,10 +106,8 @@ ENV PYTHIA8_ROOT_DIR /usr/local/
 ENV PATH $PATH:$PYTHIA8DIR/bin
 
 # Build heppy (various HEP tools via python)
-# As of 2025-10-11, build fails on --branch v1.3.8.8, so branch flag is removed.
-# git clone --depth 1 --branch v1.3.8.8 https://github.com/matplo/heppy.git
 RUN cd / \
-&& git clone https://github.com/matplo/heppy.git \
+&& git clone --depth 1 --branch v1.3.8.8 https://github.com/matplo/heppy.git \
 && cd heppy \
 && ./external/fastjet/build.sh \
 && ./external/hepmc2/build.sh \
