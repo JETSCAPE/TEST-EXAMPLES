@@ -1,21 +1,17 @@
-[Info] ------------------------------[0m
-[Info] | ... JetScape Framework ... |[0m
-[Info] ------------------------------[0m
-[Info] [0m
 [Info] *--------------------------------------------------------------*[0m
 [Info] |                                                              |[0m
-[Info] |                  /\                                          |[0m
-[Info] |                 /  \                                         |[0m
-[Info] |                / |  \                                        |[0m
-[Info] |               /  |   \              /\                       |[0m
-[Info] |              /   |    \          /\/  \                      |[0m
-[Info] |             / \  |  /  \      /\/   |  \/\                   |[0m
-[Info] |            /   \ | /    \    /    % | %   \                  |[0m
-[Info] |         __/     \|/      \__/      %|%     \/\__             |[0m
 [Info] |                                                              |[0m
-[Info] |                          JETSCAPE                            |[0m
+[Info] |                 %     /                                      |[0m
+[Info] |                  %   /                                       |[0m
+[Info] |                   % /             /\                         |[0m
+[Info] |                    X           /\/  \                        |[0m
+[Info] |                   / %       /\/   |  \/\                     |[0m
+[Info] |                  /   %     /    % | %   \                    |[0m
+[Info] |               __/     %___/      %|%     \/\__               |[0m
 [Info] |                                                              |[0m
-[Info] |     The Jet Energy-loss Tomography with a Statistically      |[0m
+[Info] |                     XSCAPE by JETSCAPE                       |[0m
+[Info] |                                                              |[0m
+[Info] |           X-Ion Collisions with a Statistically              |[0m
 [Info] |       and Computationally Advanced Program Envelope          |[0m
 [Info] |                     http://jetscape.org                      |[0m
 [Info] |                                                              |[0m
@@ -27,28 +23,31 @@
 [Info] | See COPYING file for details.                                |[0m
 [Info] |                                                              |[0m
 [Info] *--------------------------------------------------------------*[0m
-[Info] 48MB  [1m[31mInitialize JetScape ...[0m
-[Info] 48MB  Created JetScapeXML Instance[0m
-[Info] 48MB  Open XML Main file : jetscape_main.xml[0m
-[Info] 48MB  Open XML User file : jetscape_user.xml[0m
-[Info] 48MB  ================================================================[0m
-[Info] 48MB  nEvents = 10[0m
-[Info] 48MB  Reuse Hydro:  true [0m
-[Info] 48MB  nReuseHydro: 10[0m
-[Info] 48MB  JetScapeTaskSupport found seed 10, using individual engines with seeds created from 10[0m
-[Info] 51MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
-[Info] 51MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
-[Info] 51MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColoredHadronization to task list.[0m
-[Info] 51MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_out.dat) added to task list.[0m
-[Info] 52MB  JetScape::DetermineTaskList() -- JetScapeWriterHepMC (test_out.hepmc) added to task list.[0m
-[Info] 52MB  ================================================================[0m
-[Info] 52MB  Found 5 Modules Initialize them ... [0m
-[Info] 52MB  Set Hydro,JetEnergylossManager and IS Pointers for SignalManager to create Signal/Slots[0m
-[Info] 52MB  Created JetScapeSignalManager Instance[0m
-[Info] 52MB  Calling JetScape InitTasks()...[0m
-[Info] 52MB  Initialize HardProcess : UninitializedPythiaGun ...[0m
-[Info] 52MB  [35mPythia Gun with FSR_on: 0[0m
-[Info] 52MB  [35mPythia Gun with 7 < pTHat < 9[0m
+[Info]  XSCAPE version = 1.1 (includes JETSCAPE version = 3.6)[0m
+[Info] [0m
+[Info] 60MB  [1m[31mInitialize JetScape ...[0m
+[Info] 60MB  Created JetScapeXML Instance[0m
+[Info] 60MB  Open XML Main file : jetscape_main.xml[0m
+[Info] 60MB  Open XML User file : jetscape_user.xml[0m
+[Info] 60MB  ================================================================[0m
+[Info] 60MB  nEvents = 10[0m
+[Info] 60MB  Reuse Hydro:  true [0m
+[Info] 60MB  nReuseHydro: 10[0m
+[Info] 60MB  JetScapeTaskSupport found seed 10, using individual engines with seeds created from 10[0m
+[Info] 64MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
+[Info] 64MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
+[Info] 64MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColoredHadronization to task list.[0m
+[Info] 64MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_out.dat) added to task list.[0m
+[Info] 64MB  JetScape::DetermineTaskList() -- JetScapeWriterHepMC (test_out.hepmc) added to task list.[0m
+[Info] 64MB  ================================================================[0m
+[Info] 64MB  Created QueryHistory Instance[0m
+[Info] 64MB  Found 5 Modules Initialize them ... [0m
+[Info] 64MB  Set Hydro,JetEnergylossManager and IS Pointers for SignalManager to create Signal/Slots[0m
+[Info] 64MB  Created JetScapeSignalManager Instance[0m
+[Info] 64MB  Calling JetScape InitTasks()...[0m
+[Info] 64MB  Initialize HardProcess : UninitializedPythiaGun ...[0m
+[Info] 64MB  [35mPythia Gun with FSR_on: 0[0m
+[Info] 64MB  [35mPythia Gun with 7 < pTHat < 9[0m
 
  *-------  PYTHIA Process Initialization  --------------------------*
  |                                                                  |
@@ -83,7 +82,7 @@
  |                                                                  | 
  |                   sigmaNonDiffractive =    47.72 mb              | 
  |                                                                  | 
- |    pT0 =  2.12 gives sigmaInteraction =   210.39 mb: accepted    | 
+ |    pT0 =  2.12 gives sigmaInteraction =   210.32 mb: accepted    | 
  |                                                                  | 
  *-------  End PYTHIA Multiparton Interactions Initialization  -----* 
 
@@ -104,6 +103,7 @@
  | PromptPhoton:all                              |                       on |          off                         | 
  | Random:seed                                   |                       10 |           -1               900000000 | 
  | Random:setSeed                                |                       on |          off                         | 
+ | StringZ:useOldAExtra                          |                       on |          off                         | 
  |                                                                                                                 | 
  *-------  End PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings  -----------------------------* 
 
@@ -116,29 +116,31 @@
 
  --------  End PYTHIA Particle Data Table  -----------------------------------------------------------------------------------------
 
-[Info] 58MB  Initialize JetEnergyLoss Manager ...[0m
-[Info] 58MB  Found 1 Eloss Manager Tasks/Modules Initialize them ... [0m
-[Info] 58MB  Initialize JetEnergyLoss ...[0m
-[Info] 58MB  Eloss shower with deltaT = 0.1 and maxT = 20[0m
-[Info] 58MB  Found 1 Eloss Tasks/Modules Initialize them ... [0m
-[Info] 58MB  Initialize Matter ...[0m
-[Info] 58MB  [35mMATTER input parameter[0m
-[Info] 58MB  [35mmatter shower on: 1[0m
-[Info] 58MB  [35min_vac: 1  brick_med: 0  recoil_on: 0, tStart =0.6[0m
-[Info] 58MB  [35mQ0: 1 vir_factor: 0.5 initial_virtuality_pT: 1  qhat0: 0 alphas: 0.25, QhatParametrizationType=0  qhatA: 10 qhatB:  10  qhatC: 1 qhatD:  0 hydro_Tc: 0.16 brick_length: 5[0m
-[Info] 58MB  Connect JetEnergyLossManager Signal to Hard Process ...[0m
-[Info] 58MB  Initialize Hadronization Manager ...[0m
-[Info] 58MB  Found 1 Hadronization Manager Tasks/Modules Initialize them ... [0m
-[Info] 58MB  Found 1 Hadronization Tasks/Modules Initialize them ... [0m
-[Info] 58MB  Pythia decays are turned on for tau0Max < 10[0m
-[Info] 59MB  Connect HadronizationManager Signal to Energy Loss ...[0m
-[Info] 59MB  JetScape Stream Writer initialized with output file = test_out.dat[0m
-[Info] 59MB  JetScape HepMC Writer initialized with output file = test_out.hepmc[0m
-[Info] 59MB  [1m[31mRun JetScape ...[0m
-[Info] 59MB  [1m[31mNumber of Events = 10[0m
-[Info] 59MB  [1m[31mRun Event # = 0[0m
-[Info] 66MB  [1m[30mJetScape finished after 10 events![0m
+[Info] 71MB  Initialize JetEnergyLoss Manager ...[0m
+[Info] 71MB  Found 1 Eloss Manager Tasks/Modules Initialize them ... [0m
+[Info] 71MB  Initialize JetEnergyLoss ...[0m
+[Info] 71MB  Eloss shower with deltaT = 0.1 startT = 0 and maxT = 20[0m
+[Info] 71MB  Found 1 Eloss Tasks/Modules Initialize them ... [0m
+[Info] 72MB  Initialize Matter ...[0m
+[Info] 72MB  [35mMATTER input parameter[0m
+[Info] 72MB  [35mmatter shower on: 1[0m
+[Info] 72MB  [35min_vac: 1  brick_med: 0  recoil_on: 0, tStart =0.6[0m
+[Info] 72MB  [35mLambda_QCD: 0.2[0m
+[Info] 72MB  [35mQ0: 1 QS: 0.9 vir_factor: 0.5 initial_virtuality_pT: 1  qhat0: 0 alphas: 0.25, QhatParametrizationType=0  qhatA: 10 qhatB:  10  qhatC: 1 qhatD:  0 hydro_Tc: 0.16 brick_length: 5[0m
+[Info] 72MB  Connect JetEnergyLossManager Signal to Hard Process ...[0m
+[Info] 72MB  Initialize Hadronization Manager ...[0m
+[Info] 72MB  Found 1 Hadronization Manager Tasks/Modules Initialize them ... [0m
+[Info] 72MB  Found 1 Hadronization Tasks/Modules Initialize them ... [0m
+[Info] 72MB  Pythia decays are turned on for tau0Max < 10[0m
+[Info] 72MB  Also reading in:           Init:showProcesses = off [0m
+[Info] 72MB  Connect HadronizationManager Signal to Energy Loss Manager ...[0m
+[Info] 72MB  JetScape Stream Writer initialized with output file = test_out.dat[0m
+[Info] 72MB  JetScape HepMC Writer initialized with output file = test_out.hepmc[0m
+[Info] 72MB  [1m[31mRun JetScape ...[0m
+[Info] 72MB  [1m[31mNumber of Events = 10[0m
+[Info] 72MB  [1m[31mRun Event # = 0[0m
+[Info] 79MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 0.924336 seconds.
+CPU time: 0.927336 seconds.
 Real time: 1.000000 seconds.
