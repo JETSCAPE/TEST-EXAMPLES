@@ -103,7 +103,7 @@ RUN curl -SL http://hepmc.web.cern.ch/hepmc/releases/HepMC3-3.2.6.tar.gz | tar -
 ENV LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"
 
 # Install Pythia8 with HepMC3-3.2.6 (that is needed by SMASH)
-ARG pythiaV="8310"
+ARG pythiaV="8315"
 RUN curl -SLk http://pythia.org/download/pythia83/pythia${pythiaV}.tgz \
 | tar -xvzC /usr/local \
 && cd /usr/local/pythia${pythiaV} \
@@ -122,12 +122,12 @@ ENV PYTHIA8_ROOT_DIR /usr/local/
 ENV PATH $PATH:$PYTHIA8DIR/bin
 
 # Build heppy (various HEP tools via python)
-RUN cd / \
-&& git clone --depth 1 --branch v1.3.8.8 https://github.com/matplo/heppy.git \
-&& cd heppy \
-&& ./external/fastjet/build.sh \
-&& ./external/hepmc2/build.sh \
-&& ./cpptools/build.sh
+# RUN cd / \
+# && git clone --depth 1 --branch v1.3.8.8 https://github.com/matplo/heppy.git \
+# && cd heppy \
+# && ./external/fastjet/build.sh \
+# && ./external/hepmc2/build.sh \
+# && ./cpptools/build.sh
 
 # Install environment modules
 RUN curl -SLk https://sourceforge.net/projects/modules/files/Modules/modules-4.5.1/modules-4.5.1.tar.gz \
