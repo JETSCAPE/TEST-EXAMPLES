@@ -122,12 +122,12 @@ ENV PYTHIA8_ROOT_DIR /usr/local/
 ENV PATH $PATH:$PYTHIA8DIR/bin
 
 # Build heppy (various HEP tools via python)
-RUN cd / \
-&& git clone --depth 1 --branch v1.3.8.8 https://github.com/matplo/heppy.git \
-&& cd heppy \
-&& ./external/fastjet/build.sh \
-&& ./external/hepmc2/build.sh \
-&& ./cpptools/build.sh
+# RUN cd / \
+# && git clone --depth 1 --branch v1.3.8.8 https://github.com/matplo/heppy.git \
+# && cd heppy \
+# && ./external/fastjet/build.sh \
+# && ./external/hepmc2/build.sh \
+# && ./cpptools/build.sh
 
 # Install environment modules
 RUN curl -SLk https://sourceforge.net/projects/modules/files/Modules/modules-4.5.1/modules-4.5.1.tar.gz \
