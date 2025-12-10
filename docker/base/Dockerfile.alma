@@ -1,4 +1,4 @@
-# Build from AlmaLinux 9 (covering 9.7 and future 9.x updates)
+# Build from AlmaLinux 9 (current 9.7)
 FROM almalinux:9
 
 # Install EPEL for ROOT and other packages
@@ -7,7 +7,6 @@ RUN dnf install -y epel-release && \
     dnf update -y
 
 # Install pre-reqs
-# "Development Tools" covers build-essential type stuff
 RUN dnf groupinstall -y "Development Tools" && \
     dnf install -y --allowerasing \
     doxygen \
@@ -49,18 +48,20 @@ RUN dnf groupinstall -y "Development Tools" && \
 ENV CMAKE_POLICY_VERSION_MINIMUM=3.5
 ENV PIP_BREAK_SYSTEM_PACKAGES=1
 
-# Match Ubuntu image ROOT layout expectations even though RPM provides ROOT
+# Ensure ROOT environment variables on PATH
 ENV ROOTSYS="/usr/lib64/root"
+ENV ROOT_INCLUDE_PATH="/usr/include/root"
+ENV CMAKE_PREFIX_PATH="${ROOTSYS}/cmake:${CMAKE_PREFIX_PATH}"
 ENV PATH="${ROOTSYS}/bin:${PATH}"
-ENV LD_LIBRARY_PATH="${ROOTSYS}/lib:${LD_LIBRARY_PATH}"
-ENV PYTHONPATH="${ROOTSYS}/lib"
+ENV LD_LIBRARY_PATH="${ROOTSYS}/lib64:${ROOTSYS}/lib:${LD_LIBRARY_PATH}"
+ENV PYTHONPATH="${ROOTSYS}/lib64:${ROOTSYS}/lib:${PYTHONPATH}"
 
-# Ensure OpenMPI tools are on PATH like Ubuntu's openmpi-bin package
+# Ensure OpenMPI tools on PATH
 ENV OPENMPI_DIR="/usr/lib64/openmpi"
 ENV PATH="${OPENMPI_DIR}/bin:${PATH}"
 ENV LD_LIBRARY_PATH="${OPENMPI_DIR}/lib:${LD_LIBRARY_PATH}"
 
-# Upgrade pip and install python packages
+# Install additional useful python packages
 RUN pip3 install --upgrade pip \
     && pip3 install --no-cache-dir --upgrade --ignore-installed "packaging>=23.0" \
     && pip3 install --no-cache-dir \
@@ -103,19 +104,17 @@ RUN wget https://lhapdf.hepforge.org/downloads/?f=LHAPDF-6.5.5.tar.gz -O LHAPDF-
 ENV LHAPATH='/home/jetscape-user/.local/share/LHAPDF'
 
 # Install HepMC 3.2.6
-# Note: HEPMC3_ENABLE_ROOTIO=ON requires ROOT.
-# RPM install of ROOT typically puts config files where cmake can find them.
 RUN curl -SL http://hepmc.web.cern.ch/hepmc/releases/HepMC3-3.2.6.tar.gz | tar -xvzC /usr/local \
     && cd /usr/local \
     && mkdir hepmc3-build \
     && cd hepmc3-build \
-    && cmake ../HepMC3-3.2.6 -DCMAKE_INSTALL_PREFIX=/usr/local -DHEPMC3_ENABLE_ROOTIO=ON -DHEPMC3_BUILD_EXAMPLES=ON -DROOT_DIR=${ROOTSYS} -DCMAKE_CXX_STANDARD=17 -DHEPMC3_CXX_STANDARD=17 \
+    && cmake ../HepMC3-3.2.6 -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_INSTALL_LIBDIR=lib -DHEPMC3_ENABLE_ROOTIO=ON -DHEPMC3_BUILD_EXAMPLES=ON -DROOT_DIR=${ROOTSYS} -DCMAKE_CXX_STANDARD=17 -DHEPMC3_CXX_STANDARD=17 \
     && make -j8 install \
     && rm -r /usr/local/hepmc3-build
 
 ENV LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"
 
-# Install Pythia8
+# Install Pythia8 with HepMC3-3.2.6 (that is needed by SMASH)
 ARG pythiaV="8315"
 RUN curl -SLk http://pythia.org/download/pythia83/pythia${pythiaV}.tgz \
     | tar -xvzC /usr/local \

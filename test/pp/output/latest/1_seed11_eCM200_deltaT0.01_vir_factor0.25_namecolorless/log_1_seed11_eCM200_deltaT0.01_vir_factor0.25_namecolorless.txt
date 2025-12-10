@@ -38,15 +38,16 @@
 [Info] 231MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
 [Info] 231MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColorlessHadronization to task list.[0m
 [Info] 231MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_out.dat) added to task list.[0m
-[Info] 231MB  ================================================================[0m
-[Info] 231MB  Created QueryHistory Instance[0m
-[Info] 231MB  Found 4 Modules Initialize them ... [0m
-[Info] 231MB  Set Hydro,JetEnergylossManager and IS Pointers for SignalManager to create Signal/Slots[0m
-[Info] 231MB  Created JetScapeSignalManager Instance[0m
-[Info] 231MB  Calling JetScape InitTasks()...[0m
-[Info] 231MB  Initialize HardProcess : UninitializedPythiaGun ...[0m
-[Info] 231MB  [35mPythia Gun with FSR_on: 0[0m
-[Info] 231MB  [35mPythia Gun with 7 < pTHat < 9[0m
+[Info] 232MB  JetScape::DetermineTaskList() -- JetScapeWriterHepMC (test_out.hepmc) added to task list.[0m
+[Info] 232MB  ================================================================[0m
+[Info] 232MB  Created QueryHistory Instance[0m
+[Info] 232MB  Found 5 Modules Initialize them ... [0m
+[Info] 232MB  Set Hydro,JetEnergylossManager and IS Pointers for SignalManager to create Signal/Slots[0m
+[Info] 232MB  Created JetScapeSignalManager Instance[0m
+[Info] 232MB  Calling JetScape InitTasks()...[0m
+[Info] 232MB  Initialize HardProcess : UninitializedPythiaGun ...[0m
+[Info] 232MB  [35mPythia Gun with FSR_on: 0[0m
+[Info] 232MB  [35mPythia Gun with 7 < pTHat < 9[0m
 
  *-------  PYTHIA Process Initialization  --------------------------*
  |                                                                  |
@@ -157,13 +158,14 @@
 
  --------  End PYTHIA Particle Data Table  -----------------------------------------------------------------------------------------
 
-[Info] 238MB  Connect HadronizationManager Signal to Energy Loss Manager ...[0m
-[Info] 238MB  JetScape Stream Writer initialized with output file = test_out.dat[0m
-[Info] 238MB  [1m[31mRun JetScape ...[0m
-[Info] 238MB  [1m[31mNumber of Events = 10[0m
-[Info] 238MB  [1m[31mRun Event # = 0[0m
-[Info] 240MB  [1m[30mJetScape finished after 10 events![0m
+[Info] 239MB  Connect HadronizationManager Signal to Energy Loss Manager ...[0m
+[Info] 239MB  JetScape Stream Writer initialized with output file = test_out.dat[0m
+[Info] 239MB  JetScape HepMC Writer initialized with output file = test_out.hepmc[0m
+[Info] 239MB  [1m[31mRun JetScape ...[0m
+[Info] 239MB  [1m[31mNumber of Events = 10[0m
+[Info] 239MB  [1m[31mRun Event # = 0[0m
+[Info] 241MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 0.723973 seconds.
-Real time: 0.000000 seconds.
+CPU time: 0.609125 seconds.
+Real time: 1.000000 seconds.
