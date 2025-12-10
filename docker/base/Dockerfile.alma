@@ -9,12 +9,14 @@ RUN dnf install -y epel-release && \
 # Install pre-reqs
 # "Development Tools" covers build-essential type stuff
 RUN dnf groupinstall -y "Development Tools" && \
-    dnf install -y \
+    dnf install -y --allowerasing \
     doxygen \
     emacs \
     ffmpeg-free \
     ffmpeg-free-devel \
+    gsl \
     gsl-devel \
+    hdf5 \
     hdf5-devel \
     less \
     boost-devel \
@@ -44,8 +46,23 @@ RUN dnf groupinstall -y "Development Tools" && \
     root-notebook \
     && dnf clean all
 
+ENV CMAKE_POLICY_VERSION_MINIMUM=3.5
+ENV PIP_BREAK_SYSTEM_PACKAGES=1
+
+# Match Ubuntu image ROOT layout expectations even though RPM provides ROOT
+ENV ROOTSYS="/usr/lib64/root"
+ENV PATH="${ROOTSYS}/bin:${PATH}"
+ENV LD_LIBRARY_PATH="${ROOTSYS}/lib:${LD_LIBRARY_PATH}"
+ENV PYTHONPATH="${ROOTSYS}/lib"
+
+# Ensure OpenMPI tools are on PATH like Ubuntu's openmpi-bin package
+ENV OPENMPI_DIR="/usr/lib64/openmpi"
+ENV PATH="${OPENMPI_DIR}/bin:${PATH}"
+ENV LD_LIBRARY_PATH="${OPENMPI_DIR}/lib:${LD_LIBRARY_PATH}"
+
 # Upgrade pip and install python packages
 RUN pip3 install --upgrade pip \
+    && pip3 install --no-cache-dir --upgrade --ignore-installed "packaging>=23.0" \
     && pip3 install --no-cache-dir \
     emcee==2.2.1 \
     h5py \
@@ -92,7 +109,7 @@ RUN curl -SL http://hepmc.web.cern.ch/hepmc/releases/HepMC3-3.2.6.tar.gz | tar -
     && cd /usr/local \
     && mkdir hepmc3-build \
     && cd hepmc3-build \
-    && cmake ../HepMC3-3.2.6 -DCMAKE_INSTALL_PREFIX=/usr/local -DHEPMC3_ENABLE_ROOTIO=ON -DHEPMC3_BUILD_EXAMPLES=ON \
+    && cmake ../HepMC3-3.2.6 -DCMAKE_INSTALL_PREFIX=/usr/local -DHEPMC3_ENABLE_ROOTIO=ON -DHEPMC3_BUILD_EXAMPLES=ON -DROOT_DIR=${ROOTSYS} -DCMAKE_CXX_STANDARD=17 -DHEPMC3_CXX_STANDARD=17 \
     && make -j8 install \
     && rm -r /usr/local/hepmc3-build
 
