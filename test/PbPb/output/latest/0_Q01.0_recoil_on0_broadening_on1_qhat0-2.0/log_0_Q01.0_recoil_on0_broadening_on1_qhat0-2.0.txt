@@ -25,37 +25,36 @@
 [Info] *--------------------------------------------------------------*[0m
 [Info]  XSCAPE version = 1.1 (includes JETSCAPE version = 3.6)[0m
 [Info] [0m
-[Info] 60MB  [1m[31mInitialize JetScape ...[0m
-[Info] 60MB  Created JetScapeXML Instance[0m
-[Info] 60MB  Open XML Main file : jetscape_main.xml[0m
-[Info] 60MB  Open XML User file : jetscape_user.xml[0m
-[Info] 60MB  ================================================================[0m
-[Info] 60MB  nEvents = 10[0m
-[Info] 60MB  Reuse Hydro:  true [0m
-[Info] 60MB  nReuseHydro: 10[0m
-[Info] 60MB  JetScapeTaskSupport found seed 1, using individual engines with seeds created from 1[0m
-[Info] 60MB  JetScape::DetermineTaskList() -- Initial State: Added Trento module to task list.[0m
-[Info] 64MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
-[Info] 64MB  JetScape::DetermineTaskList() -- PreDynamics: Added NullPreDynamics to task list.[0m
-[Info] 64MB  JetScape::DetermineTaskList() -- Hydro: Added Brick to task list.[0m
-[Info] 64MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
-[Info] 64MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColorlessHadronization to task list.[0m
-[Info] 64MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_out.dat) added to task list.[0m
-[Info] 64MB  JetScape::DetermineTaskList() -- JetScapeWriterHepMC (test_out.hepmc) added to task list.[0m
-[Info] 64MB  ================================================================[0m
-[Info] 64MB  Created QueryHistory Instance[0m
-[Info] 64MB  Found 8 Modules Initialize them ... [0m
-[Info] 64MB  Set Hydro,JetEnergylossManager and IS Pointers for SignalManager to create Signal/Slots[0m
-[Info] 64MB  Created JetScapeSignalManager Instance[0m
-[Info] 64MB  Calling JetScape InitTasks()...[0m
-[Info] 64MB  Initialize InitialState ... Trento ...[0m
-[Info] 64MB  x range for bulk evolution = [-15, 15][0m
-[Info] 64MB   Initialzie TRENTo initial condition [0m
-[Info] 65MB  Random seed used for Trento 1350755646[0m
-[Info] 65MB  TRENTO centrality table header: Pb-Pb-E-2760-X-6.40-p-0.00-k-1.20-w-0.90-d-1.20[0m
-[Info] 65MB  Hash tag for this header: 13010470827798989771[0m
-[Info] 65MB  TRENTo is generating new centrality table for this new parameter set[0m
-[Info] 65MB  It may take 10(s) to 1(min).[0m
+[Info] 227MB  [1m[31mInitialize JetScape ...[0m
+[Info] 227MB  Created JetScapeXML Instance[0m
+[Info] 227MB  Open XML Main file : jetscape_main.xml[0m
+[Info] 227MB  Open XML User file : jetscape_user.xml[0m
+[Info] 227MB  ================================================================[0m
+[Info] 227MB  nEvents = 10[0m
+[Info] 227MB  Reuse Hydro:  true [0m
+[Info] 227MB  nReuseHydro: 10[0m
+[Info] 227MB  JetScapeTaskSupport found seed 1, using individual engines with seeds created from 1[0m
+[Info] 227MB  JetScape::DetermineTaskList() -- Initial State: Added Trento module to task list.[0m
+[Info] 231MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
+[Info] 231MB  JetScape::DetermineTaskList() -- PreDynamics: Added NullPreDynamics to task list.[0m
+[Info] 231MB  JetScape::DetermineTaskList() -- Hydro: Added Brick to task list.[0m
+[Info] 231MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
+[Info] 231MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColorlessHadronization to task list.[0m
+[Info] 231MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_out.dat) added to task list.[0m
+[Info] 231MB  ================================================================[0m
+[Info] 231MB  Created QueryHistory Instance[0m
+[Info] 231MB  Found 7 Modules Initialize them ... [0m
+[Info] 231MB  Set Hydro,JetEnergylossManager and IS Pointers for SignalManager to create Signal/Slots[0m
+[Info] 231MB  Created JetScapeSignalManager Instance[0m
+[Info] 231MB  Calling JetScape InitTasks()...[0m
+[Info] 231MB  Initialize InitialState ... Trento ...[0m
+[Info] 231MB  x range for bulk evolution = [-15, 15][0m
+[Info] 231MB   Initialzie TRENTo initial condition [0m
+[Info] 231MB  Random seed used for Trento 1350755646[0m
+[Info] 232MB  TRENTO centrality table header: Pb-Pb-E-2760-X-6.40-p-0.00-k-1.20-w-0.90-d-1.20[0m
+[Info] 232MB  Hash tag for this header: 13010470827798989771[0m
+[Info] 232MB  TRENTo is generating new centrality table for this new parameter set[0m
+[Info] 232MB  It may take 10(s) to 1(min).[0m
 # 1000 events generated
 # 2000 events generated
 # 3000 events generated
@@ -65,14 +64,14 @@
 # 7000 events generated
 # 8000 events generated
 # 9000 events generated
-[Info] 66MB  #########21.3052 11.42[0m
-[Info] 66MB  The total energy density cut for centrality = [50, 60] (%) is:[0m
-[Info] 66MB  158.738<dE/deta(eta=0)<296.143[0m
-[Info] 66MB  Pb Pb 1  --random-seed 1350755646 --cross-section 6.400000 --beam-energy 2760.000000 --reduced-thickness 0.000000 --fluctuation 1.200000 --nucleon-width 0.900000 --nucleon-min-dist 1.200000 --mean-coeff 1.000000 --std-coeff 3.000000 --skew-coeff 0.000000 --skew-type 1 --jacobian 0.800000 --quiet  --normalization 13.900000 --ncoll  --xy-max 15.000000 --xy-step 0.300000 --eta-max 0.000000 --eta-step 0.200000 --s-max 296.142663 --s-min 158.737749[0m
-[Info] 66MB  TRENTo set[0m
-[Info] 66MB  Initialize HardProcess : UninitializedPythiaGun ...[0m
-[Info] 66MB  [35mPythia Gun with FSR_on: 0[0m
-[Info] 66MB  [35mPythia Gun with 20 < pTHat < 30[0m
+[Info] 233MB  #########21.3052 11.42[0m
+[Info] 233MB  The total energy density cut for centrality = [50, 60] (%) is:[0m
+[Info] 233MB  158.738<dE/deta(eta=0)<296.143[0m
+[Info] 233MB  Pb Pb 1  --random-seed 1350755646 --cross-section 6.400000 --beam-energy 2760.000000 --reduced-thickness 0.000000 --fluctuation 1.200000 --nucleon-width 0.900000 --nucleon-min-dist 1.200000 --mean-coeff 1.000000 --std-coeff 3.000000 --skew-coeff 0.000000 --skew-type 1 --jacobian 0.800000 --quiet  --normalization 13.900000 --ncoll  --xy-max 15.000000 --xy-step 0.300000 --eta-max 0.000000 --eta-step 0.200000 --s-max 296.142663 --s-min 158.737749[0m
+[Info] 233MB  TRENTo set[0m
+[Info] 233MB  Initialize HardProcess : UninitializedPythiaGun ...[0m
+[Info] 233MB  [35mPythia Gun with FSR_on: 0[0m
+[Info] 233MB  [35mPythia Gun with 20 < pTHat < 30[0m
 
  *-------  PYTHIA Process Initialization  --------------------------*
  |                                                                  |
@@ -141,26 +140,26 @@
 
  --------  End PYTHIA Particle Data Table  -----------------------------------------------------------------------------------------
 
-[Info] 72MB  Initialize PreequilibriumDynamics : NullPreDynamics ...[0m
-[Info] 72MB  Initialize FluidDynamics : Brick ...[0m
-[Info] 72MB  Brick (vx, vy, vz): (0, 0, 0)[0m
-[Info] 72MB  Initialize JetEnergyLoss Manager ...[0m
-[Info] 72MB  Found 1 Eloss Manager Tasks/Modules Initialize them ... [0m
-[Info] 72MB  Initialize JetEnergyLoss ...[0m
-[Info] 72MB  Eloss shower with deltaT = 0.1 startT = 0 and maxT = 20[0m
-[Info] 72MB  Found 1 Eloss Tasks/Modules Initialize them ... [0m
-[Info] 72MB  Initialize Matter ...[0m
-[Info] 72MB  [35mMATTER input parameter[0m
-[Info] 72MB  [35mmatter shower on: 1[0m
-[Info] 72MB  [35min_vac: 0  brick_med: 0  recoil_on: 0, tStart =0.6[0m
-[Info] 72MB  [35mLambda_QCD: 0.2[0m
-[Info] 72MB  [35mQ0: 1 QS: 0.9 vir_factor: 0.25 initial_virtuality_pT: 1  qhat0: -2 alphas: 0.25, QhatParametrizationType=0  qhatA: 10 qhatB:  10  qhatC: 1 qhatD:  0 hydro_Tc: 0.16 brick_length: 5[0m
-[Info] 72MB  Connect JetEnergyLossManager Signal to Hard Process ...[0m
-[Info] 72MB  Initialize Hadronization Manager ...[0m
-[Info] 72MB  Found 1 Hadronization Manager Tasks/Modules Initialize them ... [0m
-[Info] 72MB  Found 1 Hadronization Tasks/Modules Initialize them ... [0m
-[Info] 72MB  Pythia decays are turned on for tau0Max < 10[0m
-[Info] 72MB  Also reading in:           Init:showProcesses = off [0m
+[Info] 238MB  Initialize PreequilibriumDynamics : NullPreDynamics ...[0m
+[Info] 238MB  Initialize FluidDynamics : Brick ...[0m
+[Info] 238MB  Brick (vx, vy, vz): (0, 0, 0)[0m
+[Info] 238MB  Initialize JetEnergyLoss Manager ...[0m
+[Info] 238MB  Found 1 Eloss Manager Tasks/Modules Initialize them ... [0m
+[Info] 238MB  Initialize JetEnergyLoss ...[0m
+[Info] 238MB  Eloss shower with deltaT = 0.1 startT = 0 and maxT = 20[0m
+[Info] 238MB  Found 1 Eloss Tasks/Modules Initialize them ... [0m
+[Info] 238MB  Initialize Matter ...[0m
+[Info] 238MB  [35mMATTER input parameter[0m
+[Info] 238MB  [35mmatter shower on: 1[0m
+[Info] 238MB  [35min_vac: 0  brick_med: 0  recoil_on: 0, tStart =0.6[0m
+[Info] 238MB  [35mLambda_QCD: 0.2[0m
+[Info] 238MB  [35mQ0: 1 QS: 0.9 vir_factor: 0.25 initial_virtuality_pT: 1  qhat0: -2 alphas: 0.25, QhatParametrizationType=0  qhatA: 10 qhatB:  10  qhatC: 1 qhatD:  0 hydro_Tc: 0.16 brick_length: 5[0m
+[Info] 238MB  Connect JetEnergyLossManager Signal to Hard Process ...[0m
+[Info] 238MB  Initialize Hadronization Manager ...[0m
+[Info] 238MB  Found 1 Hadronization Manager Tasks/Modules Initialize them ... [0m
+[Info] 238MB  Found 1 Hadronization Tasks/Modules Initialize them ... [0m
+[Info] 238MB  Pythia decays are turned on for tau0Max < 10[0m
+[Info] 238MB  Also reading in:           Init:showProcesses = off [0m
 
  *-------  PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings (changes only)  ------------------* 
  |                                                                                                                 | 
@@ -186,34 +185,25 @@
 
  --------  End PYTHIA Particle Data Table  -----------------------------------------------------------------------------------------
 
-[Info] 73MB  Connect HadronizationManager Signal to Energy Loss Manager ...[0m
-[Info] 73MB  JetScape Stream Writer initialized with output file = test_out.dat[0m
-[Info] 73MB  JetScape HepMC Writer initialized with output file = test_out.hepmc[0m
-[Info] 73MB  [1m[31mRun JetScape ...[0m
-[Info] 73MB  [1m[31mNumber of Events = 10[0m
-[Info] 73MB  [1m[31mRun Event # = 0[0m
-[Info] 73MB   Exec TRENTo initial condition [0m
-[Info] 73MB   TRENTo event info: [0m
-[Info] 73MB  b	npart	ncoll	ET	(x-com, y-com) (fm)[0m
-[Info] 73MB  12.4827	37	40	167.272	(0.419844, 0.440687)[0m
-[Info] 73MB  Event centrality: 59.5[0m
-[Info] 73MB   Load TRENTo density and ncoll density to JETSCAPE memory [0m
-[Info] 74MB  10000 density elements[0m
-[Info] 74MB  10000 ncoll elements[0m
-[Info] 76MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.2785[0m
-[1m[31m[Warning] virtual void Matter::DoEnergyLoss(double, double, double, std::vector<Jetscape::Parton>&, std::vector<Jetscape::Parton>&) : velocityMod=1.2784974011047707254[0m
-[1m[31m[Warning] static void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : i=0 MATTER -- status: 101 color: 103  2004[0m
-[1m[31m[Warning] static void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : pid = 21 E = 0.238922 px = 0.0683015 py = 0.292116  pz = 0.057531 virtuality = -0.0362228 form_time in fm = 22.0309 split time = 25.6309 plabel = 0[0m
-[Info] 81MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.0895[0m
+[Info] 239MB  Connect HadronizationManager Signal to Energy Loss Manager ...[0m
+[Info] 239MB  JetScape Stream Writer initialized with output file = test_out.dat[0m
+[Info] 239MB  [1m[31mRun JetScape ...[0m
+[Info] 239MB  [1m[31mNumber of Events = 10[0m
+[Info] 239MB  [1m[31mRun Event # = 0[0m
+[Info] 239MB   Exec TRENTo initial condition [0m
+[Info] 239MB   TRENTo event info: [0m
+[Info] 239MB  b	npart	ncoll	ET	(x-com, y-com) (fm)[0m
+[Info] 239MB  12.4827	37	40	167.272	(0.419844, 0.440687)[0m
+[Info] 239MB  Event centrality: 59.5[0m
+[Info] 239MB   Load TRENTo density and ncoll density to JETSCAPE memory [0m
+[Info] 239MB  10000 density elements[0m
+[Info] 239MB  10000 ncoll elements[0m
+[Info] 247MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.0895[0m
 [1m[31m[Warning] virtual void Matter::DoEnergyLoss(double, double, double, std::vector<Jetscape::Parton>&, std::vector<Jetscape::Parton>&) : velocityMod=1.0894966260588456741[0m
 [1m[31m[Warning] static void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : i=0 MATTER -- status: 101 color: 1044  1046[0m
 [1m[31m[Warning] static void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : pid = 21 E = 0.324852 px = 0.102165 py = 0.0921768  pz = -0.32608 virtuality = -0.0197342 form_time in fm = 48.8116 split time = 50.6116 plabel = 0[0m
-[Info] 82MB  [1m[31m tachyonic propagation detected for parton passed from hard scattering, velocity mod = 1.31448[0m
-[1m[31m[Warning] virtual void Matter::DoEnergyLoss(double, double, double, std::vector<Jetscape::Parton>&, std::vector<Jetscape::Parton>&) : velocityMod=1.3144762497339470553[0m
-[1m[31m[Warning] static void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : i=0 MATTER -- status: 101 color: 132  26002[0m
-[1m[31m[Warning] static void Matter::Dump_pIn_info(int, std::vector<Jetscape::Parton>&) : pid = 21 E = 0.31815 px = 0.248761 py = 0.217464  pz = -0.256358 virtuality = -0.0736724 form_time in fm = 1.66184 split time = 4.66184 plabel = 0[0m
-[Info] 82MB  [1m[30mJetScape finished after 10 events![0m
+[Info] 248MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 33.618492 seconds.
-Real time: 33.000000 seconds.
+CPU time: 25.339767 seconds.
+Real time: 25.000000 seconds.
