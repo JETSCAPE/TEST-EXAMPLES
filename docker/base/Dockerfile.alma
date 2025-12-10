@@ -1,0 +1,136 @@
+# Build from AlmaLinux 9 (covering 9.7 and future 9.x updates)
+FROM almalinux:9
+
+# Install EPEL for ROOT and other packages
+RUN dnf install -y epel-release && \
+    dnf config-manager --set-enabled crb && \
+    dnf update -y
+
+# Install pre-reqs
+# "Development Tools" covers build-essential type stuff
+RUN dnf groupinstall -y "Development Tools" && \
+    dnf install -y \
+    doxygen \
+    emacs \
+    ffmpeg-free \
+    ffmpeg-free-devel \
+    gsl-devel \
+    hdf5-devel \
+    less \
+    boost-devel \
+    eigen3-devel \
+    libXpm-devel \
+    openmpi \
+    openmpi-devel \
+    rsync \
+    swig \
+    valgrind \
+    git \
+    vim \
+    cmake \
+    wget \
+    curl \
+    tcl \
+    tcl-devel \
+    libXft-devel \
+    libXext-devel \
+    fftw-devel \
+    zlib-devel \
+    python3 \
+    python3-pip \
+    python3-devel \
+    root \
+    python3-root \
+    root-notebook \
+    && dnf clean all
+
+# Upgrade pip and install python packages
+RUN pip3 install --upgrade pip \
+    && pip3 install --no-cache-dir \
+    emcee==2.2.1 \
+    h5py \
+    hic \
+    hsluv \
+    jupyter \
+    matplotlib \
+    nbdime \
+    numpy \
+    pandas \
+    pathlib \
+    ptemcee \
+    pyhepmc \
+    pyyaml \
+    scikit-learn \
+    scipy \
+    seaborn \
+    tqdm
+
+# Symlink python
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
+# Configure ROOT environment variables (installed via package manager, usually in standard paths)
+# checking if env vars are needed, usually /usr/bin/root is in path.
+# We might need to source /usr/bin/thisroot.sh or similar if it exists, but usually RPM installs are in system path.
+# However, for consistency with old dockerfile, we might set ROOTSYS if possible, but standard install puts headers in /usr/include/root etc.
+
+# Install LHAPDF 6.5.5 in /usr/local
+RUN wget https://lhapdf.hepforge.org/downloads/?f=LHAPDF-6.5.5.tar.gz -O LHAPDF-6.5.5.tar.gz \
+    && tar xf LHAPDF-6.5.5.tar.gz \
+    && cd LHAPDF-6.5.5 \
+    && ./configure --prefix=/usr/local \
+    && make \
+    && make install \
+    && cd .. \
+    && rm -rf LHAPDF-6.5.5.tar.gz LHAPDF-6.5.5
+
+ENV LHAPATH='/home/jetscape-user/.local/share/LHAPDF'
+
+# Install HepMC 3.2.6
+# Note: HEPMC3_ENABLE_ROOTIO=ON requires ROOT.
+# RPM install of ROOT typically puts config files where cmake can find them.
+RUN curl -SL http://hepmc.web.cern.ch/hepmc/releases/HepMC3-3.2.6.tar.gz | tar -xvzC /usr/local \
+    && cd /usr/local \
+    && mkdir hepmc3-build \
+    && cd hepmc3-build \
+    && cmake ../HepMC3-3.2.6 -DCMAKE_INSTALL_PREFIX=/usr/local -DHEPMC3_ENABLE_ROOTIO=ON -DHEPMC3_BUILD_EXAMPLES=ON \
+    && make -j8 install \
+    && rm -r /usr/local/hepmc3-build
+
+ENV LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"
+
+# Install Pythia8
+ARG pythiaV="8315"
+RUN curl -SLk http://pythia.org/download/pythia83/pythia${pythiaV}.tgz \
+    | tar -xvzC /usr/local \
+    && cd /usr/local/pythia${pythiaV} \
+    && ./configure --enable-shared --prefix=/usr/local/ --with-hepmc3=/usr/local/HepMC3-3.2.6 --with-lhapdf6 \
+    && make -j8 \
+    && make -j8 install
+
+# Environment setup
+ARG username=jetscape-user
+ENV JETSCAPE_DIR="/home/${username}/JETSCAPE"
+ENV SMASH_DIR="${JETSCAPE_DIR}/external_packages/smash/smash_code"
+ENV EIGEN3_ROOT /usr/include/eigen3
+ENV PYTHIA8DIR /usr/local/
+ENV PYTHIA8 /usr/local/
+ENV PYTHIA8_ROOT_DIR /usr/local/
+ENV PATH $PATH:$PYTHIA8DIR/bin
+
+# Environment modules
+RUN curl -SLk https://sourceforge.net/projects/modules/files/Modules/modules-4.5.1/modules-4.5.1.tar.gz \
+    | tar -xvzC /usr/local \
+    && cd /usr/local/modules-4.5.1 \
+    && ./configure --prefix=/usr/local --modulefilesdir=/heppy/modules \
+    && make -j8 \
+    && make -j8 install
+
+# User setup
+ARG id=1234
+RUN groupadd -g ${id} ${username} \
+    && useradd --create-home --home-dir /home/${username} -u ${id} -g ${username} ${username}
+USER ${username}
+ENV HOME /home/${username}
+WORKDIR ${HOME}
+
+ENTRYPOINT /bin/bash
