@@ -95,12 +95,19 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 # However, for consistency with old dockerfile, we might set ROOTSYS if possible, but standard install puts headers in /usr/include/root etc.
 
 # Install micromamba and get LHAPDF 6.5.5 via conda-forge
-RUN mkdir -p ${MAMBA_ROOT_PREFIX} \
-    && curl -L "https://github.com/mamba-org/micromamba-releases/releases/latest/download/micromamba-linux-$(uname -m)" \
-        -o /usr/local/bin/micromamba \
-    && chmod +x /usr/local/bin/micromamba \
-    && micromamba install -y -n base -c conda-forge lhapdf=6.5.5 \
-    && micromamba clean --all -y
+RUN set -eux; \
+    mkdir -p "${MAMBA_ROOT_PREFIX}"; \
+    arch="$(uname -m)"; \
+    case "${arch}" in \
+        x86_64) mm_arch="64" ;; \
+        aarch64) mm_arch="aarch64" ;; \
+        *) echo "Unsupported architecture: ${arch}" >&2; exit 1 ;; \
+    esac; \
+    curl -L "https://github.com/mamba-org/micromamba-releases/releases/latest/download/micromamba-linux-${mm_arch}" \
+        -o /usr/local/bin/micromamba; \
+    chmod +x /usr/local/bin/micromamba; \
+    micromamba install -y -n base -c conda-forge lhapdf=6.5.5; \
+    micromamba clean --all -y
 
 ENV LHAPATH='/home/jetscape-user/.local/share/LHAPDF'
 
