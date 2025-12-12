@@ -25,29 +25,29 @@
 [Info] *--------------------------------------------------------------*[0m
 [Info]  XSCAPE version = 1.1 (includes JETSCAPE version = 3.6)[0m
 [Info] [0m
-[Info] 227MB  [1m[31mInitialize JetScape ...[0m
-[Info] 227MB  Created JetScapeXML Instance[0m
-[Info] 227MB  Open XML Main file : jetscape_main.xml[0m
-[Info] 227MB  Open XML User file : jetscape_user.xml[0m
-[Info] 227MB  ================================================================[0m
-[Info] 227MB  nEvents = 10[0m
-[Info] 227MB  Reuse Hydro:  true [0m
-[Info] 227MB  nReuseHydro: 10[0m
-[Info] 227MB  JetScapeTaskSupport found seed 10, using individual engines with seeds created from 10[0m
-[Info] 231MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
-[Info] 232MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
-[Info] 232MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColoredHadronization to task list.[0m
-[Info] 232MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_out.dat) added to task list.[0m
-[Info] 232MB  JetScape::DetermineTaskList() -- JetScapeWriterHepMC (test_out.hepmc) added to task list.[0m
-[Info] 232MB  ================================================================[0m
-[Info] 232MB  Created QueryHistory Instance[0m
-[Info] 232MB  Found 5 Modules Initialize them ... [0m
-[Info] 232MB  Set Hydro,JetEnergylossManager and IS Pointers for SignalManager to create Signal/Slots[0m
-[Info] 232MB  Created JetScapeSignalManager Instance[0m
-[Info] 232MB  Calling JetScape InitTasks()...[0m
-[Info] 232MB  Initialize HardProcess : UninitializedPythiaGun ...[0m
-[Info] 232MB  [35mPythia Gun with FSR_on: 0[0m
-[Info] 232MB  [35mPythia Gun with 5 < pTHat < 7[0m
+[Info] 38MB  [1m[31mInitialize JetScape ...[0m
+[Info] 38MB  Created JetScapeXML Instance[0m
+[Info] 39MB  Open XML Main file : jetscape_main.xml[0m
+[Info] 39MB  Open XML User file : jetscape_user.xml[0m
+[Info] 39MB  ================================================================[0m
+[Info] 39MB  nEvents = 10[0m
+[Info] 39MB  Reuse Hydro:  true [0m
+[Info] 39MB  nReuseHydro: 10[0m
+[Info] 39MB  JetScapeTaskSupport found seed 10, using individual engines with seeds created from 10[0m
+[Info] 42MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
+[Info] 43MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
+[Info] 43MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColoredHadronization to task list.[0m
+[Info] 43MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_out.dat) added to task list.[0m
+[Info] 43MB  JetScape::DetermineTaskList() -- JetScapeWriterHepMC (test_out.hepmc) added to task list.[0m
+[Info] 43MB  ================================================================[0m
+[Info] 43MB  Created QueryHistory Instance[0m
+[Info] 43MB  Found 5 Modules Initialize them ... [0m
+[Info] 43MB  Set Hydro,JetEnergylossManager and IS Pointers for SignalManager to create Signal/Slots[0m
+[Info] 43MB  Created JetScapeSignalManager Instance[0m
+[Info] 43MB  Calling JetScape InitTasks()...[0m
+[Info] 43MB  Initialize HardProcess : UninitializedPythiaGun ...[0m
+[Info] 43MB  [35mPythia Gun with FSR_on: 0[0m
+[Info] 43MB  [35mPythia Gun with 5 < pTHat < 7[0m
 
  *-------  PYTHIA Process Initialization  --------------------------*
  |                                                                  |
@@ -117,31 +117,31 @@
 
  --------  End PYTHIA Particle Data Table  -----------------------------------------------------------------------------------------
 
-[Info] 239MB  Initialize JetEnergyLoss Manager ...[0m
-[Info] 239MB  Found 1 Eloss Manager Tasks/Modules Initialize them ... [0m
-[Info] 239MB  Initialize JetEnergyLoss ...[0m
-[Info] 239MB  Eloss shower with deltaT = 0.01 startT = 0 and maxT = 20[0m
-[Info] 239MB  Found 1 Eloss Tasks/Modules Initialize them ... [0m
-[Info] 239MB  Initialize Matter ...[0m
-[Info] 239MB  [35mMATTER input parameter[0m
-[Info] 239MB  [35mmatter shower on: 1[0m
-[Info] 239MB  [35min_vac: 1  brick_med: 0  recoil_on: 0, tStart =0.6[0m
-[Info] 239MB  [35mLambda_QCD: 0.2[0m
-[Info] 239MB  [35mQ0: 1 QS: 0.9 vir_factor: 0.5 initial_virtuality_pT: 1  qhat0: 0 alphas: 0.25, QhatParametrizationType=0  qhatA: 10 qhatB:  10  qhatC: 1 qhatD:  0 hydro_Tc: 0.16 brick_length: 5[0m
-[Info] 239MB  Connect JetEnergyLossManager Signal to Hard Process ...[0m
-[Info] 239MB  Initialize Hadronization Manager ...[0m
-[Info] 239MB  Found 1 Hadronization Manager Tasks/Modules Initialize them ... [0m
-[Info] 239MB  Found 1 Hadronization Tasks/Modules Initialize them ... [0m
-[Info] 239MB  Pythia decays are turned on for tau0Max < 10[0m
-[Info] 239MB  Also reading in:           Init:showProcesses = off [0m
-[Info] 239MB  Connect HadronizationManager Signal to Energy Loss Manager ...[0m
-[Info] 239MB  JetScape Stream Writer initialized with output file = test_out.dat[0m
-[Info] 239MB  JetScape HepMC Writer initialized with output file = test_out.hepmc[0m
-[Info] 239MB  [1m[31mRun JetScape ...[0m
-[Info] 239MB  [1m[31mNumber of Events = 10[0m
-[Info] 239MB  [1m[31mRun Event # = 0[0m
-[Info] 242MB  [1m[30mJetScape finished after 10 events![0m
+[Info] 50MB  Initialize JetEnergyLoss Manager ...[0m
+[Info] 50MB  Found 1 Eloss Manager Tasks/Modules Initialize them ... [0m
+[Info] 50MB  Initialize JetEnergyLoss ...[0m
+[Info] 50MB  Eloss shower with deltaT = 0.01 startT = 0 and maxT = 20[0m
+[Info] 50MB  Found 1 Eloss Tasks/Modules Initialize them ... [0m
+[Info] 50MB  Initialize Matter ...[0m
+[Info] 50MB  [35mMATTER input parameter[0m
+[Info] 50MB  [35mmatter shower on: 1[0m
+[Info] 50MB  [35min_vac: 1  brick_med: 0  recoil_on: 0, tStart =0.6[0m
+[Info] 50MB  [35mLambda_QCD: 0.2[0m
+[Info] 50MB  [35mQ0: 1 QS: 0.9 vir_factor: 0.5 initial_virtuality_pT: 1  qhat0: 0 alphas: 0.25, QhatParametrizationType=0  qhatA: 10 qhatB:  10  qhatC: 1 qhatD:  0 hydro_Tc: 0.16 brick_length: 5[0m
+[Info] 50MB  Connect JetEnergyLossManager Signal to Hard Process ...[0m
+[Info] 50MB  Initialize Hadronization Manager ...[0m
+[Info] 50MB  Found 1 Hadronization Manager Tasks/Modules Initialize them ... [0m
+[Info] 50MB  Found 1 Hadronization Tasks/Modules Initialize them ... [0m
+[Info] 50MB  Pythia decays are turned on for tau0Max < 10[0m
+[Info] 50MB  Also reading in:           Init:showProcesses = off [0m
+[Info] 51MB  Connect HadronizationManager Signal to Energy Loss Manager ...[0m
+[Info] 51MB  JetScape Stream Writer initialized with output file = test_out.dat[0m
+[Info] 51MB  JetScape HepMC Writer initialized with output file = test_out.hepmc[0m
+[Info] 51MB  [1m[31mRun JetScape ...[0m
+[Info] 51MB  [1m[31mNumber of Events = 10[0m
+[Info] 51MB  [1m[31mRun Event # = 0[0m
+[Info] 53MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 0.625262 seconds.
-Real time: 1.000000 seconds.
+CPU time: 0.446989 seconds.
+Real time: 0.000000 seconds.
