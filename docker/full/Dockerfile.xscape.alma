@@ -87,7 +87,9 @@ RUN pip3 install --upgrade pip \
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
 # Install LHAPDF 6.5.5 in /usr/local
-RUN wget --progress=dot:giga --tries=5 --waitretry=5 --timeout=30 -O LHAPDF-6.5.5.tar.gz "https://lhapdf.hepforge.org/downloads/?f=LHAPDF-6.5.5.tar.gz" \
+RUN wget --progress=dot:giga --tries=5 --waitretry=5 --timeout=30 \
+      -O LHAPDF-6.5.5.tar.gz \
+      https://lhapdf.hepforge.org/downloads/LHAPDF-6.5.5.tar.gz \
     && tar xf LHAPDF-6.5.5.tar.gz \
     && cd LHAPDF-6.5.5 \
     && ./configure --prefix=/usr/local \
