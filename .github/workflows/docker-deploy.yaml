@@ -41,3 +41,4 @@ jobs:
           file: ./docker/${{ inputs.path }}
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/${{ inputs.name }}:${{ inputs.version }}
+          outputs: "type=registry"
