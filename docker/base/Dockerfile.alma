@@ -91,17 +91,16 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 # We might need to source /usr/bin/thisroot.sh or similar if it exists, but usually RPM installs are in system path.
 # However, for consistency with old dockerfile, we might set ROOTSYS if possible, but standard install puts headers in /usr/include/root etc.
 
-# Install LHAPDF 6.5.5
-# We install libarchive here to provide 'bsdtar', which avoids QEMU emulation bugs
-RUN dnf install -y libarchive && \
-    wget --progress=dot:giga --tries=5 --waitretry=5 --timeout=30 \
-      -O LHAPDF-6.5.5.tar.gz https://lhapdf.hepforge.org/downloads/LHAPDF-6.5.5.tar.gz && \
-    sha256sum LHAPDF-6.5.5.tar.gz && \
-    bsdtar -xzf LHAPDF-6.5.5.tar.gz && \
-    cd LHAPDF-6.5.5 && \
-    ./configure --prefix=/usr && make -j$(nproc) && make install && \
-    cd .. && rm -rf LHAPDF-6.5.5.tar.gz LHAPDF-6.5.5 && \
-    dnf remove -y libarchive && dnf clean all
+# Install LHAPDF 6.5.5 into /usr
+ARG LHAPDF_VERSION=6.5.5
+RUN curl -SLf --progress-bar --retry 5 --retry-delay 5 --max-time 600 \
+            -o /tmp/LHAPDF-${LHAPDF_VERSION}.tar.gz \
+            "https://lhapdf.hepforge.org/downloads/LHAPDF-${LHAPDF_VERSION}.tar.gz" && \
+        mkdir -p /tmp/lhapdf-src && \
+        tar --no-same-owner --no-same-permissions -xzf /tmp/LHAPDF-${LHAPDF_VERSION}.tar.gz -C /tmp/lhapdf-src && \
+        cd /tmp/lhapdf-src/LHAPDF-${LHAPDF_VERSION} && \
+        ./configure --prefix=/usr && make -j8 && make install && \
+        rm -rf /tmp/lhapdf-src /tmp/LHAPDF-${LHAPDF_VERSION}.tar.gz
 
 ENV LHAPATH='/home/jetscape-user/.local/share/LHAPDF'
 

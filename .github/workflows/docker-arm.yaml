@@ -12,7 +12,7 @@ on:
         required: true
         type: string
       path:
-        description: 'input to Dockerfile within docker/ folder such as: base/Dockerfile.base'
+        description: 'input to Dockerfile within docker/ folder such as: base/Dockerfile.alma'
         required: true
         type: string
 
