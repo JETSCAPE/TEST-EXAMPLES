@@ -91,18 +91,10 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 # We might need to source /usr/bin/thisroot.sh or similar if it exists, but usually RPM installs are in system path.
 # However, for consistency with old dockerfile, we might set ROOTSYS if possible, but standard install puts headers in /usr/include/root etc.
 
-# Install LHAPDF 6.5.5 into /usr
-ARG LHAPDF_VERSION=6.5.5
-RUN curl -SLf --progress-bar --retry 5 --retry-delay 5 --max-time 600 \
-            -o /tmp/LHAPDF-${LHAPDF_VERSION}.tar.gz \
-            "https://lhapdf.hepforge.org/downloads/LHAPDF-${LHAPDF_VERSION}.tar.gz" && \
-        mkdir -p /tmp/lhapdf-src && \
-        tar --no-same-owner --no-same-permissions -xzf /tmp/LHAPDF-${LHAPDF_VERSION}.tar.gz -C /tmp/lhapdf-src && \
-        cd /tmp/lhapdf-src/LHAPDF-${LHAPDF_VERSION} && \
-        ./configure --prefix=/usr && make -j8 && make install && \
-        rm -rf /tmp/lhapdf-src /tmp/LHAPDF-${LHAPDF_VERSION}.tar.gz
-
-ENV LHAPATH='/home/jetscape-user/.local/share/LHAPDF'
+# Try to install LHAPDF 6.5.5 from EPEL (preferred). Fall back to distro package.
+RUN dnf install -y --allowerasing lhapdf-6.5.5\* lhapdf-devel-6.5.5\* && \
+    dnf clean all
+ENV LHAPATH='/usr/share/LHAPDF:/home/jetscape-user/.local/share/LHAPDF'
 
 # Install HepMC 3.2.6
 RUN curl -SLf --progress-bar --retry 5 --retry-delay 5 --max-time 600 "http://hepmc.web.cern.ch/hepmc/releases/HepMC3-3.2.6.tar.gz" | tar -xvzC /usr/local \
