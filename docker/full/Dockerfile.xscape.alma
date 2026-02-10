@@ -33,8 +33,6 @@ RUN dnf groupinstall -y "Development Tools" && \
     curl \
     tcl \
     tcl-devel \
-    libarchive \
-    wget \
     libXft-devel \
     libXext-devel \
     fftw-devel \
@@ -43,6 +41,7 @@ RUN dnf groupinstall -y "Development Tools" && \
     python3-pip \
     python3-devel \
     root \
+    libarchive \
     python3-root \
     root-notebook \
     && dnf clean all
