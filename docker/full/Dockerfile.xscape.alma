@@ -88,15 +88,12 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 
 # Install LHAPDF 6.5.5 in /usr/local
 RUN wget --progress=dot:giga --tries=5 --waitretry=5 --timeout=30 \
-      -O LHAPDF-6.5.5.tar.gz \
-      https://lhapdf.hepforge.org/downloads/LHAPDF-6.5.5.tar.gz \
-    && tar xf LHAPDF-6.5.5.tar.gz \
-    && cd LHAPDF-6.5.5 \
-    && ./configure --prefix=/usr/local \
-    && make \
-    && make install \
-    && cd .. \
-    && rm -rf LHAPDF-6.5.5.tar.gz LHAPDF-6.5.5
+      -O LHAPDF-6.5.5.tar.gz https://lhapdf.hepforge.org/downloads/LHAPDF-6.5.5.tar.gz && \
+    sha256sum LHAPDF-6.5.5.tar.gz && \
+    tar xzf LHAPDF-6.5.5.tar.gz && \
+    cd LHAPDF-6.5.5 && \
+    ./configure --prefix=/usr && make && make install && \
+    cd .. && rm -rf LHAPDF-6.5.5.tar.gz LHAPDF-6.5.5
 
 ENV LHAPATH='/home/jetscape-user/.local/share/LHAPDF'
 
