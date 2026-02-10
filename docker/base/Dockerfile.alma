@@ -33,6 +33,8 @@ RUN dnf groupinstall -y "Development Tools" && \
     curl \
     tcl \
     tcl-devel \
+    libarchive \
+    wget \
     libXft-devel \
     libXext-devel \
     fftw-devel \
@@ -95,7 +97,7 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN wget --progress=dot:giga --tries=5 --waitretry=5 --timeout=30 \
       -O LHAPDF-6.5.5.tar.gz https://lhapdf.hepforge.org/downloads/LHAPDF-6.5.5.tar.gz && \
     sha256sum LHAPDF-6.5.5.tar.gz && \
-    tar xzf LHAPDF-6.5.5.tar.gz && \
+    bsdtar -xzf LHAPDF-6.5.5.tar.gz && \
     cd LHAPDF-6.5.5 && \
     ./configure --prefix=/usr && make && make install && \
     cd .. && rm -rf LHAPDF-6.5.5.tar.gz LHAPDF-6.5.5
