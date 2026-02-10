@@ -41,7 +41,6 @@ RUN dnf groupinstall -y "Development Tools" && \
     python3-pip \
     python3-devel \
     root \
-    libarchive \
     python3-root \
     root-notebook \
     && dnf clean all
@@ -87,40 +86,44 @@ RUN pip3 install --upgrade pip \
 # Symlink python
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
-# Install LHAPDF 6.5.5 in /usr/local
-RUN wget --progress=dot:giga --tries=5 --waitretry=5 --timeout=30 \
-      -O LHAPDF-6.5.5.tar.gz https://lhapdf.hepforge.org/downloads/LHAPDF-6.5.5.tar.gz && \
-    sha256sum LHAPDF-6.5.5.tar.gz && \
-    bsdtar -xzf LHAPDF-6.5.5.tar.gz && \
-    cd LHAPDF-6.5.5 && \
-    ./configure --prefix=/usr && make && make install && \
-    cd .. && rm -rf LHAPDF-6.5.5.tar.gz LHAPDF-6.5.5
+# Configure ROOT environment variables (installed via package manager, usually in standard paths)
+# checking if env vars are needed, usually /usr/bin/root is in path.
+# We might need to source /usr/bin/thisroot.sh or similar if it exists, but usually RPM installs are in system path.
+# However, for consistency with old dockerfile, we might set ROOTSYS if possible, but standard install puts headers in /usr/include/root etc.
 
-ENV LHAPATH='/home/jetscape-user/.local/share/LHAPDF'
+# Try to install LHAPDF 6.5.5 from EPEL (preferred). Fall back to distro package.
+RUN dnf install -y --allowerasing lhapdf-6.5.5\* lhapdf-devel-6.5.5\* && \
+    dnf clean all
+ENV LHAPATH='/usr/share/LHAPDF:/home/jetscape-user/.local/share/LHAPDF'
 
 # Install HepMC 3.2.6
-RUN curl -SLf --progress-bar --retry 5 --retry-delay 5 --max-time 600 "http://hepmc.web.cern.ch/hepmc/releases/HepMC3-3.2.6.tar.gz" | tar -xvzC /usr/local \
+# Download to a temporary file then extract to avoid streaming/tar issues with buildx/QEMU
+RUN curl -SLf --progress-bar --retry 5 --retry-delay 5 --max-time 600 "http://hepmc.web.cern.ch/hepmc/releases/HepMC3-3.2.6.tar.gz" -o /tmp/HepMC3-3.2.6.tar.gz \
+    && tar --no-same-owner -xzf /tmp/HepMC3-3.2.6.tar.gz -C /usr/local \
+    && rm -f /tmp/HepMC3-3.2.6.tar.gz \
     && cd /usr/local \
     && mkdir hepmc3-build \
     && cd hepmc3-build \
     && cmake ../HepMC3-3.2.6 -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_INSTALL_LIBDIR=lib -DHEPMC3_ENABLE_ROOTIO=ON -DHEPMC3_BUILD_EXAMPLES=ON -DROOT_DIR=${ROOTSYS} -DCMAKE_CXX_STANDARD=17 -DHEPMC3_CXX_STANDARD=17 \
-    && make -j8 install \
+    && make -j$(nproc) install \
     && rm -r /usr/local/hepmc3-build
 
 ENV LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"
 
 # Install Pythia8 with HepMC3-3.2.6 (that is needed by SMASH)
 ARG pythiaV="8315"
-RUN curl -SLkf --progress-bar --retry 5 --retry-delay 5 --max-time 600 "http://pythia.org/download/pythia83/pythia${pythiaV}.tgz" \
-    | tar -xvzC /usr/local \
+# Download archive to /tmp first to avoid streaming/tar issues under buildx/QEMU
+RUN curl -SLf --progress-bar --retry 5 --retry-delay 5 --max-time 600 "http://pythia.org/download/pythia83/pythia${pythiaV}.tgz" -o /tmp/pythia${pythiaV}.tgz \
+    && tar --no-same-owner -xzf /tmp/pythia${pythiaV}.tgz -C /usr/local \
+    && rm -f /tmp/pythia${pythiaV}.tgz \
     && cd /usr/local/pythia${pythiaV} \
     && ./configure --enable-shared --prefix=/usr/local/ --with-hepmc3=/usr/local/HepMC3-3.2.6 --with-lhapdf6 \
-    && make -j8 \
-    && make -j8 install
+    && make -j$(nproc) \
+    && make -j$(nproc) install
 
 # Environment setup
 ARG username=jetscape-user
-ENV JETSCAPE_DIR="/home/${username}/X-SCAPE"
+ENV JETSCAPE_DIR="/home/${username}/JETSCAPE"
 ENV SMASH_DIR="${JETSCAPE_DIR}/external_packages/smash/smash_code"
 ENV EIGEN3_ROOT /usr/include/eigen3
 ENV PYTHIA8DIR /usr/local/
@@ -129,12 +132,14 @@ ENV PYTHIA8_ROOT_DIR /usr/local/
 ENV PATH $PATH:$PYTHIA8DIR/bin
 
 # Environment modules
-RUN curl -SLkf --progress-bar --retry 5 --retry-delay 5 --max-time 600 "https://sourceforge.net/projects/modules/files/Modules/modules-4.5.1/modules-4.5.1.tar.gz" \
-    | tar -xvzC /usr/local \
+# Download archive to /tmp first to avoid streaming/tar issues under buildx/QEMU
+RUN curl -SLf --progress-bar --retry 5 --retry-delay 5 --max-time 600 "https://sourceforge.net/projects/modules/files/Modules/modules-4.5.1/modules-4.5.1.tar.gz" -o /tmp/modules-4.5.1.tar.gz \
+    && tar --no-same-owner -xzf /tmp/modules-4.5.1.tar.gz -C /usr/local \
+    && rm -f /tmp/modules-4.5.1.tar.gz \
     && cd /usr/local/modules-4.5.1 \
     && ./configure --prefix=/usr/local --modulefilesdir=/heppy/modules \
-    && make -j8 \
-    && make -j8 install
+    && make -j$(nproc) \
+    && make -j$(nproc) install
 
 # User setup
 ARG USER_UID=1000
