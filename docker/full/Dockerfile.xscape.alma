@@ -123,7 +123,7 @@ RUN curl -SLf --progress-bar --retry 5 --retry-delay 5 --max-time 600 "http://py
 
 # Environment setup
 ARG username=jetscape-user
-ENV JETSCAPE_DIR="/home/${username}/JETSCAPE"
+ENV JETSCAPE_DIR="/home/${username}/X-SCAPE"
 ENV SMASH_DIR="${JETSCAPE_DIR}/external_packages/smash/smash_code"
 ENV EIGEN3_ROOT /usr/include/eigen3
 ENV PYTHIA8DIR /usr/local/
