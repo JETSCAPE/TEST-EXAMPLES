@@ -23,7 +23,7 @@
 [Info] | See COPYING file for details.                                |[0m
 [Info] |                                                              |[0m
 [Info] *--------------------------------------------------------------*[0m
-[Info]  XSCAPE version = 1.1 (includes JETSCAPE version = 3.6)[0m
+[Info]  XSCAPE version = 2.1 (includes JETSCAPE version = 4.0.2)[0m
 [Info] [0m
 [Info] 39MB  [1m[31mInitialize JetScape ...[0m
 [Info] 39MB  Created JetScapeXML Instance[0m
@@ -35,9 +35,9 @@
 [Info] 39MB  nReuseHydro: 10[0m
 [Info] 39MB  JetScapeTaskSupport found seed 10, using individual engines with seeds created from 10[0m
 [Info] 43MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
-[Info] 43MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
-[Info] 43MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColoredHadronization to task list.[0m
-[Info] 43MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_out.dat) added to task list.[0m
+[Info] 44MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
+[Info] 44MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColoredHadronization to task list.[0m
+[Info] 44MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_out.dat) added to task list.[0m
 [Info] 44MB  JetScape::DetermineTaskList() -- JetScapeWriterHepMC (test_out.hepmc) added to task list.[0m
 [Info] 44MB  ================================================================[0m
 [Info] 44MB  Created QueryHistory Instance[0m
@@ -140,8 +140,8 @@
 [Info] 51MB  [1m[31mNumber of Events = 10[0m
 [Info] 51MB  [1m[31mRun Event # = 0[0m
  PYTHIA Warning in SimpleSpaceShower::pT2nextQCD: weight above unity
-[Info] 59MB  [1m[30mJetScape finished after 10 events![0m
+[Info] 64MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 0.632963 seconds.
+CPU time: 0.998235 seconds.
 Real time: 1.000000 seconds.

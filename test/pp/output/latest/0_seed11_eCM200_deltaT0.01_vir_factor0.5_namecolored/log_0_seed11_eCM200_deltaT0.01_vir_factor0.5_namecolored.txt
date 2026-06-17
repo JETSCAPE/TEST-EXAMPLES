@@ -23,7 +23,7 @@
 [Info] | See COPYING file for details.                                |[0m
 [Info] |                                                              |[0m
 [Info] *--------------------------------------------------------------*[0m
-[Info]  XSCAPE version = 1.1 (includes JETSCAPE version = 3.6)[0m
+[Info]  XSCAPE version = 2.1 (includes JETSCAPE version = 4.0.2)[0m
 [Info] [0m
 [Info] 39MB  [1m[31mInitialize JetScape ...[0m
 [Info] 39MB  Created JetScapeXML Instance[0m
@@ -139,8 +139,8 @@
 [Info] 51MB  [1m[31mRun JetScape ...[0m
 [Info] 51MB  [1m[31mNumber of Events = 10[0m
 [Info] 51MB  [1m[31mRun Event # = 0[0m
-[Info] 53MB  [1m[30mJetScape finished after 10 events![0m
+[Info] 56MB  [1m[30mJetScape finished after 10 events![0m
 [Info] Finished![0m
 
-CPU time: 0.440826 seconds.
+CPU time: 0.685014 seconds.
 Real time: 1.000000 seconds.
