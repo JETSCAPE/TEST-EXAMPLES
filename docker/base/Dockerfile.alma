@@ -102,8 +102,9 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 # We might need to source /usr/bin/thisroot.sh or similar if it exists, but usually RPM installs are in system path.
 # However, for consistency with old dockerfile, we might set ROOTSYS if possible, but standard install puts headers in /usr/include/root etc.
 
-# Try to install LHAPDF 6.5.5 from EPEL (preferred). Fall back to distro package.
-RUN dnf install -y --allowerasing lhapdf-6.5.5\* lhapdf-devel-6.5.5\* && \
+# Install the current Alma Linux package manage LHAPDF package.
+# Earlier versions of LHAPDF were removed from the Alma Linux package manager.
+RUN dnf install -y --allowerasing lhapdf lhapdf-devel && \
     dnf clean all
 ENV LHAPATH='/usr/share/LHAPDF:/home/jetscape-user/.local/share/LHAPDF'
 
