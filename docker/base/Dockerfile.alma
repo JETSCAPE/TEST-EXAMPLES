@@ -6,7 +6,8 @@ RUN dnf install -y epel-release && \
     dnf config-manager --set-enabled crb && \
     dnf update -y
 
-# Install pre-reqs
+# Install pre-reqs.  ROOT is split into sub-packages in Alma's package manager.
+# Several common Root sub-packages are included.
 RUN dnf groupinstall -y "Development Tools" && \
     dnf install -y --allowerasing \
     doxygen \
@@ -43,18 +44,28 @@ RUN dnf groupinstall -y "Development Tools" && \
     root \
     python3-root \
     root-notebook \
+    root-fftw \
+    root-gdml \
+    root-genvector \
+    root-minuit \
+    root-mlp \
+    root-net-http \
+    root-roofit \
+    root-roostats \
+    root-spectrum \
+    root-tmva \
     && dnf clean all
 
 ENV CMAKE_POLICY_VERSION_MINIMUM=3.5
 ENV PIP_BREAK_SYSTEM_PACKAGES=1
 
-# Ensure ROOT environment variables on PATH
-ENV ROOTSYS="/usr/lib64/root"
+# Set ROOT environment variables, installed via Alma's package manager
+# using typical install paths
+ENV ROOTSYS="/usr"
+ENV ROOT_DIR="/usr/share/root/cmake"
 ENV ROOT_INCLUDE_PATH="/usr/include/root"
-ENV CMAKE_PREFIX_PATH="${ROOTSYS}/cmake:${CMAKE_PREFIX_PATH}"
-ENV PATH="${ROOTSYS}/bin:${PATH}"
-ENV LD_LIBRARY_PATH="${ROOTSYS}/lib64:${ROOTSYS}/lib:${LD_LIBRARY_PATH}"
-ENV PYTHONPATH="${ROOTSYS}/lib64:${ROOTSYS}/lib:${PYTHONPATH}"
+ENV CMAKE_PREFIX_PATH="${ROOT_DIR}"
+ENV LD_LIBRARY_PATH="/usr/lib64/root"
 
 # Ensure OpenMPI tools on PATH
 ENV OPENMPI_DIR="/usr/lib64/openmpi"
@@ -104,7 +115,7 @@ RUN curl -SLf --progress-bar --retry 5 --retry-delay 5 --max-time 600 "http://he
     && cd /usr/local \
     && mkdir hepmc3-build \
     && cd hepmc3-build \
-    && cmake ../HepMC3-3.2.6 -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_INSTALL_LIBDIR=lib -DHEPMC3_ENABLE_ROOTIO=ON -DHEPMC3_BUILD_EXAMPLES=ON -DROOT_DIR=${ROOTSYS} -DCMAKE_CXX_STANDARD=17 -DHEPMC3_CXX_STANDARD=17 \
+    && cmake ../HepMC3-3.2.6 -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_INSTALL_LIBDIR=lib -DHEPMC3_ENABLE_ROOTIO=ON -DHEPMC3_BUILD_EXAMPLES=ON -DROOT_DIR=${ROOT_DIR} -DCMAKE_CXX_STANDARD=17 -DHEPMC3_CXX_STANDARD=17 \
     && make -j$(nproc) install \
     && rm -r /usr/local/hepmc3-build
 
