@@ -31,6 +31,7 @@
   <JetScapeWriterFinalStatePartonsAscii> off </JetScapeWriterFinalStatePartonsAscii>
   <JetScapeWriterFinalStateHadronsAscii> off </JetScapeWriterFinalStateHadronsAscii>
   <JetScapeWriterQnVectorAscii>off</JetScapeWriterQnVectorAscii>
+  <JetScapeGraphPrinter> off </JetScapeGraphPrinter>
   <QnVector_pTmin>0</QnVector_pTmin>
   <QnVector_pTmax>6</QnVector_pTmax>
   <QnVector_NpT>30</QnVector_NpT>
@@ -235,12 +236,15 @@
       <pTHatMax>120</pTHatMax>
       <eCM>5020</eCM>
       <!-- The soft momentum cutoff in GeV removes partons from the pythia gun. The default matches the PP19 setup. -->
-      <softMomentumCutoff>0</softMomentumCutoff>
+      <softMomentumCutoff>2.0</softMomentumCutoff>
       <!-- You can add any number of additional lines to initialize pythia here -->
       <!-- Note that if the tag exists it cannot be empty (tinyxml produces a segfault) -->
       <LinesToRead>
       	HardQCD:all = on
       </LinesToRead>
+      <fullGraph>0</fullGraph>
+      <nScatter>1</nScatter>
+      <takeRemnants>1</takeRemnants>
     </PythiaGun>
 
     <epemGun>
@@ -287,7 +291,6 @@
     <tStart> 0.6 </tStart> <!-- Start time of jet quenching, proper time, fm/c   -->
     <mutex>ON</mutex>
     <AddLiquefier> false </AddLiquefier>
-    <ModificationFactor> -1 </ModificationFactor> <!-- Modification factor for the energy loss, used in the Lbt module -->
     <lambdaQCD>0.2</lambdaQCD> <!-- 0.2 JETSCAPE standard value, 0.4 is the value chosen in JETSET -->
 
     <Matter>
@@ -596,7 +599,7 @@
 
   <!-- Jet Hadronization Module -->
    <JetHadronization>
-       <name>colored/colorless/hybrid</name>
+       <name>colored/colorless/hybrid/ccolored</name>
        <take_recoil>1</take_recoil>
        <!--use eCMforHadronization only for pp collisions to introduce beam partons-->
        <!--recommended value for e+e- and AA = 0-->
@@ -635,6 +638,7 @@
        <additional_pythia_particles>0</additional_pythia_particles>
        <!-- Path to file with additional particles for pythia (for higher reco_Mlevelmax)-->
        <additional_pythia_particles_path>../config/HH_LightExcitedMesons.xml</additional_pythia_particles_path>
+       <all_together>0</all_together>
    </JetHadronization>
 
   <!-- Particlization Module  -->
