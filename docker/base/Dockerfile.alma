@@ -130,19 +130,25 @@ RUN curl -SLf --progress-bar --retry 5 --retry-delay 5 --max-time 600 "https://g
     && tar --no-same-owner --strip-components=1 -xzf /tmp/pythia${pythiaV}.tgz -C /usr/local/pythia${pythiaV} \
     && rm -f /tmp/pythia${pythiaV}.tgz \
     && cd /usr/local/pythia${pythiaV} \
-    && ./configure --enable-shared --prefix=/usr/local/ --with-hepmc3=/usr/local/HepMC3-3.2.6 --with-lhapdf6 \
+    && ./configure --enable-shared --prefix=/usr/local/ --with-hepmc3=/usr/local/HepMC3-3.2.6 --with-lhapdf6 --with-python \
     && make -j$(nproc) \
     && make -j$(nproc) install
+
+ENV PYTHONPATH=/usr/local/lib
+ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+# Validates the Python integration for the Pythia configuration
+RUN python3 -c "import pythia8; print('Pythia Python integration succeeded:', pythia8.__file__)"
 
 # Environment setup
 ARG username=jetscape-user
 ENV JETSCAPE_DIR="/home/${username}/JETSCAPE"
 ENV SMASH_DIR="${JETSCAPE_DIR}/external_packages/smash/smash_code"
-ENV EIGEN3_ROOT /usr/include/eigen3
-ENV PYTHIA8DIR /usr/local/
-ENV PYTHIA8 /usr/local/
-ENV PYTHIA8_ROOT_DIR /usr/local/
-ENV PATH $PATH:$PYTHIA8DIR/bin
+ENV EIGEN3_ROOT=/usr/include/eigen3
+ENV PYTHIA8DIR=/usr/local/
+ENV PYTHIA8=/usr/local/
+ENV PYTHIA8_ROOT_DIR=/usr/local/
+ENV PATH=$PATH:$PYTHIA8DIR/bin
 
 # Environment modules
 # Download archive to /tmp first to avoid streaming/tar issues under buildx/QEMU
@@ -159,7 +165,7 @@ ARG id=1234
 RUN groupadd -g ${id} ${username} \
     && useradd --create-home --home-dir /home/${username} -u ${id} -g ${username} ${username}
 USER ${username}
-ENV HOME /home/${username}
+ENV HOME=/home/${username}
 WORKDIR ${HOME}
 
-ENTRYPOINT /bin/bash
+ENTRYPOINT ["/bin/bash"]
