@@ -1,4 +1,4 @@
-# Build from AlmaLinux 9 (current 9.7)
+# Build from AlmaLinux 9 (current 9.8)
 FROM almalinux:9
 
 # Install EPEL for ROOT and other packages
@@ -6,7 +6,8 @@ RUN dnf install -y epel-release && \
     dnf config-manager --set-enabled crb && \
     dnf update -y
 
-# Install pre-reqs
+# Install pre-reqs.  ROOT is split into sub-packages in Alma's package manager.
+# Several common Root sub-packages are included.
 RUN dnf groupinstall -y "Development Tools" && \
     dnf install -y --allowerasing \
     doxygen \
@@ -18,7 +19,6 @@ RUN dnf groupinstall -y "Development Tools" && \
     hdf5 \
     hdf5-devel \
     less \
-    boost-devel \
     eigen3-devel \
     libXpm-devel \
     openmpi \
@@ -43,18 +43,43 @@ RUN dnf groupinstall -y "Development Tools" && \
     root \
     python3-root \
     root-notebook \
+    root-fftw \
+    root-gdml \
+    root-genvector \
+    root-minuit \
+    root-mlp \
+    root-net-http \
+    root-roofit \
+    root-roostats \
+    root-spectrum \
+    root-tmva \
     && dnf clean all
 
 ENV CMAKE_POLICY_VERSION_MINIMUM=3.5
 ENV PIP_BREAK_SYSTEM_PACKAGES=1
 
-# Ensure ROOT environment variables on PATH
-ENV ROOTSYS="/usr/lib64/root"
+ARG BOOST_VERSION=1.92.0
+ARG BOOST_VERSION_U=1_92_0
+ARG BOOST_SHA256=5c1d40cb8e19adbf740a4ec2da35b3e58f3f5804b1dce44deb53df72193cbc6c
+
+# Install Boost 1.92.0, a newer version than the Alma Linux package manager provides.
+RUN curl -fL --retry 3 \
+      "https://archives.boost.io/release/${BOOST_VERSION}/source/boost_${BOOST_VERSION_U}.tar.bz2" \
+      -o /tmp/boost.tar.bz2 && \
+    echo "${BOOST_SHA256}  /tmp/boost.tar.bz2" | sha256sum -c - && \
+    tar -xjf /tmp/boost.tar.bz2 -C /tmp && \
+    cd /tmp/boost_${BOOST_VERSION_U} && \
+    ./bootstrap.sh --prefix=/usr/local && \
+    ./b2 -j$(nproc) install && \
+    rm -rf /tmp/boost_${BOOST_VERSION_U} /tmp/boost.tar.bz2
+
+# Set ROOT environment variables, installed via Alma's package manager
+# using typical install paths
+ENV ROOTSYS="/usr"
+ENV ROOT_DIR="/usr/share/root/cmake"
 ENV ROOT_INCLUDE_PATH="/usr/include/root"
-ENV CMAKE_PREFIX_PATH="${ROOTSYS}/cmake:${CMAKE_PREFIX_PATH}"
-ENV PATH="${ROOTSYS}/bin:${PATH}"
-ENV LD_LIBRARY_PATH="${ROOTSYS}/lib64:${ROOTSYS}/lib:${LD_LIBRARY_PATH}"
-ENV PYTHONPATH="${ROOTSYS}/lib64:${ROOTSYS}/lib:${PYTHONPATH}"
+ENV CMAKE_PREFIX_PATH="${ROOT_DIR}"
+ENV LD_LIBRARY_PATH="/usr/lib64/root"
 
 # Ensure OpenMPI tools on PATH
 ENV OPENMPI_DIR="/usr/lib64/openmpi"
@@ -91,8 +116,9 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 # We might need to source /usr/bin/thisroot.sh or similar if it exists, but usually RPM installs are in system path.
 # However, for consistency with old dockerfile, we might set ROOTSYS if possible, but standard install puts headers in /usr/include/root etc.
 
-# Try to install LHAPDF 6.5.5 from EPEL (preferred). Fall back to distro package.
-RUN dnf install -y --allowerasing lhapdf-6.5.5\* lhapdf-devel-6.5.5\* && \
+# Install the current Alma Linux package manage LHAPDF package.
+# Earlier versions of LHAPDF were removed from the Alma Linux package manager.
+RUN dnf install -y --allowerasing lhapdf lhapdf-devel && \
     dnf clean all
 ENV LHAPATH='/usr/share/LHAPDF:/home/jetscape-user/.local/share/LHAPDF'
 
@@ -104,32 +130,39 @@ RUN curl -SLf --progress-bar --retry 5 --retry-delay 5 --max-time 600 "http://he
     && cd /usr/local \
     && mkdir hepmc3-build \
     && cd hepmc3-build \
-    && cmake ../HepMC3-3.2.6 -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_INSTALL_LIBDIR=lib -DHEPMC3_ENABLE_ROOTIO=ON -DHEPMC3_BUILD_EXAMPLES=ON -DROOT_DIR=${ROOTSYS} -DCMAKE_CXX_STANDARD=17 -DHEPMC3_CXX_STANDARD=17 \
+    && cmake ../HepMC3-3.2.6 -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_INSTALL_LIBDIR=lib -DHEPMC3_ENABLE_ROOTIO=ON -DHEPMC3_BUILD_EXAMPLES=ON -DROOT_DIR=${ROOT_DIR} -DCMAKE_CXX_STANDARD=17 -DHEPMC3_CXX_STANDARD=17 \
     && make -j$(nproc) install \
     && rm -r /usr/local/hepmc3-build
 
 ENV LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"
 
 # Install Pythia8 with HepMC3-3.2.6 (that is needed by SMASH)
+# The previous pythia.org URL returning 404, so using GitLab instead.
 ARG pythiaV="8315"
-# Download archive to /tmp first to avoid streaming/tar issues under buildx/QEMU
-RUN curl -SLf --progress-bar --retry 5 --retry-delay 5 --max-time 600 "http://pythia.org/download/pythia83/pythia${pythiaV}.tgz" -o /tmp/pythia${pythiaV}.tgz \
-    && tar --no-same-owner -xzf /tmp/pythia${pythiaV}.tgz -C /usr/local \
+RUN curl -SLf --progress-bar --retry 5 --retry-delay 5 --max-time 600 "https://gitlab.com/Pythia8/releases/-/archive/pythia${pythiaV}/releases-pythia${pythiaV}.tar.gz" -o /tmp/pythia${pythiaV}.tgz \
+    && mkdir -p /usr/local/pythia${pythiaV} \
+    && tar --no-same-owner --strip-components=1 -xzf /tmp/pythia${pythiaV}.tgz -C /usr/local/pythia${pythiaV} \
     && rm -f /tmp/pythia${pythiaV}.tgz \
     && cd /usr/local/pythia${pythiaV} \
-    && ./configure --enable-shared --prefix=/usr/local/ --with-hepmc3=/usr/local/HepMC3-3.2.6 --with-lhapdf6 \
+    && ./configure --enable-shared --prefix=/usr/local/ --with-hepmc3=/usr/local/HepMC3-3.2.6 --with-lhapdf6 --with-python \
     && make -j$(nproc) \
     && make -j$(nproc) install
+
+ENV PYTHONPATH=/usr/local/lib
+ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+# Validates the Python integration for the Pythia configuration
+RUN python3 -c "import pythia8; print('Pythia Python integration succeeded:', pythia8.__file__)"
 
 # Environment setup
 ARG username=jetscape-user
 ENV JETSCAPE_DIR="/home/${username}/X-SCAPE"
 ENV SMASH_DIR="${JETSCAPE_DIR}/external_packages/smash/smash_code"
-ENV EIGEN3_ROOT /usr/include/eigen3
-ENV PYTHIA8DIR /usr/local/
-ENV PYTHIA8 /usr/local/
-ENV PYTHIA8_ROOT_DIR /usr/local/
-ENV PATH $PATH:$PYTHIA8DIR/bin
+ENV EIGEN3_ROOT=/usr/include/eigen3
+ENV PYTHIA8DIR=/usr/local/
+ENV PYTHIA8=/usr/local/
+ENV PYTHIA8_ROOT_DIR=/usr/local/
+ENV PATH=$PATH:$PYTHIA8DIR/bin
 
 # Environment modules
 # Download archive to /tmp first to avoid streaming/tar issues under buildx/QEMU
@@ -169,7 +202,7 @@ RUN cd /home/${username}/X-SCAPE/build \
     && make -j4
 
 USER ${username}
-ENV HOME /home/${username}
+ENV HOME=/home/${username}
 WORKDIR ${HOME}
 
-ENTRYPOINT /bin/bash
+ENTRYPOINT ["/bin/bash"]
