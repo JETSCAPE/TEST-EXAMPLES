@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!-- C-SCAPE regression test: e+e- -> q qbar at the Z pole with epemGun, vacuum MATTER and
+     colored hadronization (no beam remnants) 
+     Requires no optional external modules. -->
+<jetscape>
+
+  <nEvents> 100 </nEvents>
+  <outputFilename>test_epem_colored</outputFilename>
+  <JetScapeWriterAscii> on </JetScapeWriterAscii>
+  <JetScapeWriterHepMC> on </JetScapeWriterHepMC>
+  <JetScapeWriterFinalStatePartonsAscii> on </JetScapeWriterFinalStatePartonsAscii>
+  <JetScapeWriterFinalStateHadronsAscii> on </JetScapeWriterFinalStateHadronsAscii>
+
+  <Random>
+    <seed>3</seed>
+  </Random>
+
+  <!-- Hard Process -->
+  <Hard>
+    <epemGun>
+      <eCM>91.2</eCM>
+      <LinesToRead>
+        HadronLevel:all = off
+      </LinesToRead>
+    </epemGun>
+  </Hard>
+
+  <!--Eloss Modules -->
+  <Eloss>
+    <deltaT> 0.1 </deltaT>
+    <maxT> 20 </maxT>
+    <Matter>
+      <Q0> 1.0 </Q0>
+      <in_vac> 1 </in_vac>
+      <vir_factor> 0.25 </vir_factor>
+    </Matter>
+  </Eloss>
+
+  <!-- Jet Hadronization Module -->
+  <JetHadronization>
+    <name>colored</name>
+    <eCMforHadronization>0</eCMforHadronization>
+  </JetHadronization>
+
+</jetscape>

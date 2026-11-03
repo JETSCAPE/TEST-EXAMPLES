@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!-- C-SCAPE regression test: d+Au 200 GeV with 3D MC-Glauber, full PYTHIA event graph and iMATTER
+     ISR, followed by in-medium MATTER in a static T = 0.25 GeV brick, with the medium reused for
+     pairs of events (the initial state and ISR still rerun every event), icolored hadronization.
+     Requires -DUSE_3DGlauber=ON. 
+     Requires -DUSE_3DGlauber=ON; no other optional modules. -->
+<jetscape>
+
+  <nEvents> 10 </nEvents>
+  <setReuseHydro> true </setReuseHydro>
+  <nReuseHydro> 2 </nReuseHydro>
+  <outputFilename>test_dAu_isr_brick_reuse</outputFilename>
+  <JetScapeWriterAscii> on </JetScapeWriterAscii>
+  <JetScapeWriterHepMC> on </JetScapeWriterHepMC>
+  <JetScapeWriterFinalStatePartonsAscii> on </JetScapeWriterFinalStatePartonsAscii>
+  <JetScapeWriterFinalStateHadronsAscii> on </JetScapeWriterFinalStateHadronsAscii>
+
+  <Random>
+    <seed>43</seed>
+  </Random>
+
+  <!-- Inital State Module  -->
+  <IS>
+    <MCGlauber>
+      <projectile>d</projectile>
+      <target>Au</target>
+      <sqrts>200</sqrts>
+      <b_min>0.0</b_min>
+      <b_max>2.0</b_max>
+      <Subtract_hard_momentum>1</Subtract_hard_momentum>
+      <generateOnlyPositions>1</generateOnlyPositions>
+    </MCGlauber>
+  </IS>
+
+  <!-- Hard Process -->
+  <Hard>
+    <PythiaGun>
+      <pTHatMin>5</pTHatMin>
+      <pTHatMax>10</pTHatMax>
+      <eCM>200</eCM>
+      <LinesToRead>
+        SigmaProcess:alphaSvalue = 0.13
+        MultipartonInteractions:alphaSvalue = 0.13
+        PartonLevel:MPI = on
+      </LinesToRead>
+      <fullGraph>1</fullGraph>
+      <nScatter>1</nScatter>
+      <takeRemnants>1</takeRemnants>
+    </PythiaGun>
+  </Hard>
+
+  <!-- Initial State Radiation -->
+  <ISR>
+    <use_framework_ISR>1</use_framework_ISR>
+    <deltaT>-1</deltaT>
+    <startT>0</startT>
+    <maxT>-10</maxT>
+    <iMatter>
+      <name>iMatter</name>
+      <Q0> 1.0 </Q0>
+      <vir_factor> 0.5 </vir_factor>
+      <z_min_factor> 0.94 </z_min_factor>
+      <!-- initial nucleon energies, MUST match hard process -->
+      <P_A> 100 </P_A>
+      <P_B> 100 </P_B>
+    </iMatter>
+  </ISR>
+
+  <!--Preequilibrium Dynamics Module -->
+  <Preequilibrium>
+    <NullPreDynamics> </NullPreDynamics>
+  </Preequilibrium>
+
+  <!-- Hydro  Module  -->
+  <Hydro>
+    <Brick bjorken_expansion_on="false" start_time="0.6">
+      <name>Brick</name>
+      <T>0.25</T>
+    </Brick>
+  </Hydro>
+
+  <!--Eloss Modules -->
+  <Eloss>
+    <deltaT> 1 </deltaT>
+    <maxT> 10 </maxT>
+    <Matter>
+      <Q0> 2.0 </Q0>
+      <in_vac> 0 </in_vac>
+      <recoil_on> 0 </recoil_on>
+      <broadening_on> 0 </broadening_on>
+      <brick_med> 1 </brick_med>
+      <brick_length> 3 </brick_length>
+    </Matter>
+  </Eloss>
+
+  <!-- Jet Hadronization Module -->
+  <JetHadronization>
+    <name>icolored</name>
+  </JetHadronization>
+
+</jetscape>

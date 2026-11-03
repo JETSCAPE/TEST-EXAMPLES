@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!-- C-SCAPE regression test: p+p 5.02 TeV with 3D MC-Glauber positions, full PYTHIA event graph,
+     iMATTER initial-state shower (framework ISR), vacuum MATTER final-state shower and
+     icolored hadronization. No hydro. Requires -DUSE_3DGlauber=ON. 
+     Requires -DUSE_3DGlauber=ON; no other optional modules. -->
+<jetscape>
+
+  <nEvents> 30 </nEvents>
+  <outputFilename>test_pp_isr_icolored</outputFilename>
+  <JetScapeWriterAscii> on </JetScapeWriterAscii>
+  <JetScapeWriterHepMC> on </JetScapeWriterHepMC>
+  <JetScapeWriterFinalStatePartonsAscii> on </JetScapeWriterFinalStatePartonsAscii>
+  <JetScapeWriterFinalStateHadronsAscii> on </JetScapeWriterFinalStateHadronsAscii>
+
+  <Random>
+    <seed>1</seed>
+  </Random>
+
+  <!-- Inital State Module  -->
+  <IS>
+    <MCGlauber>
+      <projectile>p</projectile>
+      <target>p</target>
+      <sqrts>5020</sqrts>
+      <!--1: PythiaISR setup (2 step MCGlauber initialization)-->
+      <generateOnlyPositions>1</generateOnlyPositions>
+    </MCGlauber>
+  </IS>
+
+  <!-- Hard Process -->
+  <Hard>
+    <PythiaGun>
+      <pTHatMin>10</pTHatMin>
+      <pTHatMax>20</pTHatMax>
+      <eCM>5020</eCM>
+      <LinesToRead>
+        SigmaProcess:alphaSvalue = 0.13
+        MultipartonInteractions:alphaSvalue = 0.13
+        PartonLevel:MPI = on
+      </LinesToRead>
+      <fullGraph>1</fullGraph>
+      <nScatter>1</nScatter>
+      <takeRemnants>1</takeRemnants>
+    </PythiaGun>
+  </Hard>
+
+  <!-- Initial State Radiation -->
+  <ISR>
+    <use_framework_ISR>1</use_framework_ISR>
+    <deltaT>-0.1</deltaT>
+    <startT>0</startT>
+    <maxT>-20</maxT>
+    <iMatter>
+      <name>iMatter</name>
+      <Q0> 1.0 </Q0>
+      <vir_factor> 0.5 </vir_factor>
+      <z_min_factor> 0.94 </z_min_factor>
+      <!-- initial nucleon energies, MUST match hard process -->
+      <P_A> 2510 </P_A>
+      <P_B> 2510 </P_B>
+    </iMatter>
+  </ISR>
+
+  <!--Eloss Modules -->
+  <Eloss>
+    <deltaT> 0.1 </deltaT>
+    <maxT> 20 </maxT>
+    <Matter>
+      <Q0> 2.0 </Q0>
+      <in_vac> 1 </in_vac>
+      <vir_factor> 0.25 </vir_factor>
+      <recoil_on> 0 </recoil_on>
+      <broadening_on> 0 </broadening_on>
+      <brick_med> 0 </brick_med>
+    </Matter>
+  </Eloss>
+
+  <!-- Jet Hadronization Module -->
+  <JetHadronization>
+    <name>icolored</name>
+  </JetHadronization>
+
+</jetscape>

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!-- C-SCAPE regression test: d+Au 200 GeV with 3D MC-Glauber (hard scatterings placed at binary
+     collisions), full PYTHIA event graph, iMATTER ISR, vacuum MATTER and icolored hadronization
+     with string remnants from the second 3D MC-Glauber step. No hydro (empty medium).
+     Requires -DUSE_3DGlauber=ON. 
+     Requires -DUSE_3DGlauber=ON; no other optional modules. -->
+<jetscape>
+
+  <nEvents> 20 </nEvents>
+  <outputFilename>test_dAu_isr_icolored</outputFilename>
+  <JetScapeWriterAscii> on </JetScapeWriterAscii>
+  <JetScapeWriterHepMC> on </JetScapeWriterHepMC>
+  <JetScapeWriterFinalStatePartonsAscii> on </JetScapeWriterFinalStatePartonsAscii>
+  <JetScapeWriterFinalStateHadronsAscii> on </JetScapeWriterFinalStateHadronsAscii>
+
+  <Random>
+    <seed>42</seed>
+  </Random>
+
+  <!-- Inital State Module  -->
+  <IS>
+    <MCGlauber>
+      <projectile>d</projectile>
+      <target>Au</target>
+      <sqrts>200</sqrts>
+      <b_min>0.0</b_min>
+      <b_max>2.0</b_max>
+      <Subtract_hard_momentum>1</Subtract_hard_momentum>
+      <generateOnlyPositions>1</generateOnlyPositions>
+    </MCGlauber>
+  </IS>
+
+  <!-- Hard Process -->
+  <Hard>
+    <PythiaGun>
+      <pTHatMin>5</pTHatMin>
+      <pTHatMax>10</pTHatMax>
+      <eCM>200</eCM>
+      <LinesToRead>
+        SigmaProcess:alphaSvalue = 0.13
+        MultipartonInteractions:alphaSvalue = 0.13
+        PartonLevel:MPI = on
+      </LinesToRead>
+      <fullGraph>1</fullGraph>
+      <nScatter>1</nScatter>
+      <takeRemnants>1</takeRemnants>
+    </PythiaGun>
+  </Hard>
+
+  <!-- Initial State Radiation -->
+  <ISR>
+    <use_framework_ISR>1</use_framework_ISR>
+    <deltaT>-1</deltaT>
+    <startT>0</startT>
+    <maxT>-10</maxT>
+    <iMatter>
+      <name>iMatter</name>
+      <Q0> 1.0 </Q0>
+      <vir_factor> 0.5 </vir_factor>
+      <z_min_factor> 0.94 </z_min_factor>
+      <!-- initial nucleon energies, MUST match hard process -->
+      <P_A> 100 </P_A>
+      <P_B> 100 </P_B>
+    </iMatter>
+  </ISR>
+
+  <!--Eloss Modules -->
+  <Eloss>
+    <deltaT> 1 </deltaT>
+    <maxT> 10 </maxT>
+    <Matter>
+      <in_vac> 1 </in_vac>
+    </Matter>
+  </Eloss>
+
+  <!-- Jet Hadronization Module -->
+  <JetHadronization>
+    <name>icolored</name>
+  </JetHadronization>
+
+</jetscape>

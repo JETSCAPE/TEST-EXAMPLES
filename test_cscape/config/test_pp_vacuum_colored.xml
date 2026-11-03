@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!-- C-SCAPE regression test: pp, PythiaGun + vacuum MATTER, colored (Lund string with color flow) hadronization 
+     Requires no optional external modules. -->
+<jetscape>
+
+  <nEvents> 50 </nEvents>
+  <outputFilename>test_pp_vacuum_colored</outputFilename>
+  <JetScapeWriterAscii> on </JetScapeWriterAscii>
+  <JetScapeWriterHepMC> on </JetScapeWriterHepMC>
+  <JetScapeWriterFinalStatePartonsAscii> on </JetScapeWriterFinalStatePartonsAscii>
+  <JetScapeWriterFinalStateHadronsAscii> on </JetScapeWriterFinalStateHadronsAscii>
+
+  <Random>
+    <seed>11</seed>
+  </Random>
+
+  <!-- Hard Process -->
+  <Hard>
+    <PythiaGun>
+      <pTHatMin>20</pTHatMin>
+      <pTHatMax>40</pTHatMax>
+      <eCM>200</eCM>
+    </PythiaGun>
+  </Hard>
+
+  <!--Eloss Modules -->
+  <Eloss>
+    <deltaT> 0.1 </deltaT>
+    <maxT> 20 </maxT>
+    <Matter>
+      <Q0> 1.0 </Q0>
+      <in_vac> 1 </in_vac>
+      <vir_factor> 0.25 </vir_factor>
+      <qhat0> 0.0 </qhat0>
+      <alphas> 0.25 </alphas>
+    </Matter>
+  </Eloss>
+
+  <!-- Jet Hadronization Module -->
+  <JetHadronization>
+    <name>colored</name>
+    <eCMforHadronization>200</eCMforHadronization>
+  </JetHadronization>
+
+</jetscape>
