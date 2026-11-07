@@ -1,0 +1,243 @@
+[Info] *--------------------------------------------------------------*[0m
+[Info] |                                                              |[0m
+[Info] |                                                              |[0m
+[Info] |                 %     /                                      |[0m
+[Info] |                  %   /                                       |[0m
+[Info] |                   % /             /\                         |[0m
+[Info] |                    X           /\/  \                        |[0m
+[Info] |                   / %       /\/   |  \/\                     |[0m
+[Info] |                  /   %     /    % | %   \                    |[0m
+[Info] |               __/     %___/      %|%     \/\__               |[0m
+[Info] |                                                              |[0m
+[Info] |                     XSCAPE by JETSCAPE                       |[0m
+[Info] |                                                              |[0m
+[Info] |           X-Ion Collisions with a Statistically              |[0m
+[Info] |       and Computationally Advanced Program Envelope          |[0m
+[Info] |                     http://jetscape.org                      |[0m
+[Info] |                                                              |[0m
+[Info] | Please cite arXiv:1903.07706 if you use this package for     |[0m
+[Info] | scientific work.                                             |[0m
+[Info] |                                                              |[0m
+[Info] | JETSCAPE is provided without warranty under the terms        |[0m
+[Info] | of the GNU GPLv3. It uses xxx code(s).                       |[0m
+[Info] | See COPYING file for details.                                |[0m
+[Info] |                                                              |[0m
+[Info] *--------------------------------------------------------------*[0m
+[Info]  XSCAPE version = 2.1 (includes JETSCAPE version = 4.0.2)[0m
+[Info] [0m
+[Info] 47MB  [1m[31mInitialize JetScape ...[0m
+[Info] 47MB  Created JetScapeXML Instance[0m
+[Info] 47MB  Open XML Main file : /home/jetscape-user/jetscape/C-SCAPE-COMP/config/jetscape_main.xml[0m
+[Info] 47MB  Open XML User file : /home/jetscape-user/jetscape/TEST-EXAMPLES/test_cscape/config/test_epem_colored.xml[0m
+[Info] 47MB  ================================================================[0m
+[Info] 47MB  nEvents = 100[0m
+[Info] 47MB  Reuse Hydro:  true [0m
+[Info] 47MB  nReuseHydro: 10[0m
+[Info] 47MB  JetScapeTaskSupport found seed 3, using individual engines with seeds created from 3[0m
+[Info] 51MB  JetScape::DetermineTaskList() -- Hard Process: Added epemGun to task list.[0m
+[Info] 51MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
+[Info] 51MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColoredHadronization to task list.[0m
+[Info] 51MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_epem_colored.dat) added to task list.[0m
+[Info] 52MB  JetScape::DetermineTaskList() -- JetScapeWriterHepMC (test_epem_colored.hepmc) added to task list.[0m
+[Info] 52MB  JetScape::DetermineTaskList() -- JetScapeWriterFinalStatePartonsAscii (test_epem_colored_final_state_partons.dat) added to task list.[0m
+[Info] 52MB  JetScape::DetermineTaskList() -- JetScapeWriterFinalStateHadronsAscii (test_epem_colored_final_state_hadrons.dat) added to task list.[0m
+[Info] 52MB  ================================================================[0m
+[Info] 52MB  Created QueryHistory Instance[0m
+[Info] 52MB  Found 7 Modules Initialize them ... [0m
+[Info] 52MB  Set Hydro,JetEnergylossManager and IS Pointers for SignalManager to create Signal/Slots[0m
+[Info] 52MB  Created JetScapeSignalManager Instance[0m
+[Info] 52MB  Calling JetScape InitTasks()...[0m
+[Info] 52MB  Initialize HardProcess : UninitializedepemGun ...[0m
+
+ *-------  PYTHIA Process Initialization  --------------------------*
+ |                                                                  |
+ | We collide e- with e+ at a CM energy of 9.120e+01 GeV            |
+ |                                                                  |
+ |------------------------------------------------------------------|
+ |                                                    |             |
+ | Subprocess                                    Code |   Estimated |
+ |                                                    |    max (mb) |
+ |                                                    |             |
+ |------------------------------------------------------------------|
+ |                                                    |             |
+ | f f' -> f f' (t-channel gamma*/Z0)             211 |   4.708e-04 |
+ | f_1 f_2 -> f_3 f_4 (t-channel W+-)             212 |   7.123e-08 |
+ | f fbar -> gamma*/Z0                            221 |   4.352e-05 |
+ | f fbar -> gamma*/Z0 gamma*/Z0                  231 |   0.000e+00 |
+ | f fbar' -> Z0 W+- (no gamma*!)                 232 |   0.000e+00 |
+ | f fbar -> W+ W-                                233 |   0.000e+00 |
+ |                                                                  |
+ *-------  End PYTHIA Process Initialization -----------------------*
+
+ *-------  PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings (changes only)  ------------------* 
+ |                                                                                                                 | 
+ | Name                                          |                      Now |      Default         Min         Max | 
+ |                                               |                          |                                      | 
+ | Beams:eCM                                     |                 91.20000 |    14000.000         0.0             | 
+ | Beams:idA                                     |                       11 |         2212                         | 
+ | Beams:idB                                     |                      -11 |         2212                         | 
+ | HadronLevel:all                               |                      off |           on                         | 
+ | Next:numberShowEvent                          |                        0 |            1           0             | 
+ | Next:numberShowInfo                           |                        0 |            1           0             | 
+ | Next:numberShowProcess                        |                        0 |            1           0             | 
+ | PartonLevel:FSR                               |                      off |           on                         | 
+ | PDF:lepton                                    |                      off |           on                         | 
+ | Random:seed                                   |                        3 |           -1               900000000 | 
+ | Random:setSeed                                |                       on |          off                         | 
+ | StringZ:useOldAExtra                          |                       on |          off                         | 
+ | WeakBosonExchange:all                         |                       on |          off                         | 
+ | WeakDoubleBoson:all                           |                       on |          off                         | 
+ | WeakSingleBoson:ffbar2gmZ                     |                       on |          off                         | 
+ |                                                                                                                 | 
+ *-------  End PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings  -----------------------------* 
+
+ --------  PYTHIA Particle Data Table (changed only)  ------------------------------------------------------------------------------
+ 
+      id   name            antiName         spn chg col      m0        mWidth      mMin       mMax       tau0    res dec ext vis wid
+             no onMode   bRatio   meMode     products 
+
+      23  Z0                                  3   0   0   91.18760    2.50419   10.00000    0.00000  7.87987e-14   1   1   0   0   0
+              0     1   0.1540492    0        1       -1 
+              1     1   0.1194935    0        2       -2 
+              2     1   0.1540386    0        3       -3 
+              3     1   0.1193325    0        4       -4 
+              4     1   0.1523269    0        5       -5 
+              5     0   0.0335480    0       11      -11 
+              6     0   0.0667305    0       12      -12 
+              7     0   0.0335477    0       13      -13 
+              8     0   0.0667305    0       14      -14 
+              9     0   0.0334720    0       15      -15 
+             10     0   0.0667305    0       16      -16 
+
+ --------  End PYTHIA Particle Data Table  -----------------------------------------------------------------------------------------
+
+[Info] 55MB  Initialize JetEnergyLoss Manager ...[0m
+[Info] 55MB  Found 1 Eloss Manager Tasks/Modules Initialize them ... [0m
+[Info] 55MB  Initialize JetEnergyLoss ...[0m
+[Info] 55MB  Eloss shower with deltaT = 0.1 startT = 0 and maxT = 20[0m
+[Info] 55MB  Found 1 Eloss Tasks/Modules Initialize them ... [0m
+[Info] 55MB  Initialize Matter ...[0m
+[Info] 55MB  [35mMATTER input parameter[0m
+[Info] 55MB  [35mmatter shower on: 1[0m
+[Info] 55MB  [35min_vac: 1  brick_med: 0  recoil_on: 0, tStart =0.6[0m
+[Info] 55MB  [35mLambda_QCD: 0.2[0m
+[Info] 55MB  [35mQ0: 1 QS: 0.9 vir_factor: 0.25 initial_virtuality_pT: 1  qhat0: -2 alphas: 0.25, QhatParametrizationType=0  qhatA: 10 qhatB:  10  qhatC: 1 qhatD:  0 hydro_Tc: 0.16 brick_length: 5[0m
+[Info] 55MB  Connect JetEnergyLossManager Signal to Hard Process ...[0m
+[Info] 55MB  Initialize Hadronization Manager ...[0m
+[Info] 55MB  Found 1 Hadronization Manager Tasks/Modules Initialize them ... [0m
+[Info] 55MB  Found 1 Hadronization Tasks/Modules Initialize them ... [0m
+[Info] 55MB  Pythia decays are turned on for tau0Max < 10[0m
+[Info] 55MB  Also reading in:           Init:showProcesses = off [0m
+[Info] 56MB  Connect HadronizationManager Signal to Energy Loss Manager ...[0m
+[Info] 56MB  JetScape Stream Writer initialized with output file = test_epem_colored.dat[0m
+[Info] 56MB  JetScape HepMC Writer initialized with output file = test_epem_colored.hepmc[0m
+[Info] 56MB  JetScape Final State Partons Stream Writer v2 initialized with output file = test_epem_colored_final_state_partons.dat[0m
+[Info] 56MB  JetScape Final State Hadrons Stream Writer v2 initialized with output file = test_epem_colored_final_state_hadrons.dat[0m
+[Info] 56MB  [1m[31mRun JetScape ...[0m
+[Info] 56MB  [1m[31mNumber of Events = 100[0m
+[Info] 56MB  [1m[31mRun Event # = 0[0m
+[Info] 56MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  vir_factor set to use pT, will not affect epemGun[0m
+[Info] 57MB  [1m[30mJetScape finished after 100 events![0m
+[Info] Finished![0m
+
+CPU time: 1.052612 seconds.
+Real time: 1.000000 seconds.

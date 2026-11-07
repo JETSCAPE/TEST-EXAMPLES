@@ -1,0 +1,341 @@
+[Info] *--------------------------------------------------------------*[0m
+[Info] |                                                              |[0m
+[Info] |                                                              |[0m
+[Info] |                 %     /                                      |[0m
+[Info] |                  %   /                                       |[0m
+[Info] |                   % /             /\                         |[0m
+[Info] |                    X           /\/  \                        |[0m
+[Info] |                   / %       /\/   |  \/\                     |[0m
+[Info] |                  /   %     /    % | %   \                    |[0m
+[Info] |               __/     %___/      %|%     \/\__               |[0m
+[Info] |                                                              |[0m
+[Info] |                     XSCAPE by JETSCAPE                       |[0m
+[Info] |                                                              |[0m
+[Info] |           X-Ion Collisions with a Statistically              |[0m
+[Info] |       and Computationally Advanced Program Envelope          |[0m
+[Info] |                     http://jetscape.org                      |[0m
+[Info] |                                                              |[0m
+[Info] | Please cite arXiv:1903.07706 if you use this package for     |[0m
+[Info] | scientific work.                                             |[0m
+[Info] |                                                              |[0m
+[Info] | JETSCAPE is provided without warranty under the terms        |[0m
+[Info] | of the GNU GPLv3. It uses xxx code(s).                       |[0m
+[Info] | See COPYING file for details.                                |[0m
+[Info] |                                                              |[0m
+[Info] *--------------------------------------------------------------*[0m
+[Info]  XSCAPE version = 2.1 (includes JETSCAPE version = 4.0.2)[0m
+[Info] [0m
+[Info] 47MB  [1m[31mInitialize JetScape ...[0m
+[Info] 47MB  Created JetScapeXML Instance[0m
+[Info] 47MB  Open XML Main file : /home/jetscape-user/jetscape/C-SCAPE-COMP/config/jetscape_main.xml[0m
+[Info] 47MB  Open XML User file : /home/jetscape-user/jetscape/TEST-EXAMPLES/test_cscape/config/test_pp_isr_colorless.xml[0m
+[Info] 47MB  ================================================================[0m
+[Info] 47MB  nEvents = 30[0m
+[Info] 47MB  Reuse Hydro:  true [0m
+[Info] 47MB  nReuseHydro: 10[0m
+[Info] 47MB  JetScapeTaskSupport found seed 3, using individual engines with seeds created from 3[0m
+[Info] 48MB  JetScape::DetermineTaskList() -- Initial State: Added MCGlauber module to task list.[0m
+[Info] 51MB  JetScape::DetermineTaskList() -- Hard Process: Added PythiaGun to task list.[0m
+[Info] 51MB  JetScape::DetermineTaskList() -- ISR: Added iMatter to ISR list.[0m
+[Info] 52MB  JetScape::DetermineTaskList() -- Eloss: Added Matter to Eloss list.[0m
+[Info] 52MB  JetScape::DetermineTaskList() -- JetHadronization: Added ColorlessHadronization to task list.[0m
+[Info] 52MB  JetScape::DetermineTaskList() -- JetScapeWriterAscii (test_pp_isr_colorless.dat) added to task list.[0m
+[Info] 52MB  JetScape::DetermineTaskList() -- JetScapeWriterHepMC (test_pp_isr_colorless.hepmc) added to task list.[0m
+[Info] 52MB  JetScape::DetermineTaskList() -- JetScapeWriterFinalStatePartonsAscii (test_pp_isr_colorless_final_state_partons.dat) added to task list.[0m
+[Info] 52MB  JetScape::DetermineTaskList() -- JetScapeWriterFinalStateHadronsAscii (test_pp_isr_colorless_final_state_hadrons.dat) added to task list.[0m
+[Info] 52MB  ================================================================[0m
+[Info] 52MB  Created QueryHistory Instance[0m
+[Info] 52MB  Found 10 Modules Initialize them ... [0m
+[Info] 52MB  Set Hydro,JetEnergylossManager and IS Pointers for SignalManager to create Signal/Slots[0m
+[Info] 52MB  Created JetScapeSignalManager Instance[0m
+[Info] 52MB  Calling JetScape InitTasks()...[0m
+[Info] 52MB  Initialize InitialState ... MCGlauber ...[0m
+[Info] 52MB  x range for bulk evolution = [-15, 15][0m
+==============================================
+Input Parameter list:
+==============================================
+BG = 5.
+N_sea_partons = 1
+ProjWS_R = 5.02
+ProjWS_a = 0.52
+ProjWS_beta2 = 0.06
+ProjWS_beta3 = 0.2
+ProjWS_gamma = 0.0
+Projectile = p
+Q2 = 1.
+QCD_string_production_mode = 1
+Subtract_hard_momentum = 0
+Target = p
+b_max = 20.
+b_min = 0.
+baryonInStringProb = 0.2
+baryon_junctions = 1
+batch_2Ddensity_output = 0
+batch_density_output = 0
+batch_eccentricity_output = 0
+cache_tables = 1
+cenMax = 100.
+cenMin = 0.
+d_min = 0.9
+evolve_QCD_string_mode = 4
+fluct_Nstrings_per_NN_collision = 1
+fluctuation_remnant_energy_loss_fraction = 0
+lambdaB = 0.2
+lambdaBs = 0.0
+nucleon_configuration_from_file = 0
+only_event_statistics = 0
+outputInitialEst = 0
+rapidity_loss_method = 4
+remnant_energy_loss_fraction = 0.5
+remnant_energy_loss_fraction_var = 0.4
+resetProjWS = 0
+resetTargWS = 0
+roots = 200.
+seed = -1
+shadowing_factor = 0.6
+tau_form_fluct_gamma_beta = 1.0
+tau_form_mean = 0.5
+useQuarks = 1
+ylossParam4At2 = 1.5
+ylossParam4At4 = 2.1
+ylossParam4At6 = 2.4
+ylossParam4var = 0.5
+yloss_param_alpha1 = 1.8
+yloss_param_alpha2 = 0.34
+yloss_param_fluct_var_LHC = 0.4
+yloss_param_fluct_var_RHIC = 0.4
+yloss_param_slope = 1.32
+==============================================
+sqrt{s} = 200 GeV, siginNN = 40.8344 mb
+==============================================
+Input Parameter list:
+==============================================
+BG = 5
+N_sea_partons = 1
+ProjWS_R = 5.02
+ProjWS_a = 0.52
+ProjWS_beta2 = 0.06
+ProjWS_beta3 = 0.2
+ProjWS_gamma = 0.0
+Projectile = p
+Q2 = 1
+QCD_string_production_mode = 1
+Subtract_hard_momentum = 1
+Target = p
+b_max = 20
+b_min = 0
+baryonInStringProb = 0.2
+baryon_junctions = 1
+batch_2Ddensity_output = 0
+batch_density_output = 0
+batch_eccentricity_output = 0
+cache_tables = 1
+cenMax = 100
+cenMin = 0
+d_min = 0.9
+evolve_QCD_string_mode = 4
+fluct_Nstrings_per_NN_collision = 1
+fluctuation_remnant_energy_loss_fraction = 0
+lambdaB = 0.2
+lambdaBs = 0
+nucleon_configuration_from_file = 0
+only_event_statistics = 0
+outputInitialEst = 0
+rapidity_loss_method = 4
+remnant_energy_loss_fraction = 0.5
+remnant_energy_loss_fraction_var = 0.4
+resetProjWS = 0
+resetTargWS = 0
+roots = 5020
+seed = -1
+shadowing_factor = 0.6
+tau_form_fluct_gamma_beta = 1
+tau_form_mean = 0.5
+useQuarks = 1
+ylossParam4At10 = 2.95
+ylossParam4At2 = 1.6
+ylossParam4At4 = 2.15
+ylossParam4At6 = 2.45
+ylossParam4var = 0.5
+yloss_param_alpha1 = 1.8
+yloss_param_alpha2 = 0.34
+yloss_param_fluct_var_LHC = 0.4
+yloss_param_fluct_var_RHIC = 0.4
+yloss_param_slope = 1.32
+==============================================
+sqrt{s} = 5020 GeV, siginNN = 67.57 mb
+[Info] 65MB  Initialize HardProcess : UninitializedPythiaGun ...[0m
+[Info] 65MB  [35mPythia Gun with framework ISR[0m
+[Info] 65MB  [35mPythia Gun with FSR_on: 0[0m
+[Info] 65MB  [35mPythia Gun with 10 < pTHat < 20[0m
+
+ *-------  PYTHIA Process Initialization  --------------------------*
+ |                                                                  |
+ | We collide p+ with p+ at a CM energy of 5.020e+03 GeV            |
+ |                                                                  |
+ |------------------------------------------------------------------|
+ |                                                    |             |
+ | Subprocess                                    Code |   Estimated |
+ |                                                    |    max (mb) |
+ |                                                    |             |
+ |------------------------------------------------------------------|
+ |                                                    |             |
+ | g g -> g g                                     111 |   6.041e+00 |
+ | g g -> q qbar (uds)                            112 |   9.741e-02 |
+ | q g -> q g                                     113 |   4.848e+00 |
+ | q q(bar)' -> q q(bar)'                         114 |   4.962e-01 |
+ | q qbar -> g g                                  115 |   3.656e-03 |
+ | q qbar -> q' qbar' (uds)                       116 |   2.389e-03 |
+ | g g -> c cbar                                  121 |   3.142e-02 |
+ | q qbar -> c cbar                               122 |   7.780e-04 |
+ | g g -> b bbar                                  123 |   2.384e-02 |
+ | q qbar -> b bbar                               124 |   6.360e-04 |
+ | q g -> q gamma (udscb)                         201 |   1.350e-03 |
+ | q qbar -> g gamma                              202 |   1.019e-04 |
+ | g g -> g gamma                                 203 |   1.136e-06 |
+ | f fbar -> gamma gamma                          204 |   6.453e-07 |
+ | g g -> gamma gamma                             205 |   7.650e-07 |
+ |                                                                  |
+ *-------  End PYTHIA Process Initialization -----------------------*
+
+ *-------  PYTHIA Multiparton Interactions Initialization  ---------* 
+ |                                                                  | 
+ |                   sigmaNonDiffractive =    47.72 mb              | 
+ |                                                                  | 
+ |    pT0 =  2.12 gives sigmaInteraction =   205.88 mb: accepted    | 
+ |                                                                  | 
+ *-------  End PYTHIA Multiparton Interactions Initialization  -----* 
+
+ *-------  PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings (changes only)  ------------------* 
+ |                                                                                                                 | 
+ | Name                                          |                      Now |      Default         Min         Max | 
+ |                                               |                          |                                      | 
+ | BeamRemnants:primordialKT                     |                      off |           on                         | 
+ | Beams:eCM                                     |                 5020.000 |    14000.000         0.0             | 
+ | HadronLevel:all                               |                      off |           on                         | 
+ | HadronLevel:Decay                             |                      off |           on                         | 
+ | HardQCD:all                                   |                       on |          off                         | 
+ | MultipartonInteractions:nQuarkIn              |                        3 |            5           0           5 | 
+ | MultipartonInteractions:processLevel          |                        0 |            3           0           3 | 
+ | Next:numberShowEvent                          |                        0 |            1           0             | 
+ | Next:numberShowInfo                           |                        0 |            1           0             | 
+ | Next:numberShowProcess                        |                        0 |            1           0             | 
+ | PartonLevel:FSR                               |                      off |           on                         | 
+ | PartonLevel:ISR                               |                      off |           on                         | 
+ | PhaseSpace:pTHatMax                           |                 20.00000 |     -1.00000                         | 
+ | PhaseSpace:pTHatMin                           |                 10.00000 |          0.0         0.0             | 
+ | PromptPhoton:all                              |                       on |          off                         | 
+ | Random:seed                                   |                        3 |           -1               900000000 | 
+ | Random:setSeed                                |                       on |          off                         | 
+ | StringZ:useOldAExtra                          |                       on |          off                         | 
+ |                                                                                                                 | 
+ *-------  End PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings  -----------------------------* 
+
+ --------  PYTHIA Particle Data Table (changed only)  ------------------------------------------------------------------------------
+ 
+      id   name            antiName         spn chg col      m0        mWidth      mMin       mMax       tau0    res dec ext vis wid
+             no onMode   bRatio   meMode     products 
+
+ no particle data has been changed from its default value 
+
+ --------  End PYTHIA Particle Data Table  -----------------------------------------------------------------------------------------
+
+[Info] 65MB  Intialize ISR Manager ...[0m
+[Info] 65MB  Found 1 ISR Manager Tasks/Modules Initialize them ... [0m
+[Info] 65MB  Intialize ISR Jet ...[0m
+[Info] 65MB  Found 1 ISR Tasks/Modules Initialize them ... [0m
+[Info] 65MB  ISR shower with deltaT = -0.1 startT = 0 and maxT = -20[0m
+[Info] 65MB  Intialize iMATTER ...[0m
+[Info] 65MB  Intialize ISRRotation ...[0m
+[Info] 65MB  Connect IsrManager Signal to Hard Process ...[0m
+[Info] 65MB  Initialize InitialState ... MCGlauberGenString ...[0m
+[Info] 65MB  x range for bulk evolution = [-15, 15][0m
+[Info] 65MB  Initialize JetEnergyLoss Manager ...[0m
+[Info] 65MB  Found 1 Eloss Manager Tasks/Modules Initialize them ... [0m
+[Info] 65MB  Initialize JetEnergyLoss ...[0m
+[Info] 65MB  Eloss shower with deltaT = 0.1 startT = 0 and maxT = 20[0m
+[Info] 65MB  Found 1 Eloss Tasks/Modules Initialize them ... [0m
+[Info] 65MB  Initialize Matter ...[0m
+[Info] 65MB  [35mMATTER input parameter[0m
+[Info] 65MB  [35mmatter shower on: 1[0m
+[Info] 65MB  [35min_vac: 1  brick_med: 0  recoil_on: 0, tStart =0.6[0m
+[Info] 65MB  [35mLambda_QCD: 0.2[0m
+[Info] 65MB  [35mQ0: 2 QS: 0.9 vir_factor: 0.25 initial_virtuality_pT: 1  qhat0: -2 alphas: 0.25, QhatParametrizationType=0  qhatA: 10 qhatB:  10  qhatC: 1 qhatD:  0 hydro_Tc: 0.16 brick_length: 5[0m
+[Info] 65MB  Connect JetEnergyLossManager Signal to Hard Process ...[0m
+[Info] 65MB  Initialize Hadronization Manager ...[0m
+[Info] 65MB  Found 1 Hadronization Manager Tasks/Modules Initialize them ... [0m
+[Info] 65MB  Found 1 Hadronization Tasks/Modules Initialize them ... [0m
+[Info] 65MB  Pythia decays are turned on for tau0Max < 10[0m
+[Info] 65MB  Also reading in:           Init:showProcesses = off [0m
+
+ *-------  PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings (changes only)  ------------------* 
+ |                                                                                                                 | 
+ | Name                                          |                      Now |      Default         Min         Max | 
+ |                                               |                          |                                      | 
+ | Init:showProcesses                            |                      off |           on                         | 
+ | Next:numberShowEvent                          |                        0 |            1           0             | 
+ | Next:numberShowInfo                           |                        0 |            1           0             | 
+ | Next:numberShowProcess                        |                        0 |            1           0             | 
+ | ParticleDecays:limitTau0                      |                       on |          off                         | 
+ | PartonLevel:FSR                               |                      off |           on                         | 
+ | ProcessLevel:all                              |                      off |           on                         | 
+ | StringZ:useOldAExtra                          |                       on |          off                         | 
+ |                                                                                                                 | 
+ *-------  End PYTHIA Flag + Mode + Parm + Word + FVec + MVec + PVec + WVec Settings  -----------------------------* 
+
+ --------  PYTHIA Particle Data Table (changed only)  ------------------------------------------------------------------------------
+ 
+      id   name            antiName         spn chg col      m0        mWidth      mMin       mMax       tau0    res dec ext vis wid
+             no onMode   bRatio   meMode     products 
+
+ no particle data has been changed from its default value 
+
+ --------  End PYTHIA Particle Data Table  -----------------------------------------------------------------------------------------
+
+[Info] 65MB  Connect HadronizationManager Signal to Energy Loss Manager ...[0m
+[Info] 65MB  JetScape Stream Writer initialized with output file = test_pp_isr_colorless.dat[0m
+[Info] 65MB  JetScape HepMC Writer initialized with output file = test_pp_isr_colorless.hepmc[0m
+[Info] 65MB  JetScape Final State Partons Stream Writer v2 initialized with output file = test_pp_isr_colorless_final_state_partons.dat[0m
+[Info] 65MB  JetScape Final State Hadrons Stream Writer v2 initialized with output file = test_pp_isr_colorless_final_state_hadrons.dat[0m
+[Info] 65MB  [1m[31mRun JetScape ...[0m
+[Info] 65MB  [1m[31mNumber of Events = 30[0m
+[Info] 65MB  [1m[31mRun Event # = 0[0m
+[Info] 66MB  Produced 1 strings.[0m
+[Info] 71MB  Produced 0 strings.[0m
+[Info] 71MB  Produced 0 strings.[0m
+[Info] 71MB  Produced 0 strings.[0m
+[Info] 71MB  Produced 0 strings.[0m
+[Info] 71MB  Produced 1 strings.[0m
+[Info] 71MB  Produced 0 strings.[0m
+ PYTHIA Warning in StringFragmentation::finalRegion: random axis needed to break tie
+[Info] 72MB  Produced 0 strings.[0m
+ PYTHIA Warning in MiniStringFragmentation::ministring2two: random axis needed to break tie
+[1m[31m[Warning] virtual void Jetscape::JetScape::Exec() : Hard-parton kinematics exceeded nucleon energy budget (attempt 1/200), regenerating event 8 ...[0m
+[Info] 72MB  Produced 0 strings.[0m
+[Info] 72MB  Produced 0 strings.[0m
+[Info] 72MB  Produced 0 strings.[0m
+[1m[31m[Warning] virtual void Jetscape::JetScape::Exec() : Hard-parton kinematics exceeded nucleon energy budget (attempt 1/200), regenerating event 11 ...[0m
+[Info] 72MB  Produced 0 strings.[0m
+[Info] 72MB  Produced 0 strings.[0m
+[Info] 72MB  Produced 0 strings.[0m
+[Info] 78MB  Produced 0 strings.[0m
+[Info] 78MB  Produced 0 strings.[0m
+[Info] 78MB  Produced 0 strings.[0m
+[Info] 78MB  Produced 0 strings.[0m
+[Info] 78MB  Produced 0 strings.[0m
+[Info] 78MB  Produced 1 strings.[0m
+[Info] 78MB  Produced 1 strings.[0m
+[Info] 78MB  Produced 1 strings.[0m
+[Info] 79MB  Produced 0 strings.[0m
+[Info] 79MB  Produced 1 strings.[0m
+[Info] 79MB  Produced 1 strings.[0m
+[Info] 79MB  Produced 0 strings.[0m
+[Info] 79MB  Produced 0 strings.[0m
+[Info] 79MB  Produced 1 strings.[0m
+[Info] 79MB  Produced 0 strings.[0m
+[Info] 79MB  Produced 1 strings.[0m
+[Info] 79MB  [1m[30mJetScape finished after 30 events![0m
+[Info] Finished![0m
+
+CPU time: 1.213054 seconds.
+Real time: 2.000000 seconds.
